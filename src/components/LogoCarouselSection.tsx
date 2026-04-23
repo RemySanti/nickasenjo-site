@@ -54,7 +54,7 @@ export function LogoCarouselSection() {
           {track.map((src, i) => (
             <div
               key={`${src}-${i}`}
-              className="flex h-[5.915rem] md:h-[6.76rem] w-[13.52rem] md:w-[16.9rem] shrink-0 items-center justify-center opacity-100 transition-opacity duration-300"
+              className="flex h-[7.69rem] md:h-[8.79rem] w-[17.58rem] md:w-[21.97rem] shrink-0 items-center justify-center opacity-100 transition-opacity duration-300"
             >
               <img
                 src={src}
