@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { VideoViewerModal, type VideoViewerData } from './VideoViewerModal';
 
 interface Project {
   title: string;
@@ -68,17 +69,6 @@ function getYouTubeId(embedUrl: string) {
   return match ? match[1] : null;
 }
 
-function getWatchUrl(project: Project) {
-  if (project.isYouTube) {
-    const videoId = getYouTubeId(project.video);
-    if (videoId) {
-      return `https://www.youtube.com/watch?v=${videoId}`;
-    }
-  }
-
-  return project.video || '#';
-}
-
 function getProjectThumbnail(project: Project) {
   if (project.isYouTube) {
     const videoId = getYouTubeId(project.video);
@@ -138,11 +128,11 @@ function getTitleLineClampStyle(lines: number): React.CSSProperties {
 
 export function OurClientsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [youtubeTitles, setYoutubeTitles] = useState<Record<number, string>>({});
+  const [selectedVideo, setSelectedVideo] = useState<VideoViewerData | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   const minSwipeDistance = 50;
@@ -165,16 +155,22 @@ export function OurClientsSection() {
 
     if (isLeftSwipe && activeIndex < projects.length - 1) {
       setActiveIndex(activeIndex + 1);
-      setIsVideoPlaying(null);
     }
     if (isRightSwipe && activeIndex > 0) {
       setActiveIndex(activeIndex - 1);
-      setIsVideoPlaying(null);
     }
   };
 
-  const toggleVideo = (index: number) => {
-    setIsVideoPlaying(isVideoPlaying === index ? null : index);
+  const openVideoViewer = (project: Project, index: number) => {
+    const featuredTitle = youtubeTitles[index] || project.title;
+    const matchedDescription = getMatchedDescription(project, index);
+    setSelectedVideo({
+      title: featuredTitle,
+      subtitle: matchedDescription,
+      category: 'Featured Work',
+      price: 'From $5,000',
+      videoUrl: project.video
+    });
   };
 
   const getMatchedDescription = (project: Project, index: number) => {
@@ -320,7 +316,6 @@ export function OurClientsSection() {
               >
                 {projects.map((project, index) => {
                   const isActive = index === activeIndex;
-                  const watchUrl = getWatchUrl(project);
                   const hasPlayableVideo = Boolean(project.video && !project.comingSoon);
                   const thumbnail = getProjectThumbnail(project);
                   const featuredTitle = youtubeTitles[index] || project.title;
@@ -341,69 +336,41 @@ export function OurClientsSection() {
                       <div className="bg-black rounded-2xl overflow-hidden shadow-2xl">
                         {/* Video/Image Container with Overlay Content */}
                         <div className="relative aspect-[3/4]">
-                          {isVideoPlaying === index && hasPlayableVideo && project.isYouTube && project.video ? (
-                            <iframe
-                              src={`${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}`}
-                              className="w-full h-full object-cover"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                              style={{ border: 'none' }}
-                            />
-                          ) : isVideoPlaying === index && hasPlayableVideo && !project.isYouTube && project.video ? (
-                            <video
-                              src={project.video}
-                              poster={project.poster}
-                              autoPlay
-                              loop
-                              muted
-                              playsInline
-                              className="w-full h-full object-cover"
-                              onClick={() => toggleVideo(index)}
-                            />
-                          ) : (
-                            <>
-                              <img
-                                src={thumbnail}
-                                alt={project.title}
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                  const videoId = getYouTubeId(project.video);
-                                  if (!videoId) return;
-                                  const img = e.currentTarget;
-                                  if (img.src.includes('maxresdefault.jpg')) {
-                                    img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
-                                  } else if (img.src.includes('sddefault.jpg')) {
-                                    img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                                  }
-                                }}
-                                onClick={() => {
-                                  if (hasPlayableVideo) {
-                                    toggleVideo(index);
-                                  }
-                                }}
-                              />
-                              {project.comingSoon && (
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-                                  <span 
-                                    className="text-white tracking-wider text-2xl"
-                                    style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                                  >
-                                    COMING SOON
-                                  </span>
-                                </div>
-                              )}
-                            </>
+                          <img
+                            src={thumbnail}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const videoId = getYouTubeId(project.video);
+                              if (!videoId) return;
+                              const img = e.currentTarget;
+                              if (img.src.includes('maxresdefault.jpg')) {
+                                img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
+                              } else if (img.src.includes('sddefault.jpg')) {
+                                img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+                              }
+                            }}
+                          />
+                          {project.comingSoon && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+                              <span
+                                className="text-white tracking-wider text-2xl"
+                                style={{ fontFamily: 'Lemon Milk, sans-serif' }}
+                              >
+                                COMING SOON
+                              </span>
+                            </div>
                           )}
                           
                           {/* Gradient Overlay for text readability */}
                           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80" />
                           
                           {/* Play/Pause Overlay - Only show when not playing */}
-                          {isVideoPlaying !== index && hasPlayableVideo && (
+                          {hasPlayableVideo && (
                             <button
                               type="button"
                               className="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer group"
-                              onClick={() => toggleVideo(index)}
+                              onClick={() => openVideoViewer(project, index)}
                               aria-label={`Play featured video: ${youtubeTitles[index] || project.title}`}
                             >
                               {/* Outer Pulsing Ring */}
@@ -518,11 +485,16 @@ export function OurClientsSection() {
                             <div className="flex gap-2 pt-1">
                               {/* Primary Button - View Project */}
                               <a
-                                href={watchUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#"
                                 className={`flex-1 bg-white text-black py-2.5 px-4 rounded-md hover:bg-white/95 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center ${!hasPlayableVideo ? 'pointer-events-none opacity-60' : ''}`}
                                 aria-label={`Watch featured video for ${project.title}`}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  if (hasPlayableVideo) {
+                                    openVideoViewer(project, index);
+                                  }
+                                }}
                               >
                                 <span 
                                   className="tracking-wider text-xs"
@@ -543,6 +515,7 @@ export function OurClientsSection() {
                                 }}
                                 onClick={(e) => {
                                   e.preventDefault();
+                                  e.stopPropagation();
                                   window.location.hash = 'contact';
                                 }}
                               >
@@ -577,7 +550,6 @@ export function OurClientsSection() {
                 key={index}
                 onClick={() => {
                   setActiveIndex(index);
-                  setIsVideoPlaying(null);
                 }}
                 className={`transition-all duration-300 rounded-full`}
                 style={{
@@ -594,33 +566,11 @@ export function OurClientsSection() {
             ))}
           </div>
 
-          {/* Pause/Play Button (like Porsche) */}
-          <div className="flex items-center justify-center mt-6">
-            <button 
-              className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
-              onClick={() => setIsVideoPlaying(isVideoPlaying === null ? activeIndex : null)}
-              aria-label={isVideoPlaying === null ? 'Play video' : 'Pause video'}
-              style={{
-                color: scrollProgress > 0.5 ? 'white' : 'black'
-              }}
-            >
-              {isVideoPlaying === null ? (
-                <svg className="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                </svg>
-              )}
-            </button>
-          </div>
         </div>
 
         {/* Desktop grid: min-h-0 prevents aspect-ratio + min-height from blowing past column width (overlap bug) */}
         <div className="isolate hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-12 items-stretch">
           {projects.map((project, index) => {
-            const watchUrl = getWatchUrl(project);
             const hasPlayableVideo = Boolean(project.video && !project.comingSoon);
             const featuredTitle = youtubeTitles[index] || project.title;
             const matchedDescription = getMatchedDescription(project, index);
@@ -634,6 +584,21 @@ export function OurClientsSection() {
               }`}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(0)}
+              onClick={() => {
+                if (hasPlayableVideo) {
+                  openVideoViewer(project, index);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (!hasPlayableVideo) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openVideoViewer(project, index);
+                }
+              }}
+              tabIndex={hasPlayableVideo ? 0 : -1}
+              role={hasPlayableVideo ? 'button' : undefined}
+              aria-label={hasPlayableVideo ? `Open video viewer for ${featuredTitle}` : undefined}
             >
               {/* Poster Image */}
               <img
@@ -729,11 +694,16 @@ export function OurClientsSection() {
                   {/* Desktop Buttons - Always visible */}
                   <div className="flex gap-2 opacity-100">
                     <a 
-                      href={watchUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="#"
                       className={`flex-1 min-w-0 bg-white text-black py-2 px-3 lg:px-4 rounded-md hover:bg-white/95 transition-colors duration-300 flex items-center justify-center ${!hasPlayableVideo ? 'pointer-events-none opacity-60' : ''}`}
                       aria-label={`Watch featured video for ${project.title}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (hasPlayableVideo) {
+                          openVideoViewer(project, index);
+                        }
+                      }}
                     >
                       <span 
                         className="tracking-wider text-[10px] lg:text-xs whitespace-nowrap"
@@ -751,6 +721,7 @@ export function OurClientsSection() {
                       }}
                       onClick={(e) => {
                         e.preventDefault();
+                        e.stopPropagation();
                         window.location.hash = 'contact';
                       }}
                       aria-label={`Inquire about ${project.title}`}
@@ -774,6 +745,7 @@ export function OurClientsSection() {
                       href={`#${project.caseStudyHash}`}
                       className="inline-block pt-1 text-[10px] lg:text-xs text-white/80 hover:text-white transition-colors tracking-wider"
                       style={{ fontFamily: 'Lemon Milk, sans-serif' }}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       VIEW CASE STUDY
                     </a>
@@ -785,6 +757,7 @@ export function OurClientsSection() {
           })}
         </div>
       </div>
+      <VideoViewerModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
     </section>
   );
 }

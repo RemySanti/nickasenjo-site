@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import { VideoViewerModal, type VideoViewerData } from './VideoViewerModal';
 
 interface WorkItem {
   id: number;
@@ -192,7 +193,7 @@ const categoryPricing: { [key: string]: string } = {
 
 export function WorkGallery() {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedVideo, setSelectedVideo] = useState<WorkItem | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<VideoViewerData | null>(null);
 
   const filteredWork = selectedCategory === 'All' 
     ? workItems 
@@ -262,7 +263,15 @@ export function WorkGallery() {
             <div 
               key={item.id}
               className="group cursor-pointer"
-              onClick={() => setSelectedVideo(item)}
+              onClick={() =>
+                setSelectedVideo({
+                  title: item.title,
+                  subtitle: item.subtitle,
+                  category: item.category,
+                  price: item.price,
+                  videoUrl: item.videoUrl
+                })
+              }
             >
               {/* Thumbnail */}
               <div className="relative aspect-[16/9] bg-black overflow-hidden mb-4">
@@ -301,64 +310,7 @@ export function WorkGallery() {
           ))}
         </div>
 
-        {/* Video Modal */}
-        {selectedVideo && (
-          <div 
-            className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-6"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <div 
-              className="relative w-full max-w-6xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="absolute -top-12 right-0 text-white hover:text-[#BC271C] transition-colors"
-                style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.875rem' }}
-              >
-                CLOSE ✕
-              </button>
-
-              {/* Video */}
-              <div className="aspect-[16/9] bg-black">
-                {(selectedVideo.videoUrl.includes('youtube.com') || selectedVideo.videoUrl.includes('youtu.be')) ? (
-                  <iframe
-                    className="w-full h-full"
-                    src={selectedVideo.videoUrl}
-                    title={selectedVideo.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  >
-                    Your browser does not support the video tag.
-                  </iframe>
-                ) : (
-                  <video
-                    className="w-full h-full"
-                    controls
-                    autoPlay
-                    src={selectedVideo.videoUrl}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                )}
-              </div>
-
-              {/* Info */}
-              <div className="mt-6 text-white">
-                <h3 
-                  className="mb-2 tracking-wider uppercase"
-                  style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '1.5rem' }}
-                >
-                  {selectedVideo.title}
-                </h3>
-                <p className="text-white/70 mb-1">{selectedVideo.subtitle}</p>
-                <p className="text-white/50">{selectedVideo.category}</p>
-                {selectedVideo.price && <p className="text-white/50">{selectedVideo.price}</p>}
-              </div>
-            </div>
-          </div>
-        )}
+        <VideoViewerModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
       </div>
     </section>
   );
