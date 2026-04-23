@@ -1,5 +1,5 @@
 const logoModules = import.meta.glob(
-  '../../../images/Logos/*.{png,jpg,jpeg,svg,webp}',
+  '../assets/logos/*.{png,jpg,jpeg,svg,webp}',
   { eager: true, query: '?url', import: 'default' }
 );
 
