@@ -1,5 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import nickMainPageImage from '../../../images/Nick Main Page.jpg?url';
+import nickMainPageImage from '../imports/Nick_Main_Page-2.png?url';
 
 export function AboutTextSection() {
   return (

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
-import heroBannerUrl from '../../../videos/Website Banner FINAL.mp4?url';
+const heroBannerUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
 
 // Hero video section component
 export function HeroSection() {
