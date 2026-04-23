@@ -1,0 +1,5 @@
+export function AboutSection() {
+  return (
+    <></>
+  );
+}
