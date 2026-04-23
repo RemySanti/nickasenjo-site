@@ -74,7 +74,7 @@ export function LetsCollaborateSection() {
               </a>
 
               <a
-                href="tel:+16105551234"
+                href="tel:+16108448696"
                 className="group flex items-center justify-center gap-3 px-8 py-4 rounded-lg border-2 border-black/20 hover:border-black/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] bg-white/50 backdrop-blur-sm"
               >
                 <Phone size={18} className="text-black" />
@@ -100,11 +100,11 @@ export function LetsCollaborateSection() {
               </a>
               
               <a 
-                href="tel:+16105551234"
+                href="tel:+16108448696"
                 className="flex items-center gap-2 text-black/70 hover:text-black transition-colors"
               >
                 <Phone size={18} />
-                <span className="text-sm">(610) 555-1234</span>
+                <span className="text-sm">(610) 844-8696</span>
               </a>
             </div>
           </div>
