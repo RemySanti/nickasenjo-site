@@ -92,11 +92,11 @@ export function LetsCollaborateSection() {
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <a 
-                href="mailto:hello@nickasenjofilms.com"
+                href="mailto:nickasenjofilms@gmail.com"
                 className="flex items-center gap-2 text-black/70 hover:text-black transition-colors"
               >
                 <Mail size={18} />
-                <span className="text-sm">hello@nickasenjofilms.com</span>
+                <span className="text-sm">nickasenjofilms@gmail.com</span>
               </a>
               
               <a 
@@ -154,7 +154,7 @@ export function LetsCollaborateSection() {
                   backgroundClip: 'text'
                 }}
               >
-                500+
+                1,000+
               </h3>
               <p className="text-black/70 text-sm leading-relaxed">
                 Projects delivered with excellence
@@ -200,7 +200,7 @@ export function LetsCollaborateSection() {
                   backgroundClip: 'text'
                 }}
               >
-                1,000+
+                100%
               </h3>
               <p className="text-black/70 text-sm leading-relaxed">
                 Client satisfaction rate

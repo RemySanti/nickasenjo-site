@@ -35,16 +35,16 @@ export function BlogPost4() {
 
             <h2 className="text-black mt-12 mb-6">The Hard Numbers</h2>
             <p className="text-black/80 mb-6">
-              Let's start with data. Businesses using video marketing grow revenue 49% faster than those without it. Landing pages with video see 86% higher conversion rates. Social video generates 1200% more shares than text and images combined. These aren't marginal improvements—they're exponential advantages in the Lehigh Valley's competitive market.
+              Let's start with data. Businesses using video marketing grow revenue 49% faster than those without it. Landing pages with video see 86% higher conversion rates. Social video generates 1200% more shares than text and images combined. These aren't marginal improvements, they're exponential advantages in the Lehigh Valley's competitive market.
             </p>
 
             <p className="text-black/80 mb-6">
-              For Allentown businesses investing in <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">professional video production</a>, the average customer acquisition cost drops 27% while customer lifetime value increases 41%. Video doesn't just attract more leads—it attracts better leads who convert faster and stay longer. That's measurable, bankable ROI.
+              For Allentown businesses investing in <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">professional video production</a>, the average customer acquisition cost drops 27% while customer lifetime value increases 41%. Video doesn't just attract more leads, it attracts better leads who convert faster and stay longer. That's measurable, bankable ROI.
             </p>
 
             <h2 className="text-black mt-12 mb-6">SEO and Search Visibility</h2>
             <p className="text-black/80 mb-6">
-              Google prioritizes video content aggressively. Websites with embedded video are 53 times more likely to rank on page one of search results. For Bethlehem businesses competing for local keywords like "video production Lehigh Valley" or industry-specific terms, video isn't just content—it's competitive advantage.
+              Google prioritizes video content aggressively. Websites with embedded video are 53 times more likely to rank on page one of search results. For Bethlehem businesses competing for local keywords like "video production Lehigh Valley" or industry-specific terms, video isn't just content, it's competitive advantage.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -71,11 +71,11 @@ export function BlogPost4() {
 
             <h2 className="text-black mt-12 mb-6">Sales Enablement and Conversion</h2>
             <p className="text-black/80 mb-6">
-              Your sales team's most valuable asset isn't CRM software—it's a library of professional video content. Product demos, customer testimonials, case studies, and brand films shorten sales cycles by providing instant credibility. Prospects who watch product videos are 85% more likely to purchase than those who don't.
+              Your sales team's most valuable asset isn't CRM software, it's a library of professional video content. Product demos, customer testimonials, case studies, and brand films shorten sales cycles by providing instant credibility. Prospects who watch product videos are 85% more likely to purchase than those who don't.
             </p>
 
             <p className="text-black/80 mb-6">
-              For Lehigh Valley B2B businesses with complex offerings, video clarifies and persuades in ways sales decks never can. A five-minute <a href="#services" className="text-[#BC271C] underline hover:text-black">brand film</a> accomplishes what used to take three in-person meetings. That's not just convenience—it's revenue acceleration. Time saved is deals won.
+              For Lehigh Valley B2B businesses with complex offerings, video clarifies and persuades in ways sales decks never can. A five-minute <a href="#services" className="text-[#BC271C] underline hover:text-black">brand film</a> accomplishes what used to take three in-person meetings. That's not just convenience, it's revenue acceleration. Time saved is deals won.
             </p>
 
             <h2 className="text-black mt-12 mb-6">Employee Recruitment and Retention</h2>
@@ -84,7 +84,7 @@ export function BlogPost4() {
             </p>
 
             <p className="text-black/80 mb-6">
-              Employee retention benefits are harder to quantify but equally real. Teams take pride in working for brands that invest in quality storytelling. Your video content becomes something employees share, building organic brand advocacy. The cost of replacing an employee averages 33% of their annual salary—video that improves retention pays for itself instantly.
+              Employee retention benefits are harder to quantify but equally real. Teams take pride in working for brands that invest in quality storytelling. Your video content becomes something employees share, building organic brand advocacy. The cost of replacing an employee averages 33% of their annual salary, video that improves retention pays for itself instantly.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Permanent Asset Advantage</h2>
@@ -107,7 +107,7 @@ export function BlogPost4() {
 
             <h2 className="text-black mt-12 mb-6">The Real Calculation</h2>
             <p className="text-black/80 mb-6">
-              ROI isn't just revenue divided by cost. It's the customers you win that competitors lose. It's the talent you attract that builds your future. It's the brand equity that lets you charge premium prices. For Pennsylvania businesses serious about growth, video production isn't an expense—it's infrastructure.
+              ROI isn't just revenue divided by cost. It's the customers you win that competitors lose. It's the talent you attract that builds your future. It's the brand equity that lets you charge premium prices. For Pennsylvania businesses serious about growth, video production isn't an expense, it's infrastructure.
             </p>
 
             <p className="text-black/80 mb-6">

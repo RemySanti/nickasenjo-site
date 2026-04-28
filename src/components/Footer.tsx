@@ -100,10 +100,10 @@ export function Footer() {
             </h3>
             <div className="space-y-2 text-white/60 text-sm mb-6">
               <a 
-                href="mailto:nick@nickasenjofilms.com"
+                href="mailto:nickasenjofilms@gmail.com"
                 className="block hover:text-[#BC271C] transition-colors"
               >
-                nick@nickasenjofilms.com
+                nickasenjofilms@gmail.com
               </a>
               <a 
                 href="tel:+16108448696"

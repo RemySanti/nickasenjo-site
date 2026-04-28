@@ -6,7 +6,7 @@ export function ServicesMainLanding() {
     {
       title: 'Commercial',
       subtitle: 'We Make People Buy',
-      description: 'Advertising that doesn\'t just look good—it sells. We create visual experiences that turn viewers into customers and skeptics into believers.',
+      description: 'Advertising that doesn\'t just look good; it sells. We create visual experiences that turn viewers into customers and skeptics into believers.',
       image: 'https://images.unsplash.com/photo-1759647323656-8b6de2c839fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZGl0aW5nJTIwc3VpdGUlMjBtb25pdG9yfGVufDF8fHx8MTc2MzA3MDQ2Nnww&ixlib=rb-4.1.0&q=80&w=1080',
       link: '#service-commercial',
       icon: <Video className="w-8 h-8" strokeWidth={1.5} />
@@ -100,11 +100,18 @@ export function ServicesMainLanding() {
             We Make Films
           </h1>
           <p 
-            className="text-white/80 max-w-3xl mx-auto mb-8"
+            className="text-white/80 max-w-3xl mx-auto mb-4"
             style={{ fontSize: '1.25rem', lineHeight: '1.8' }}
           >
-            Not content. Not videos. Films. Every project is an opportunity to create something that matters, 
-            something that moves people, something they'll remember.
+            Not content. Not videos. Films. Every project is an opportunity to create something that matters,
+            something that moves people, something they will remember.
+          </p>
+          <p className="text-white/55 max-w-2xl mx-auto text-base leading-relaxed">
+            Below, browse by format: commercial, narrative, documentary, and more. Not sure where to start?{' '}
+            <a href="#services" className="text-[#BC271C] hover:text-white underline underline-offset-4 transition-colors">
+              Start with your goal on Services
+            </a>
+            .
           </p>
         </div>
       </section>
@@ -122,7 +129,7 @@ export function ServicesMainLanding() {
                 Uncompromising Vision
               </h3>
               <p className="text-black/60">
-                We don't compromise on craft. Every frame, every cut, every color—meticulously designed.
+                We don't compromise on craft. Every frame, every cut, every color is meticulously designed.
               </p>
             </div>
             <div className="text-center">
@@ -134,7 +141,7 @@ export function ServicesMainLanding() {
                 Proven Impact
               </h3>
               <p className="text-black/60">
-                Our work doesn't just look beautiful—it performs. We create films that move audiences to action.
+                Our work doesn't just look beautiful; it performs. We create films that move audiences to action.
               </p>
             </div>
             <div className="text-center">
@@ -164,8 +171,11 @@ export function ServicesMainLanding() {
               letterSpacing: '0.15em'
             }}
           >
-            Our Services
+            By format
           </h2>
+          <p className="text-white/50 text-sm tracking-wider uppercase mt-4" style={{ fontFamily: 'Lemon Milk, sans-serif', letterSpacing: '0.2em' }}>
+            Same crew, organized the classic way
+          </p>
         </div>
 
         <div className="space-y-0">

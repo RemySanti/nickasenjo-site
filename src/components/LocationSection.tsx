@@ -47,10 +47,10 @@ export function LocationSection() {
                     Email
                   </h3>
                   <a 
-                    href="mailto:nick@nickasenjofilms.com"
+                    href="mailto:nickasenjofilms@gmail.com"
                     className="text-white/70 hover:text-[#BC271C] transition-colors"
                   >
-                    nick@nickasenjofilms.com
+                    nickasenjofilms@gmail.com
                   </a>
                 </div>
               </div>

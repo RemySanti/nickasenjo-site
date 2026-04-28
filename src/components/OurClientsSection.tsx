@@ -8,7 +8,6 @@ interface Project {
   video: string;
   poster: string;
   isYouTube: boolean;
-  caseStudyHash?: string;
   comingSoon?: boolean;
 }
 
@@ -27,8 +26,7 @@ const projects: Project[] = [
     description: 'Documentary storytelling for healthcare excellence. 3 films, 2 awards.',
     video: 'https://www.youtube.com/embed/xLzAh2RKy1I',
     poster: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
-    isYouTube: true,
-    caseStudyHash: 'lehigh-valley-health'
+    isYouTube: true
   },
   {
     title: 'Mack Trucks',
@@ -168,7 +166,6 @@ export function OurClientsSection() {
       title: featuredTitle,
       subtitle: matchedDescription,
       category: 'Featured Work',
-      price: 'From $5,000',
       videoUrl: project.video
     });
   };
@@ -477,10 +474,6 @@ export function OurClientsSection() {
                               {matchedDescription}
                             </p>
                             
-                            <p className="text-white/60 text-xs tracking-wider" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
-                              FROM $5,000
-                            </p>
-
                             {/* Buttons on Card */}
                             <div className="flex gap-2 pt-1">
                               {/* Primary Button - View Project */}
@@ -683,12 +676,6 @@ export function OurClientsSection() {
                     <p className="text-xs lg:text-sm opacity-90" style={getResponsiveDescriptionStyle()}>
                       {matchedDescription}
                     </p>
-                    <p 
-                      className="text-[10px] lg:text-xs tracking-wider opacity-80"
-                      style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                    >
-                      FROM $5,000
-                    </p>
                   </div>
                   
                   {/* Desktop Buttons - Always visible */}
@@ -740,16 +727,6 @@ export function OurClientsSection() {
                       </span>
                     </a>
                   </div>
-                  {project.caseStudyHash && (
-                    <a
-                      href={`#${project.caseStudyHash}`}
-                      className="inline-block pt-1 text-[10px] lg:text-xs text-white/80 hover:text-white transition-colors tracking-wider"
-                      style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      VIEW CASE STUDY
-                    </a>
-                  )}
                 </div>
               </div>
             </div>

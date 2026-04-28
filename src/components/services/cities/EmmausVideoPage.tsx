@@ -203,8 +203,8 @@ export function EmmausVideoPage() {
             </div>
             <div className="flex items-center gap-2 text-black/70">
               <Mail className="w-5 h-5 text-[#BC271C]" />
-              <a href="mailto:nick@nickasenjofilms.com" className="hover:text-[#BC271C] transition-colors">
-                nick@nickasenjofilms.com
+              <a href="mailto:nickasenjofilms@gmail.com" className="hover:text-[#BC271C] transition-colors">
+                nickasenjofilms@gmail.com
               </a>
             </div>
           </div>

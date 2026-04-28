@@ -111,7 +111,7 @@ export function AboutTextSection() {
             </p>
 
             <p className="text-black text-lg md:text-xl leading-relaxed">
-              Whether it's shaping the identity of a brand, crafting powerful music visuals, or producing large-scale commercial campaigns, Nick Asenjo Films delivers more than content—we create{' '}
+              Whether it's shaping the identity of a brand, crafting powerful music visuals, or producing large-scale commercial campaigns, Nick Asenjo Films delivers more than content. We create{' '}
               <span 
                 style={{ 
                   fontFamily: 'Lemon Milk, sans-serif',

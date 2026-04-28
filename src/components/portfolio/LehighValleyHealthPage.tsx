@@ -210,7 +210,7 @@ export function LehighValleyHealthPage() {
               <a href="tel:+16108448696" className="inline-flex items-center gap-3 px-10 py-5 bg-[#BC271C] text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '1rem' }}>
                 <Phone size={20} />(610) 844-8696
               </a>
-              <a href="mailto:nick@nickasenjofilms.com" className="inline-flex items-center gap-3 px-10 py-5 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '1rem', background: 'linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <a href="mailto:nickasenjofilms@gmail.com" className="inline-flex items-center gap-3 px-10 py-5 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '1rem', background: 'linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))', border: '1px solid rgba(255,255,255,0.2)' }}>
                 <Mail size={20} />Email Us
               </a>
             </div>

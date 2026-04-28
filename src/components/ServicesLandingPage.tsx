@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { Film, Sparkles, FileText, Music, Briefcase, Camera, ArrowRight, Award, Users, Play, Phone, Mail } from 'lucide-react';
+import { Film, Sparkles, Share2, Music, Camera, ArrowRight, Award, Users, Play, Phone, Mail, Podcast } from 'lucide-react';
 import { LogoCarouselSection } from './LogoCarouselSection';
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
@@ -170,7 +170,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
             className="text-xs tracking-wider uppercase"
             style={{ fontFamily: 'Lemon Milk, sans-serif', color: '#BC271C' }}
           >
-            Learn More
+            Next step
           </span>
           <ArrowRight size={14} className="text-[#BC271C] group-hover:translate-x-2 transition-transform" />
         </div>
@@ -184,58 +184,64 @@ export function ServicesLandingPage() {
 
   const services = [
     {
-      title: 'Commercial',
-      category: 'Core Service',
+      title: 'Drive sales & launches',
+      category: 'Revenue & campaigns',
       href: '#service-commercial-video',
       image: 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&q=80',
-      alt: 'Commercial Video Production Allentown PA',
-      description: 'High-impact commercial production designed to convert attention into action, from polished ads to campaign-ready brand assets.',
+      alt: 'Commercial video for launches and sales',
+      description:
+        'When you need attention to turn into action: spots, campaigns, and launch films with a clear message and premium craft.',
       icon: Sparkles
     },
     {
-      title: 'Brand Building',
-      category: 'Growth Strategy',
-      href: '#work-page',
+      title: 'Build a memorable brand',
+      category: 'Trust & recognition',
+      href: '#service-brand-story',
       image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80',
-      alt: 'Brand Building Video Production Allentown PA',
-      description: 'Strategic visual storytelling that builds authority, trust, and long-term brand equity across every key touchpoint.',
+      alt: 'Brand films and story-driven video',
+      description:
+        'When reputation is the product, films and brand stories sharpen positioning, earn trust, and stay with people after the first watch.',
       icon: Film
     },
     {
-      title: 'Music Videos',
-      category: 'Artist Visuals',
+      title: 'Grow on social',
+      category: 'Reach & consistency',
+      href: '#service-social-video',
+      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
+      alt: 'Social-first video content',
+      description:
+        'When the feed is the battlefield, short-form and platform-native pieces win on hooks, retention, and a recognizable visual voice.',
+      icon: Share2
+    },
+    {
+      title: 'Elevate your music visually',
+      category: 'Artist growth',
       href: '#service-music-video',
       image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
-      alt: 'Music Video Production Allentown PA',
-      description: 'Cinematic music video production that translates sound into unforgettable visuals with style, rhythm, and narrative punch.',
+      alt: 'Music video production',
+      description:
+        'When the track deserves a world, cinematic visuals match your sound, grow streams, and define how fans see you.',
       icon: Music
     },
     {
-      title: 'Weddings',
-      category: 'Event Films',
-      href: '#events',
+      title: 'Preserve a milestone',
+      category: 'Legacy & emotion',
+      href: '#service-weddings-events',
       image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80',
-      alt: 'Wedding Videography Lehigh Valley PA',
-      description: 'Emotional, story-driven wedding films crafted to preserve the moments, details, and atmosphere that matter most.',
+      alt: 'Wedding and event films',
+      description:
+        'When the day only happens once, wedding and event films capture feeling, detail, and atmosphere you will want to relive.',
       icon: Camera
     },
     {
-      title: 'Social Media',
-      category: 'Short-Form Content',
-      href: '#work-page',
-      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
-      alt: 'Social Media Video Content Allentown PA',
-      description: 'Platform-native content engineered for engagement, consistency, and reach across Instagram, TikTok, YouTube, and beyond.',
-      icon: FileText
-    },
-    {
-      title: 'The Platform',
-      category: 'Premium Program',
-      href: '#contact',
-      image: 'https://images.unsplash.com/photo-1519167758481-83f29da8a23f?w=800&q=80',
-      alt: 'The Platform Premium Video Program',
-      description: 'A high-touch creative partnership for brands that need ongoing production, campaign continuity, and consistent cinematic quality.',
-      icon: Briefcase
+      title: 'The Platform (show & podcast)',
+      category: 'Artist & founder media',
+      href: '#the-platform',
+      image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+      alt: 'The Platform music video show and podcast',
+      description:
+        'When discovery matters, our house series delivers music video performances and conversations, plus a podcast that puts business owners and artists in front of the right audience.',
+      icon: Podcast
     }
   ];
 
@@ -303,7 +309,7 @@ export function ServicesLandingPage() {
               className="tracking-wider uppercase text-white"
               style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem' }}
             >
-              Professional Video Production
+              Outcome-led production
             </span>
           </div>
 
@@ -343,7 +349,7 @@ export function ServicesLandingPage() {
               animationFillMode: 'both',
             }}
           >
-            Premier Video Production for Lehigh Valley & Beyond
+            Film organized by what you need it to do, not just by format
           </p>
 
           <p
@@ -355,7 +361,7 @@ export function ServicesLandingPage() {
               animationFillMode: 'both',
             }}
           >
-            Creating compelling visual narratives for brands that dare to stand out. From commercial campaigns to cinematic storytelling, we bring your vision to life with artistry and precision.
+            Based in the Lehigh Valley, trusted by brands and artists who want clarity, craft, and a crew that thinks in results as much as shots.
           </p>
 
           {/* Stats Bar */}
@@ -411,7 +417,7 @@ export function ServicesLandingPage() {
                 border: '1px solid rgba(255,255,255,0.2)'
               }}
             >
-              Explore Services
+              See how we can help
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
@@ -447,7 +453,7 @@ export function ServicesLandingPage() {
                 lineHeight: '1.1'
               }}
             >
-              <span className="text-black">Our</span>{' '}
+              <span className="text-black">Start with</span>{' '}
               <span 
                 style={{
                   background: 'linear-gradient(135deg, #BC271C 0%, #BC271C 70%, #000000 100%)',
@@ -456,11 +462,11 @@ export function ServicesLandingPage() {
                   backgroundClip: 'text'
                 }}
               >
-                Services
+                your goal
               </span>
             </h2>
             <p className="text-black/60 max-w-3xl mx-auto text-lg">
-              Full-service video production for brands, businesses, and artists across Pennsylvania and beyond
+              Choose the outcome that matches where you are. We align format, crew, and deliverables so the work moves your business or art forward.
             </p>
           </div>
 
@@ -469,6 +475,27 @@ export function ServicesLandingPage() {
               <ServiceCard key={service.title} service={service} index={index} />
             ))}
           </div>
+
+          <p className="text-center text-black/50 text-sm mt-14 max-w-2xl mx-auto leading-relaxed">
+            Prefer to browse by format (commercial, narrative, documentary, corporate)?{' '}
+            <a
+              href="#services-main"
+              className="text-[#BC271C] hover:text-black transition-colors underline underline-offset-4"
+              style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem', letterSpacing: '0.08em' }}
+            >
+              View services by format
+            </a>
+          </p>
+          <p className="text-center text-black/45 text-sm mt-6 max-w-2xl mx-auto leading-relaxed">
+            Need predictable, month-to-month production capacity?{' '}
+            <a
+              href="#service-studio-retainer"
+              className="text-[#BC271C] hover:text-black transition-colors underline underline-offset-4"
+              style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem', letterSpacing: '0.08em' }}
+            >
+              Studio partnership
+            </a>
+          </p>
         </div>
       </section>
 
@@ -533,7 +560,7 @@ export function ServicesLandingPage() {
                 Call Now
               </a>
               <a
-                href="mailto:nick@nickasenjofilms.com"
+                href="mailto:nickasenjofilms@gmail.com"
                 className="inline-flex items-center gap-3 px-10 py-5 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98"
                 style={{ 
                   fontFamily: 'Lemon Milk, sans-serif', 

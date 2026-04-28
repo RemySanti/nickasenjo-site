@@ -57,6 +57,7 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
             <div className="flex items-center gap-8 flex-1">
               <a href="#work-page" className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={gradientStyle}>Portfolio</a>
               <a href="#services" className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={gradientStyle}>Services</a>
+              <a href="#the-platform" className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={gradientStyle}>The Platform</a>
             </div>
 
             <div className="flex-shrink-0">
@@ -130,6 +131,7 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
           <div className="flex flex-col items-center justify-center h-full space-y-8 px-6">
             <a href="#work-page" onClick={() => setMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={mobileGradientStyle}>Portfolio</a>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={mobileGradientStyle}>Services</a>
+            <a href="#the-platform" onClick={() => setMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={mobileGradientStyle}>The Platform</a>
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={mobileGradientStyle}>About</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={mobileGradientStyle}>Contact</a>
 

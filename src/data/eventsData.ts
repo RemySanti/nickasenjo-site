@@ -130,7 +130,7 @@ export const eventTypes: EventType[] = [
     slug: "weddings",
     icon: "Heart",
     tagline: "Cinematic Love Stories",
-    description: "We don't just film weddings—we craft timeless visual narratives that capture the raw emotion, intimate moments, and epic scale of your celebration. Our Ferrari-inspired approach brings artistic excellence and meticulous attention to every frame.",
+    description: "We don't just film weddings; we craft timeless visual narratives that capture the raw emotion, intimate moments, and epic scale of your celebration. Our Ferrari-inspired approach brings artistic excellence and meticulous attention to every frame.",
     features: [
       "Full-day cinematic coverage with multiple cinema cameras",
       "Drone aerial footage of venue and ceremony",

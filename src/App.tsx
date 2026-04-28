@@ -45,6 +45,15 @@ import { AllentownVideoPage } from './components/services/cities/AllentownVideoP
 import { BethlehemVideoPage } from './components/services/cities/BethlehemVideoPage';
 import { EastonVideoPage } from './components/services/cities/EastonVideoPage';
 import { EmmausVideoPage } from './components/services/cities/EmmausVideoPage';
+import {
+  ServiceBrandStoryPage,
+  ServiceCommercialVideoPage,
+  ServiceMusicVideoPage,
+  ServiceSocialVideoPage,
+  ServiceStudioRetainerPage,
+  ServiceThePlatformShowPage,
+  ServiceWeddingsEventsPage,
+} from './components/services/ServiceOutcomePages';
 
 function normalizeRouteSegment(value: string) {
   return value.replace(/^\/+|\/+$/g, '');
@@ -123,6 +132,18 @@ export default function App() {
         setCurrentPage('services-main');
       } else if (route === 'service-commercial-video') {
         setCurrentPage('commercial-video-detail');
+      } else if (route === 'service-brand-story') {
+        setCurrentPage('brand-story-service');
+      } else if (route === 'service-social-video') {
+        setCurrentPage('social-video-service');
+      } else if (route === 'service-weddings-events') {
+        setCurrentPage('weddings-events-service');
+      } else if (route === 'service-production-partner') {
+        setCurrentPage('studio-retainer-service');
+      } else if (route === 'service-studio-retainer') {
+        setCurrentPage('studio-retainer-service');
+      } else if (route === 'the-platform') {
+        setCurrentPage('the-platform');
       } else if (route === 'service-commercial-photo') {
         setCurrentPage('commercial-photo-landing');
       } else if (route === 'city-allentown') {
@@ -250,11 +271,21 @@ export default function App() {
       case 'commercial-photo-landing':
         return <CommercialPhotoLanding />;
       
-      // Service Detail Pages - TEMPORARILY DISABLED (uses motion)
       case 'commercial-video-detail':
-      case 'corporate-detail':
+        return <ServiceCommercialVideoPage />;
+      case 'brand-story-service':
+        return <ServiceBrandStoryPage />;
+      case 'social-video-service':
+        return <ServiceSocialVideoPage />;
       case 'music-video-detail':
-        // Fallback to services landing for disabled detail pages
+        return <ServiceMusicVideoPage />;
+      case 'weddings-events-service':
+        return <ServiceWeddingsEventsPage />;
+      case 'studio-retainer-service':
+        return <ServiceStudioRetainerPage />;
+      case 'the-platform':
+        return <ServiceThePlatformShowPage />;
+      case 'corporate-detail':
         return <ServicesLandingPage />;
       case 'narrative':
         return <NarrativePage />;
@@ -361,7 +392,7 @@ export default function App() {
 
   return (
     <>
-      <SEOHead />
+      <SEOHead currentPage={currentPage} />
       {isLoading && (
         <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
       )}

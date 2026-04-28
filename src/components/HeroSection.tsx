@@ -27,10 +27,10 @@ export function HeroSection() {
       className="relative h-screen w-full overflow-hidden"
       style={{ backgroundColor: 'transparent' }}
     >
-      {/* YouTube background — scale to cover (16:9 inside viewport) */}
+      {/* YouTube background: scale to cover (16:9 inside viewport) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <iframe
-          title="Nick Asenjo Films — hero reel"
+          title="Nick Asenjo Films: hero reel"
           className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
           src={buildHeroEmbedSrc()}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -41,7 +41,7 @@ export function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
-      {/* Open with sound (browser autoplay rules require user gesture for audio) */}
+      {/* Full watch on YouTube (browser autoplay rules require user gesture for unmuted HD) */}
       <div className="absolute bottom-8 right-8 pointer-events-auto">
         <a
           href={HERO_WATCH_URL}
@@ -50,7 +50,7 @@ export function HeroSection() {
           className="inline-flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 py-3 text-white hover:bg-[#BC271C] transition-colors tracking-wider uppercase text-xs"
           style={{ fontFamily: 'Lemon Milk, sans-serif' }}
         >
-          Watch with sound
+          Watch in Full HD
         </a>
       </div>
     </section>

@@ -35,7 +35,7 @@ export function BlogPost5() {
 
             <h2 className="text-black mt-12 mb-6">The Craft of Cinematography</h2>
             <p className="text-black/80 mb-6">
-              Exceptional <a href="#services" className="text-[#BC271C] underline hover:text-black">video production</a> begins with cinematography that transcends technical adequacy. It's not about owning expensive cameras—it's about understanding light as a language. How shadows shape emotion. How color temperature influences perception. How camera movement directs attention without viewers consciously noticing.
+              Exceptional <a href="#services" className="text-[#BC271C] underline hover:text-black">video production</a> begins with cinematography that transcends technical adequacy. It's not about owning expensive cameras, it's about understanding light as a language. How shadows shape emotion. How color temperature influences perception. How camera movement directs attention without viewers consciously noticing.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -48,7 +48,7 @@ export function BlogPost5() {
 
             <h2 className="text-black mt-12 mb-6">Sound Design: The Forgotten Half</h2>
             <p className="text-black/80 mb-6">
-              Video is a misnomer. Cinema is audiovisual, with sound contributing 50% of emotional impact. Yet most production companies treat audio as an afterthought—camera mics, hasty ADR, stock music slapped onto timelines. Exceptional companies obsess over sound design the way they obsess over visuals.
+              Video is a misnomer. Cinema is audiovisual, with sound contributing 50% of emotional impact. Yet most production companies treat audio as an afterthought, camera mics, hasty ADR, stock music slapped onto timelines. Exceptional companies obsess over sound design the way they obsess over visuals.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -61,7 +61,7 @@ export function BlogPost5() {
             </p>
 
             <p className="text-black/80 mb-6">
-              For Bethlehem businesses, this means your brand film isn't a list of services—it's a hero's journey where your company solves problems your customers face. It's three-act structure applied to commercial content. Setup, confrontation, resolution. Even a 90-second piece benefits from narrative architecture that gives viewers emotional satisfaction.
+              For Bethlehem businesses, this means your brand film isn't a list of services, it's a hero's journey where your company solves problems your customers face. It's three-act structure applied to commercial content. Setup, confrontation, resolution. Even a 90-second piece benefits from narrative architecture that gives viewers emotional satisfaction.
             </p>
 
             <h2 className="text-black mt-12 mb-6">Color Grading as Art Form</h2>
@@ -70,12 +70,12 @@ export function BlogPost5() {
             </p>
 
             <p className="text-black/80 mb-6">
-              Professional color grading for <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">commercial production</a> involves shot-by-shot color correction, stylistic grading that reinforces brand identity, and secondary corrections for skin tones, skies, and key elements. The process takes hours per minute of finished content. It's invisible when done right—and glaringly obvious when skipped.
+              Professional color grading for <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">commercial production</a> involves shot-by-shot color correction, stylistic grading that reinforces brand identity, and secondary corrections for skin tones, skies, and key elements. The process takes hours per minute of finished content. It's invisible when done right, and glaringly obvious when skipped.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Client Partnership Philosophy</h2>
             <p className="text-black/80 mb-6">
-              Technical excellence means nothing without collaborative partnership. Exceptional production companies don't just execute your vision—they challenge and refine it. They ask difficult questions during pre-production that prevent problems in post. They push back on ideas that won't serve your goals, even when it's uncomfortable.
+              Technical excellence means nothing without collaborative partnership. Exceptional production companies don't just execute your vision, they challenge and refine it. They ask difficult questions during pre-production that prevent problems in post. They push back on ideas that won't serve your goals, even when it's uncomfortable.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -84,7 +84,7 @@ export function BlogPost5() {
 
             <h2 className="text-black mt-12 mb-6">Versatility Across Styles and Formats</h2>
             <p className="text-black/80 mb-6">
-              Beware production companies with one aesthetic. If every piece in their portfolio looks identical, they're applying templates rather than crafting custom solutions. Exceptional companies adapt style to story—documentary realism for one project, high-concept surrealism for another, intimate character studies for a third.
+              Beware production companies with one aesthetic. If every piece in their portfolio looks identical, they're applying templates rather than crafting custom solutions. Exceptional companies adapt style to story, documentary realism for one project, high-concept surrealism for another, intimate character studies for a third.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -93,7 +93,7 @@ export function BlogPost5() {
 
             <h2 className="text-black mt-12 mb-6">Post-Production Rigor</h2>
             <p className="text-black/80 mb-6">
-              Filming is 30% of the process. Editing is where films are truly made. Exceptional editors don't just assemble footage—they find rhythm, pacing, emotional beats, and narrative flow invisible during production. They cut ruthlessly, removing anything that doesn't serve the story, even beautiful shots that distract from the arc.
+              Filming is 30% of the process. Editing is where films are truly made. Exceptional editors don't just assemble footage, they find rhythm, pacing, emotional beats, and narrative flow invisible during production. They cut ruthlessly, removing anything that doesn't serve the story, even beautiful shots that distract from the arc.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -106,7 +106,7 @@ export function BlogPost5() {
             </p>
 
             <p className="text-black/80 mb-6">
-              You recognize taste by watching portfolios critically. Does the work feel derivative or distinctive? Safe or bold? Generic or memorable? For Lehigh Valley businesses building premium brands, partnering with production companies that possess taste—refined aesthetic judgment earned through years of practice—becomes non-negotiable.
+              You recognize taste by watching portfolios critically. Does the work feel derivative or distinctive? Safe or bold? Generic or memorable? For Lehigh Valley businesses building premium brands, partnering with production companies that possess taste, refined aesthetic judgment earned through years of practice, becomes non-negotiable.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Commitment to Excellence</h2>

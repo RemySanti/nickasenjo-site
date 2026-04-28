@@ -30,7 +30,7 @@ export function BlogPost2() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-black/80 mb-6">
-              Walk into any boardroom in Allentown and mention "video production," and you'll get nods of agreement. But dig deeper into what kind of video, and confusion sets in. The distinction between traditional corporate video and cinematic brand filmmaking isn't just semantic—it fundamentally shapes how your audience perceives your business.
+              Walk into any boardroom in Allentown and mention "video production," and you'll get nods of agreement. But dig deeper into what kind of video, and confusion sets in. The distinction between traditional corporate video and cinematic brand filmmaking isn't just semantic, it fundamentally shapes how your audience perceives your business.
             </p>
 
             <h2 className="text-black mt-12 mb-6">Understanding Corporate Video Production</h2>
@@ -44,11 +44,11 @@ export function BlogPost2() {
 
             <h2 className="text-black mt-12 mb-6">The Cinematic Brand Film Approach</h2>
             <p className="text-black/80 mb-6">
-              Cinematic brand films operate on an entirely different frequency. Instead of answering questions, they evoke feelings. Rather than explaining what you do, they show why it matters. When we create <a href="#work-page" className="text-[#BC271C] underline hover:text-black">brand films</a> for Allentown businesses, we're not thinking about quarterly reports—we're thinking about emotional resonance that lasts years.
+              Cinematic brand films operate on an entirely different frequency. Instead of answering questions, they evoke feelings. Rather than explaining what you do, they show why it matters. When we create <a href="#work-page" className="text-[#BC271C] underline hover:text-black">brand films</a> for Allentown businesses, we're not thinking about quarterly reports, we're thinking about emotional resonance that lasts years.
             </p>
 
             <p className="text-black/80 mb-6">
-              These films employ cinematography techniques borrowed from narrative cinema: dynamic camera movement, thoughtful color grading, intentional pacing, atmospheric sound design, and visual metaphor. Every frame is composed like a painting. Every cut serves the emotional arc. The goal isn't just to inform—it's to move people so deeply they can't forget you.
+              These films employ cinematography techniques borrowed from narrative cinema: dynamic camera movement, thoughtful color grading, intentional pacing, atmospheric sound design, and visual metaphor. Every frame is composed like a painting. Every cut serves the emotional arc. The goal isn't just to inform, it's to move people so deeply they can't forget you.
             </p>
 
             <h2 className="text-black mt-12 mb-6">When to Choose Corporate Video</h2>
@@ -66,7 +66,7 @@ export function BlogPost2() {
             </p>
 
             <p className="text-black/80 mb-6">
-              Brand films are investments in perception. They're the difference between being seen as competent and being seen as exceptional. When we produce <a href="#services" className="text-[#BC271C] underline hover:text-black">cinematic brand films</a>, we're building equity that compounds over years. A stunning brand film becomes part of your identity—it's shown at conferences, shared by employees, referenced in pitches, and remembered by customers.
+              Brand films are investments in perception. They're the difference between being seen as competent and being seen as exceptional. When we produce <a href="#services" className="text-[#BC271C] underline hover:text-black">cinematic brand films</a>, we're building equity that compounds over years. A stunning brand film becomes part of your identity, it's shown at conferences, shared by employees, referenced in pitches, and remembered by customers.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Hybrid Approach</h2>
@@ -75,12 +75,12 @@ export function BlogPost2() {
             </p>
 
             <p className="text-black/80 mb-6">
-              We've helped Allentown businesses transform traditional corporate content by applying cinematic principles—better lighting, intentional composition, thoughtful editing. The result is content that serves corporate needs while maintaining brand prestige. You can have both information and inspiration.
+              We've helped Allentown businesses transform traditional corporate content by applying cinematic principles, better lighting, intentional composition, thoughtful editing. The result is content that serves corporate needs while maintaining brand prestige. You can have both information and inspiration.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Real Question: Who Are You?</h2>
             <p className="text-black/80 mb-6">
-              The choice between corporate video and cinematic brand films ultimately reveals how you see yourself. Are you a commodity, competing on price and features? Or are you a brand, commanding attention through story and vision? Lehigh Valley businesses choosing the cinematic path aren't just making videos—they're making statements about who they are and where they're going.
+              The choice between corporate video and cinematic brand films ultimately reveals how you see yourself. Are you a commodity, competing on price and features? Or are you a brand, commanding attention through story and vision? Lehigh Valley businesses choosing the cinematic path aren't just making videos, they're making statements about who they are and where they're going.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -89,7 +89,7 @@ export function BlogPost2() {
 
             <h2 className="text-black mt-12 mb-6">Making Your Decision</h2>
             <p className="text-black/80 mb-6">
-              Ask yourself: Do I need people to understand something, or do I need them to feel something? Both are valid. Both have ROI. But they serve fundamentally different business objectives. The most successful Allentown businesses we work with use both strategically—corporate video for operations, cinematic films for brand elevation.
+              Ask yourself: Do I need people to understand something, or do I need them to feel something? Both are valid. Both have ROI. But they serve fundamentally different business objectives. The most successful Allentown businesses we work with use both strategically, corporate video for operations, cinematic films for brand elevation.
             </p>
 
             <p className="text-black/80 mb-6">

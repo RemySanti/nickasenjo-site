@@ -13,15 +13,15 @@ interface WorkItem {
 }
 
 const workItems: WorkItem[] = [
-  // Commercial - Starting at $4,000
+  // Commercial: starting at $5,000
   {
     id: 1,
-    title: 'Commercial Video Production',
+    title: 'Commercial Reel',
     subtitle: 'Multi-Brand Showcase & Strategic Brand Storytelling',
     category: 'Commercial',
     thumbnail: 'https://img.youtube.com/vi/ki1syP3UJFE/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/ki1syP3UJFE',
-    price: 'Starting at $4,000'
+    price: 'Starting at $5,000'
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const workItems: WorkItem[] = [
     category: 'Commercial',
     thumbnail: 'https://img.youtube.com/vi/LmbFR3nnTeI/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/LmbFR3nnTeI',
-    price: 'Starting at $4,000'
+    price: 'Starting at $5,000'
   },
   {
     id: 3,
@@ -39,12 +39,12 @@ const workItems: WorkItem[] = [
     category: 'Commercial',
     thumbnail: 'https://img.youtube.com/vi/bHrJL_Yb9Y8/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/bHrJL_Yb9Y8',
-    price: 'Starting at $4,000'
+    price: 'Starting at $5,000'
   },
   // Brand Building - Starting at $4,000
   {
     id: 4,
-    title: 'Brand Building',
+    title: 'Brand Building Reel',
     subtitle: 'Importance of Branding, Personal Brand Strategy & Business Growth',
     category: 'Brand Building',
     thumbnail: 'https://img.youtube.com/vi/RBI5ZTZ-slo/maxresdefault.jpg',
@@ -72,7 +72,7 @@ const workItems: WorkItem[] = [
   // Music Videos - Starting at $2,500
   {
     id: 11,
-    title: 'LG Izz',
+    title: 'Music Video Reel',
     subtitle: 'Cinematic Hip-Hop Visuals & Artist Development',
     category: 'Music Videos',
     thumbnail: 'https://img.youtube.com/vi/he2kWwEYP5c/maxresdefault.jpg',
@@ -100,7 +100,7 @@ const workItems: WorkItem[] = [
   // Weddings - Starting at $4,000
   {
     id: 5,
-    title: 'Wedding Videography',
+    title: 'Wedding Reel',
     subtitle: 'Luxury Wedding Film',
     category: 'Weddings',
     thumbnail: 'https://img.youtube.com/vi/fnPtT0ReTmM/maxresdefault.jpg',
@@ -125,7 +125,7 @@ const workItems: WorkItem[] = [
     videoUrl: 'https://www.youtube.com/embed/0KDG9NvwHAg',
     price: 'Starting at $4,000'
   },
-  // Social Media - Starting at $4,000
+  // Social Media - Starting at $3,000
   {
     id: 8,
     title: 'Daniels BMW',
@@ -133,7 +133,7 @@ const workItems: WorkItem[] = [
     category: 'Social Media',
     thumbnail: 'https://img.youtube.com/vi/8PqMxEKJz-c/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/8PqMxEKJz-c',
-    price: 'Starting at $4,000'
+    price: 'Starting at $3,000'
   },
   {
     id: 9,
@@ -142,7 +142,7 @@ const workItems: WorkItem[] = [
     category: 'Social Media',
     thumbnail: 'https://img.youtube.com/vi/cJXS4h65uM0/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/cJXS4h65uM0',
-    price: 'Starting at $4,000'
+    price: 'Starting at $3,000'
   },
   {
     id: 10,
@@ -151,7 +151,7 @@ const workItems: WorkItem[] = [
     category: 'Social Media',
     thumbnail: 'https://img.youtube.com/vi/c6dBUF_ZSFs/maxresdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/c6dBUF_ZSFs',
-    price: 'Starting at $4,000'
+    price: 'Starting at $3,000'
   },
   // The Platform - No Starting Price
   {
@@ -183,11 +183,11 @@ const workItems: WorkItem[] = [
 const categories = ['All', 'Commercial', 'Brand Building', 'Music Videos', 'Weddings', 'Social Media', 'The Platform'];
 
 const categoryPricing: { [key: string]: string } = {
-  'Commercial': 'Starting at $4,000',
+  'Commercial': 'Starting at $5,000',
   'Brand Building': 'Starting at $4,000',
   'Music Videos': 'Starting at $2,500',
   'Weddings': 'Starting at $4,000',
-  'Social Media': 'Starting at $4,000',
+  'Social Media': 'Starting at $3,000',
   'The Platform': 'Custom Pricing'
 };
 

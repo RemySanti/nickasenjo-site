@@ -26,7 +26,7 @@ export function SiteMapPage() {
             How Our Website Works
           </h1>
           <p className="text-black/80 max-w-3xl text-xl leading-relaxed mb-12">
-            Think of our website like a tree 🌳 — it starts at HOME, then branches out to different pages. 
+            Think of our website like a tree 🌳: it starts at HOME, then branches out to different pages. 
             <span className="block mt-4">
               Each page helps people in Pennsylvania find us on Google when they search for video help!
             </span>
@@ -471,7 +471,7 @@ export function SiteMapPage() {
                 <div>
                   <h3 className="mb-2" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>People Find Us on Google</h3>
                   <p className="text-black/70">
-                    When someone searches "wedding video Allentown" — BOOM! 💥 Our page shows up because we made a page just about that!
+                    When someone searches "wedding video Allentown", boom! 💥 Our page shows up because we made a page just about that!
                   </p>
                 </div>
               </div>

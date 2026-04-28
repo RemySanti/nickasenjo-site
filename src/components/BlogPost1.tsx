@@ -33,7 +33,7 @@ export function BlogPost1() {
           {/* Article Content */}
           <div className="prose prose-lg max-w-none">
             <p className="text-black/80 mb-6">
-              The landscape of business marketing in Allentown, Bethlehem, and across the Lehigh Valley has fundamentally shifted. Video content isn't just a nice-to-have anymore—it's the primary way your audience discovers, understands, and remembers your brand. As we move into 2025, professional video production has become as essential as having a website.
+              The landscape of business marketing in Allentown, Bethlehem, and across the Lehigh Valley has fundamentally shifted. Video content isn't just a nice-to-have anymore, it's the primary way your audience discovers, understands, and remembers your brand. As we move into 2025, professional video production has become as essential as having a website.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Statistics Don't Lie</h2>
@@ -43,16 +43,16 @@ export function BlogPost1() {
 
             <h2 className="text-black mt-12 mb-6">Why Allentown Businesses Need Cinematic Storytelling</h2>
             <p className="text-black/80 mb-6">
-              The Lehigh Valley market is sophisticated. Your customers aren't impressed by corporate talking heads or stock footage montages. They want films that move them—stories that connect emotionally before they convert commercially. That's where <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">commercial video production</a> evolves into brand filmmaking.
+              The Lehigh Valley market is sophisticated. Your customers aren't impressed by corporate talking heads or stock footage montages. They want films that move them, stories that connect emotionally before they convert commercially. That's where <a href="#services-commercial" className="text-[#BC271C] underline hover:text-black">commercial video production</a> evolves into brand filmmaking.
             </p>
 
             <p className="text-black/80 mb-6">
-              We've worked with Allentown businesses from Hamilton Street to the West End, and the pattern is clear: companies that invest in cinematic brand films don't just get views—they build movements. When your 532 Hamilton Street storefront competes with e-commerce giants, your story becomes your advantage. Film captures that story in ways no other medium can.
+              We've worked with Allentown businesses from Hamilton Street to the West End, and the pattern is clear: companies that invest in cinematic brand films don't just get views, they build movements. When your 532 Hamilton Street storefront competes with e-commerce giants, your story becomes your advantage. Film captures that story in ways no other medium can.
             </p>
 
             <h2 className="text-black mt-12 mb-6">The Competitive Edge in Eastern Pennsylvania</h2>
             <p className="text-black/80 mb-6">
-              Most Lehigh Valley businesses still rely on static imagery and text-heavy websites. By investing in professional video production now, you're not following a trend—you're leading your market. Search engines prioritize video content, meaning your Allentown business appears higher in local searches when you have quality video embedded on your site.
+              Most Lehigh Valley businesses still rely on static imagery and text-heavy websites. By investing in professional video production now, you're not following a trend, you're leading your market. Search engines prioritize video content, meaning your Allentown business appears higher in local searches when you have quality video embedded on your site.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -61,7 +61,7 @@ export function BlogPost1() {
 
             <h2 className="text-black mt-12 mb-6">From Corporate to Cinematic</h2>
             <p className="text-black/80 mb-6">
-              The old model of corporate video—stiff interviews, sterile office footage, forgettable messaging—is dead. Today's audiences expect <a href="#work-page" className="text-[#BC271C] underline hover:text-black">cinematic quality</a> whether they're watching a Super Bowl commercial or a local Bethlehem manufacturer's brand film. The gap between Hollywood and Main Street has collapsed.
+              The old model of corporate video, stiff interviews, sterile office footage, forgettable messaging, is dead. Today's audiences expect <a href="#work-page" className="text-[#BC271C] underline hover:text-black">cinematic quality</a> whether they're watching a Super Bowl commercial or a local Bethlehem manufacturer's brand film. The gap between Hollywood and Main Street has collapsed.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -70,7 +70,7 @@ export function BlogPost1() {
 
             <h2 className="text-black mt-12 mb-6">The Investment That Pays Forever</h2>
             <p className="text-black/80 mb-6">
-              Unlike paid advertising that stops working the moment you stop paying, a professionally produced brand film is a permanent asset. It works on your website, social media, trade shows, sales presentations, and investor pitches. For Allentown businesses planning growth in 2025, video production is infrastructure—not expense.
+              Unlike paid advertising that stops working the moment you stop paying, a professionally produced brand film is a permanent asset. It works on your website, social media, trade shows, sales presentations, and investor pitches. For Allentown businesses planning growth in 2025, video production is infrastructure, not expense.
             </p>
 
             <p className="text-black/80 mb-6">
@@ -79,7 +79,7 @@ export function BlogPost1() {
 
             <h2 className="text-black mt-12 mb-6">Your Story Deserves Cinema</h2>
             <p className="text-black/80 mb-6">
-              Every Allentown business has a story worth telling. The question is: will you tell it with the impact it deserves? As we enter 2025, video isn't the future of marketing—it's the present. The businesses that recognize this now will dominate their markets for the next decade.
+              Every Allentown business has a story worth telling. The question is: will you tell it with the impact it deserves? As we enter 2025, video isn't the future of marketing, it's the present. The businesses that recognize this now will dominate their markets for the next decade.
             </p>
 
             <p className="text-black/80 mb-6">

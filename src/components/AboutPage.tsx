@@ -1,5 +1,6 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import nickImage from '../imports/2149066326-3.jpg';
+import platformCarsImg from '../assets/Platform-cars.png';
 import { Header } from './Header';
 import { LogoCarouselSection } from './LogoCarouselSection';
 import { Film, Award, Users, TrendingUp } from 'lucide-react';
@@ -61,7 +62,7 @@ export function AboutPage() {
               <p className="text-black/70 leading-relaxed">
                 Based in the heart of Allentown, Pennsylvania, Nick Asenjo Films is a collective of 
                 auteur filmmakers who approach every project as a work of art. We blur the line between 
-                commercial and cinema, creating content that doesn't just sell—it resonates.
+                commercial and cinema, creating content that doesn't just sell; it resonates.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -101,7 +102,7 @@ export function AboutPage() {
             <p style={{ fontSize: '1.125rem' }}>
               Founded in Allentown's vibrant creative district, we've spent years honing our craft 
               across documentaries, commercials, music videos, and brand films. Our approach is 
-              unapologetically cinematic—we use the same tools, techniques, and storytelling principles 
+              unapologetically cinematic. We use the same tools, techniques, and storytelling principles 
               that define great cinema to create content that stands out in today's oversaturated digital landscape.
             </p>
             <p style={{ fontSize: '1.125rem' }}>
@@ -185,7 +186,7 @@ export function AboutPage() {
                 Impact Driven
               </h3>
               <p className="text-black/70 leading-relaxed">
-                Beautiful films that don't just look good—they move audiences and drive results.
+                Beautiful films that don't just look good; they move audiences and drive results.
               </p>
             </div>
           </div>
@@ -200,21 +201,21 @@ export function AboutPage() {
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&q=80"
                 alt="Production equipment"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="h-full w-full border border-black bg-white object-cover scale-90 transition-transform duration-500 hover:scale-100"
               />
             </div>
             <div className="aspect-[4/3] overflow-hidden">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&q=80"
-                alt="On set filming"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                src={platformCarsImg}
+                alt="The Platform podcast set with hosts and vehicles in studio"
+                className="h-full w-full border border-black bg-white object-cover scale-90 transition-transform duration-500 hover:scale-100"
               />
             </div>
             <div className="aspect-[4/3] overflow-hidden">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80"
                 alt="Film editing"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="h-full w-full border border-black bg-white object-cover scale-90 transition-transform duration-500 hover:scale-100"
               />
             </div>
           </div>
@@ -237,7 +238,7 @@ export function AboutPage() {
                   backgroundClip: 'text'
                 }}
               >
-                500+
+                1,000+
               </div>
               <p className="text-black/70 uppercase tracking-wider" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.875rem' }}>
                 Projects
@@ -256,7 +257,7 @@ export function AboutPage() {
                   backgroundClip: 'text'
                 }}
               >
-                200+
+                500+
               </div>
               <p className="text-black/70 uppercase tracking-wider" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.875rem' }}>
                 Clients
@@ -275,7 +276,7 @@ export function AboutPage() {
                   backgroundClip: 'text'
                 }}
               >
-                15+
+                10+
               </div>
               <p className="text-black/70 uppercase tracking-wider" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.875rem' }}>
                 Awards
@@ -283,16 +284,18 @@ export function AboutPage() {
             </div>
             
             <div className="text-center">
-              <div
-                className="text-5xl md:text-6xl mb-2 lemon-milk-font"
-                style={{
+              <div 
+                className="mb-3 tracking-wider"
+                style={{ 
+                  fontFamily: 'Lemon Milk, sans-serif',
+                  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                   background: 'linear-gradient(135deg, #BC271C 0%, #8B1810 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
                 }}
               >
-                1,000+
+                10M+
               </div>
               <p className="text-black/70 uppercase tracking-wider" style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.875rem' }}>
                 Views
