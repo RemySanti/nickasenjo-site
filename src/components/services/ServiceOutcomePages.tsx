@@ -1,11 +1,11 @@
 import { LocalServiceOfferingPage } from './LocalServiceOfferingPage';
+import { ThePlatformPage } from './ThePlatformPage';
 import {
   brandStoryOffering,
   commercialVideoOffering,
   musicVideoOffering,
   socialVideoOffering,
   studioRetainerOffering,
-  thePlatformShowOffering,
   weddingsEventsOffering,
 } from '../../data/localServiceOfferingConfigs';
 
@@ -30,7 +30,7 @@ export function ServiceWeddingsEventsPage() {
 }
 
 export function ServiceThePlatformShowPage() {
-  return <LocalServiceOfferingPage config={thePlatformShowOffering} />;
+  return <ThePlatformPage />;
 }
 
 export function ServiceStudioRetainerPage() {
