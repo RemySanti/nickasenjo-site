@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { VideoViewerModal, type VideoViewerData } from './VideoViewerModal';
 
+import videosThumbSaquon from '../assets/Videos-Section/1 - Saquon Video.png?url';
+import videosThumbMercedes from '../assets/Videos-Section/2 - Mercedez Video.png?url';
+import videosThumbLgIzz from '../assets/Videos-Section/5 - LG Izz.png?url';
+import videosThumbBadBunny from '../assets/Videos-Section/6 - Bad Bunny.png?url';
+
 interface Project {
   title: string;
   logo: string;
@@ -9,6 +14,10 @@ interface Project {
   poster: string;
   isYouTube: boolean;
   comingSoon?: boolean;
+  /** Seconds into the YouTube video for embed + modal (`start` param). */
+  thumbnailStartSeconds?: number;
+  /** Optional static card image (e.g. screenshot at `thumbnailStartSeconds` in `public/`). YouTube URLs cannot target an exact frame. */
+  thumbnailStillUrl?: string;
 }
 
 const projects: Project[] = [
@@ -18,7 +27,8 @@ const projects: Project[] = [
     description: 'Captured the unveiling event with artistry and innovation. 2 films.',
     video: 'https://www.youtube.com/embed/X-VC2IacMZA',
     poster: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80',
-    isYouTube: true
+    isYouTube: true,
+    thumbnailStillUrl: videosThumbSaquon,
   },
   {
     title: 'Lehigh Valley Health',
@@ -26,7 +36,8 @@ const projects: Project[] = [
     description: 'Documentary storytelling for healthcare excellence. 3 films, 2 awards.',
     video: 'https://www.youtube.com/embed/xLzAh2RKy1I',
     poster: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
-    isYouTube: true
+    isYouTube: true,
+    thumbnailStillUrl: videosThumbMercedes,
   },
   {
     title: 'Mack Trucks',
@@ -50,7 +61,8 @@ const projects: Project[] = [
     description: 'Energy and emotion captured live. 12 concerts, 50+ artists.',
     video: 'https://www.youtube.com/embed/upkK3C4azng',
     poster: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&q=80',
-    isYouTube: true
+    isYouTube: true,
+    thumbnailStillUrl: videosThumbLgIzz,
   },
   {
     title: 'Just Born Quality',
@@ -58,7 +70,8 @@ const projects: Project[] = [
     description: 'Sweet success with brand storytelling. 3 campaigns, nationwide impact.',
     video: 'https://www.youtube.com/embed/Qi4iSeEZegk',
     poster: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?w=1200&q=80',
-    isYouTube: true
+    isYouTube: true,
+    thumbnailStillUrl: videosThumbBadBunny,
   }
 ];
 
@@ -67,7 +80,27 @@ function getYouTubeId(embedUrl: string) {
   return match ? match[1] : null;
 }
 
+/** YouTube card / modal iframe with autoplay loop + optional start time. */
+function buildYouTubeEmbedSrc(embedUrl: string, videoId: string, startSeconds?: number) {
+  const params = new URLSearchParams({
+    autoplay: '1',
+    mute: '1',
+    loop: '1',
+    playlist: videoId,
+    rel: '0',
+  });
+  const start = startSeconds != null ? Math.max(0, Math.floor(startSeconds)) : 0;
+  if (start > 0) {
+    params.set('start', String(start));
+  }
+  const join = embedUrl.includes('?') ? '&' : '?';
+  return `${embedUrl}${join}${params.toString()}`;
+}
+
 function getProjectThumbnail(project: Project) {
+  if (project.thumbnailStillUrl) {
+    return project.thumbnailStillUrl;
+  }
   if (project.isYouTube) {
     const videoId = getYouTubeId(project.video);
     if (videoId) {
@@ -166,7 +199,8 @@ export function OurClientsSection() {
       title: featuredTitle,
       subtitle: matchedDescription,
       category: 'Featured Work',
-      videoUrl: project.video
+      videoUrl: project.video,
+      startSeconds: project.thumbnailStartSeconds,
     });
   };
 
@@ -338,6 +372,7 @@ export function OurClientsSection() {
                             alt={project.title}
                             className="w-full h-full object-cover"
                             onError={(e) => {
+                              if (project.thumbnailStillUrl) return;
                               const videoId = getYouTubeId(project.video);
                               if (!videoId) return;
                               const img = e.currentTarget;
@@ -567,6 +602,8 @@ export function OurClientsSection() {
             const hasPlayableVideo = Boolean(project.video && !project.comingSoon);
             const featuredTitle = youtubeTitles[index] || project.title;
             const matchedDescription = getMatchedDescription(project, index);
+            const youtubeEmbedId =
+              project.isYouTube && project.video ? getYouTubeId(project.video) : null;
             return (
             <div
               key={index}
@@ -601,6 +638,7 @@ export function OurClientsSection() {
                   activeIndex === index ? 'opacity-0' : 'opacity-100'
                 }`}
                 onError={(e) => {
+                  if (project.thumbnailStillUrl) return;
                   const videoId = getYouTubeId(project.video);
                   if (!videoId) return;
                   const img = e.currentTarget;
@@ -613,9 +651,17 @@ export function OurClientsSection() {
               />
 
               {/* Video - YouTube iframe or regular video */}
-              {activeIndex === index && project.isYouTube && hasPlayableVideo && project.video ? (
+              {activeIndex === index &&
+              project.isYouTube &&
+              hasPlayableVideo &&
+              project.video &&
+              youtubeEmbedId ? (
                 <iframe
-                  src={`${project.video}?autoplay=1&mute=1&loop=1&playlist=${project.video.split('/').pop()}`}
+                  src={buildYouTubeEmbedSrc(
+                    project.video,
+                    youtubeEmbedId,
+                    project.thumbnailStartSeconds
+                  )}
                   className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

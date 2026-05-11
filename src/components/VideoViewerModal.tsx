@@ -6,6 +6,8 @@ export interface VideoViewerData {
   subtitle?: string;
   category?: string;
   price?: string;
+  /** YouTube embed: seconds for `start` (playback begins here). */
+  startSeconds?: number;
 }
 
 interface VideoViewerModalProps {
@@ -19,8 +21,15 @@ export function VideoViewerModal({ video, onClose }: VideoViewerModalProps) {
     const isYouTube = video.videoUrl.includes('youtube.com') || video.videoUrl.includes('youtu.be');
     if (!isYouTube) return video.videoUrl;
 
-    const joinChar = video.videoUrl.includes('?') ? '&' : '?';
-    return `${video.videoUrl}${joinChar}autoplay=1&rel=0`;
+    const url = new URL(video.videoUrl);
+    url.searchParams.set('autoplay', '1');
+    url.searchParams.set('rel', '0');
+    const start =
+      video.startSeconds != null ? Math.max(0, Math.floor(video.startSeconds)) : 0;
+    if (start > 0) {
+      url.searchParams.set('start', String(start));
+    }
+    return url.toString();
   }, [video]);
 
   useEffect(() => {

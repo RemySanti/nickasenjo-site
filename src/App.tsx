@@ -39,12 +39,15 @@ import { CommercialPhotoLanding } from './components/services/CommercialPhotoLan
 // Service Detail Pages
 import { NarrativePage } from './components/services/NarrativePage';
 import { DocumentaryPage } from './components/services/DocumentaryPage';
+import { CommercialPage } from './components/services/CommercialPage';
+import { CorporatePage } from './components/services/CorporatePage';
 
 // City Video Pages
 import { AllentownVideoPage } from './components/services/cities/AllentownVideoPage';
 import { BethlehemVideoPage } from './components/services/cities/BethlehemVideoPage';
 import { EastonVideoPage } from './components/services/cities/EastonVideoPage';
 import { EmmausVideoPage } from './components/services/cities/EmmausVideoPage';
+import { NycVideoPage } from './components/services/cities/NycVideoPage';
 import {
   ServiceBrandStoryPage,
   ServiceCommercialVideoPage,
@@ -166,6 +169,20 @@ export default function App() {
         setCurrentPage('video-emmaus');
       } else if (route === 'service-commercial-video-whitehall') {
         setCurrentPage('video-whitehall');
+      } else if (route === 'service-commercial-video-nyc') {
+        setCurrentPage('video-nyc');
+      } else if (route === 'video-allentown') {
+        setCurrentPage('video-allentown');
+      } else if (route === 'video-bethlehem') {
+        setCurrentPage('video-bethlehem');
+      } else if (route === 'video-easton') {
+        setCurrentPage('video-easton');
+      } else if (route === 'video-emmaus') {
+        setCurrentPage('video-emmaus');
+      } else if (route === 'video-whitehall') {
+        setCurrentPage('video-whitehall');
+      } else if (route === 'video-nyc') {
+        setCurrentPage('video-nyc');
       } else if (route === 'service-commercial-photo-allentown') {
         setCurrentPage('photo-allentown');
       } else if (route === 'service-commercial-photo-bethlehem') {
@@ -195,15 +212,17 @@ export default function App() {
       } else if (route === 'sitemap') {
         setCurrentPage('sitemap');
       } else if (route === 'allentown-video-production') {
-        setCurrentPage('allentown-service');
+        setCurrentPage('video-allentown');
       } else if (route === 'bethlehem-video-production') {
-        setCurrentPage('bethlehem-service');
+        setCurrentPage('video-bethlehem');
       } else if (route === 'easton-video-production') {
-        setCurrentPage('easton-service');
+        setCurrentPage('video-easton');
       } else if (route === 'emmaus-video-production') {
-        setCurrentPage('city-emmaus');
+        setCurrentPage('video-emmaus');
       } else if (route === 'whitehall-video-production') {
-        setCurrentPage('city-whitehall');
+        setCurrentPage('video-whitehall');
+      } else if (route === 'nyc-video-production' || route === 'new-york-city-video-production') {
+        setCurrentPage('video-nyc');
       } else if (route === 'lehigh-valley-health') {
         setCurrentPage('lehigh-valley-health');
       } else if (route === 'owner-dashboard') {
@@ -226,6 +245,20 @@ export default function App() {
 
       const rawHash = anchor.getAttribute('href') ?? '';
       const routeSegment = normalizeRouteSegment(rawHash.replace(/^#/, ''));
+      const pathOnly = normalizeRouteSegment(window.location.pathname.replace(/^\/+|\/+$/g, ''));
+
+      // Services landing embeds contact; keep URL on /services and scroll instead of swapping to /contact.
+      if (routeSegment === 'contact' && pathOnly === 'services') {
+        e.preventDefault();
+        if (window.location.pathname !== '/services' || window.location.hash !== '#contact') {
+          window.history.pushState({}, '', '/services#contact');
+        }
+        resolveRoute('services');
+        window.requestAnimationFrame(() => {
+          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        return;
+      }
 
       e.preventDefault();
       const nextPath = routeSegment ? `/${routeSegment}` : '/';
@@ -247,8 +280,16 @@ export default function App() {
     };
   }, []);
 
-  // Scroll to top whenever currentPage changes
+  // Scroll to top whenever currentPage changes (except services + #contact, handled in navigation)
   useEffect(() => {
+    const onServicesContact =
+      currentPage === 'services' && window.location.hash.replace(/^#/, '') === 'contact';
+    if (onServicesContact) {
+      window.requestAnimationFrame(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+      return;
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [currentPage]);
 
@@ -259,7 +300,7 @@ export default function App() {
       case 'services':
         return <ServicesLandingPage />;
       case 'commercial':
-        return <ServicesLandingPage />;
+        return <CommercialPage />;
       case 'contact':
         return <ContactPage />;
       
@@ -286,7 +327,7 @@ export default function App() {
       case 'the-platform':
         return <ServiceThePlatformShowPage />;
       case 'corporate-detail':
-        return <ServicesLandingPage />;
+        return <CorporatePage />;
       case 'narrative':
         return <NarrativePage />;
       case 'documentary':
@@ -369,6 +410,8 @@ export default function App() {
         return <EmmausVideoPage />;
       case 'video-whitehall':
         return <AllentownVideoPage />; // Fallback
+      case 'video-nyc':
+        return <NycVideoPage />;
       case 'photo-allentown':
       case 'photo-bethlehem':
       case 'photo-easton':

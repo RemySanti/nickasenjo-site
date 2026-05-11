@@ -94,6 +94,56 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
     ogTitle: 'Blog | Nick Asenjo Films',
     ogDescription: 'Insights for brands and creators investing in video.',
   },
+  'video-allentown': {
+    title: 'Allentown Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video production in Allentown, PA: campaigns, launches, and brand films from a downtown Hamilton Street crew serving the Lehigh Valley.',
+    keywords:
+      'commercial video Allentown PA, video production Allentown, Lehigh Valley commercial, Nick Asenjo Films Allentown',
+    ogTitle: 'Allentown Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Hyper-local commercial video production for Allentown and the Lehigh Valley.',
+  },
+  'video-bethlehem': {
+    title: 'Bethlehem Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Bethlehem, PA — SteelStacks, campuses, hospitality, and industrial brands with cinematic craft.',
+    keywords: 'commercial video Bethlehem PA, Bethlehem video production, Lehigh Valley commercial',
+    ogTitle: 'Bethlehem Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video production tailored to Bethlehem businesses and venues.',
+  },
+  'video-easton': {
+    title: 'Easton Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Easton, PA — waterfront, Lafayette College, Centre Square, and Delaware River corridor storytelling.',
+    keywords: 'commercial video Easton PA, Easton PA videographer, Lehigh Valley commercial',
+    ogTitle: 'Easton Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Easton-focused commercial video production and campaigns.',
+  },
+  'video-emmaus': {
+    title: 'Emmaus Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Emmaus, PA — Main Street retail, restaurants, and professional services with a local-first approach.',
+    keywords: 'commercial video Emmaus PA, Emmaus video production, Lehigh Valley',
+    ogTitle: 'Emmaus Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video for Emmaus and the Lehigh Valley.',
+  },
+  'video-whitehall': {
+    title: 'Whitehall Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Whitehall and the Lehigh Valley Mall corridor — retail, automotive, and commercial real estate content.',
+    keywords: 'commercial video Whitehall PA, Whitehall Township video production',
+    ogTitle: 'Whitehall Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video production for Whitehall Township and nearby markets.',
+  },
+  'video-nyc': {
+    title: 'NYC Commercial Video Production | Nick Asenjo Films | New York City',
+    description:
+      'Commercial video production for New York City: Manhattan, Brooklyn, and metro campaigns. Nick Asenjo Films is Allentown-based and travels for NYC shoots, launches, and brand films.',
+    keywords:
+      'commercial video production NYC, New York City commercial videographer, Manhattan brand film, Brooklyn video production company, tri-state commercial video, Nick Asenjo Films NYC',
+    ogTitle: 'NYC Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for New York City brands — cinematic production from our PA studio.',
+  },
 };
 
 const DEFAULT_SERVICE_TYPES = [

@@ -1,4 +1,5 @@
 import { MapPin, Camera } from 'lucide-react';
+import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 export function CommercialPhotoLanding() {
   const cities = [
@@ -40,7 +41,13 @@ export function CommercialPhotoLanding() {
   ];
 
   return (
-    <div className="bg-[#EEEEE8] min-h-screen">
+    <div className="bg-[#EEEEE8] min-h-screen pt-20">
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: 'Commercial photo (by city)' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative h-[60vh] bg-black flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />

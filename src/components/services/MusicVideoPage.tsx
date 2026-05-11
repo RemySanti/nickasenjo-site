@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
+import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 export function MusicVideoPage() {
   useEffect(() => {
@@ -13,7 +14,14 @@ export function MusicVideoPage() {
   }, []);
 
   return (
-    <div className="bg-[#EEEEE8] mt-20">
+    <div className="bg-[#EEEEE8] pt-20">
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: 'By format', href: '#services-main' },
+          { label: 'Music videos' },
+        ]}
+      />
       {/* Hero */}
       <section className="relative bg-black text-white py-32 px-6 lg:px-12">
         <div className="absolute inset-0 opacity-30">

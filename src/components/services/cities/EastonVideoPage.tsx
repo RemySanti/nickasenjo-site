@@ -1,11 +1,24 @@
 import { Play, Building2, GraduationCap, MapPin, Phone, Mail } from 'lucide-react';
+import { ServiceFlowBreadcrumb } from '../ServiceFlowBreadcrumb';
+import { citySiloMedia } from './citySiloMedia';
 
 export function EastonVideoPage() {
   return (
-    <div className="bg-[#EEEEE8] min-h-screen">
-      <section className="relative h-[70vh] bg-black flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />
-        {/* Placeholder: Delaware River waterfront, Lafayette College on hillside */}
+    <div className="bg-[#EEEEE8] min-h-screen pt-20">
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: 'Commercial video', href: '#service-commercial-video' },
+          { label: 'Easton' },
+        ]}
+      />
+      <section className="relative h-[70vh] bg-black flex items-center justify-center overflow-hidden">
+        <img
+          src={citySiloMedia.easton.hero}
+          alt={citySiloMedia.easton.heroAlt}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/88 z-10" aria-hidden />
         <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
           <MapPin className="w-12 h-12 text-[#BC271C] mx-auto mb-6" />
           <h1 
@@ -53,11 +66,12 @@ export function EastonVideoPage() {
               </p>
             </div>
             <div className="bg-[#EEEEE8] p-12 border border-black/10">
-              {/* Placeholder: Centre Square, Lafayette College, Delaware River */}
-              <div className="aspect-video bg-black/10 flex items-center justify-center mb-6">
-                <p className="text-black/40 text-sm text-center">
-                  [Centre Square / Lafayette College / Delaware River Waterfront]
-                </p>
+              <div className="aspect-video overflow-hidden border border-black/10 mb-6 bg-black/5">
+                <img
+                  src={citySiloMedia.easton.aside}
+                  alt={citySiloMedia.easton.asideAlt}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className="text-black/60 text-sm text-center">
                 Historic elegance meets entrepreneurial energy

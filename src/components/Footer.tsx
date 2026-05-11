@@ -156,34 +156,40 @@ export function Footer() {
             </h3>
             <div className="space-y-2 text-white/60 text-sm">
               <a 
-                href="#allentown-video-production"
+                href="#service-commercial-video-allentown"
                 className="block hover:text-[#BC271C] transition-colors"
               >
                 Allentown
               </a>
               <a 
-                href="#bethlehem-video-production"
+                href="#service-commercial-video-bethlehem"
                 className="block hover:text-[#BC271C] transition-colors"
               >
                 Bethlehem
               </a>
               <a 
-                href="#easton-video-production"
+                href="#service-commercial-video-easton"
                 className="block hover:text-[#BC271C] transition-colors"
               >
                 Easton
               </a>
               <a 
-                href="#emmaus-video-production"
+                href="#service-commercial-video-emmaus"
                 className="block hover:text-[#BC271C] transition-colors"
               >
                 Emmaus
               </a>
               <a 
-                href="#whitehall-video-production"
+                href="#service-commercial-video-whitehall"
                 className="block hover:text-[#BC271C] transition-colors"
               >
                 Whitehall
+              </a>
+              <a 
+                href="#service-commercial-video-nyc"
+                className="block hover:text-[#BC271C] transition-colors"
+              >
+                New York City
               </a>
             </div>
           </div>

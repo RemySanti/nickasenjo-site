@@ -68,7 +68,13 @@ function figmaAssetResolver() {
     },
     server: {
       port: 3000,
+      host: 'localhost',
       open: true,
+      // OneDrive (and some network paths) often miss native FS events; polling keeps HMR reliable.
+      watch: {
+        usePolling: true,
+        interval: 300,
+      },
       fs: {
         // Allow hero banner video from repo root: ../videos/Website Banner FINAL.mp4
         allow: [path.resolve(__dirname, '..')],

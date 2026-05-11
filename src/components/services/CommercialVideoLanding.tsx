@@ -1,4 +1,6 @@
 import { MapPin, Play } from 'lucide-react';
+import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
+import commercialSiloHero from '../../assets/finalchangesforwebsitebeforelaunch/Services - Drive Sales and Launches.jpg?url';
 
 export function CommercialVideoLanding() {
   const cities = [
@@ -36,14 +38,31 @@ export function CommercialVideoLanding() {
       description: 'Commercial corridor, Lehigh Valley Mall area',
       population: '27,000+',
       businesses: 'Retail, automotive, commercial real estate'
-    }
+    },
+    {
+      name: 'New York City',
+      slug: 'nyc',
+      description: 'Manhattan, Brooklyn, and metro campaigns with travel-ready crews from our Lehigh Valley studio',
+      population: '8.3M+',
+      businesses: 'Finance, media, retail, hospitality, culture, startups',
+    },
   ];
 
   return (
-    <div className="bg-[#EEEEE8] min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] bg-black flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />
+    <div className="bg-[#EEEEE8] min-h-screen pt-20">
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: 'Commercial video (by city)' },
+        ]}
+      />
+      <section className="relative h-[60vh] bg-black flex items-center justify-center overflow-hidden">
+        <img
+          src={commercialSiloHero}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/88 z-10" aria-hidden />
         <div className="relative z-20 text-center px-6">
           <Play className="w-20 h-20 text-[#BC271C] mx-auto mb-6" />
           <h1 
@@ -136,7 +155,8 @@ export function CommercialVideoLanding() {
               Lehigh Valley Commercial Video Services
             </h2>
             <p className="text-white/70 max-w-3xl mx-auto" style={{ fontSize: '1.125rem' }}>
-              Professional video production tailored to each city's unique character and business landscape
+              Professional video production tailored to each market — Lehigh Valley cities plus NYC for regional and
+              national campaigns.
             </p>
           </div>
 

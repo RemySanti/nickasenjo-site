@@ -1,6 +1,14 @@
 import { useRef, useEffect, useState } from 'react';
 import { Film, Sparkles, Share2, Music, Camera, ArrowRight, Award, Users, Play, Phone, Mail, Podcast } from 'lucide-react';
 import { LogoCarouselSection } from './LogoCarouselSection';
+import { ContactPage } from './ContactPage';
+
+import serviceImageDriveSalesAndLaunches from '../assets/finalchangesforwebsitebeforelaunch/Services - Drive Sales and Launches.jpg?url';
+import serviceImageBuildMemorableBrand from '../assets/finalchangesforwebsitebeforelaunch/Services - Build a Memorable Brand.jpg?url';
+import serviceImageGrowOnSocial from '../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.jpg?url';
+import serviceImageElevateMusicVisually from '../assets/finalchangesforwebsitebeforelaunch/Services - Elevate Your Music Visually.jpg?url';
+import serviceImagePreserveMilestone from '../assets/finalchangesforwebsitebeforelaunch/Services - Preserve a Milestone.jpg?url';
+import serviceImageThePlatform from '../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';
 
 function ServiceCard({ service, index }: { service: any; index: number }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -149,7 +157,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
         </div>
 
         <p 
-          className="text-black/70 leading-relaxed text-sm mb-4 relative z-10"
+          className="text-black/70 leading-relaxed text-sm relative z-10"
           style={{
             opacity: isInView ? 1 : 0,
             transition: `opacity 0.6s ease ${index * 0.15 + 0.4}s`,
@@ -157,23 +165,6 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
         >
           {service.description}
         </p>
-
-        {/* Learn More Link */}
-        <div
-          className="flex items-center gap-2 relative z-10"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: `opacity 0.6s ease ${index * 0.15 + 0.5}s`,
-          }}
-        >
-          <span 
-            className="text-xs tracking-wider uppercase"
-            style={{ fontFamily: 'Lemon Milk, sans-serif', color: '#BC271C' }}
-          >
-            Next step
-          </span>
-          <ArrowRight size={14} className="text-[#BC271C] group-hover:translate-x-2 transition-transform" />
-        </div>
       </div>
     </a>
   );
@@ -182,12 +173,24 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
 export function ServicesLandingPage() {
   const heroRef = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    const scrollToContact = () => {
+      if (window.location.hash.replace(/^#/, '') !== 'contact') return;
+      window.requestAnimationFrame(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    };
+    scrollToContact();
+    window.addEventListener('hashchange', scrollToContact);
+    return () => window.removeEventListener('hashchange', scrollToContact);
+  }, []);
+
   const services = [
     {
       title: 'Drive sales & launches',
       category: 'Revenue & campaigns',
       href: '#service-commercial-video',
-      image: 'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&q=80',
+      image: serviceImageDriveSalesAndLaunches,
       alt: 'Commercial video for launches and sales',
       description:
         'When you need attention to turn into action: spots, campaigns, and launch films with a clear message and premium craft.',
@@ -197,7 +200,7 @@ export function ServicesLandingPage() {
       title: 'Build a memorable brand',
       category: 'Trust & recognition',
       href: '#service-brand-story',
-      image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80',
+      image: serviceImageBuildMemorableBrand,
       alt: 'Brand films and story-driven video',
       description:
         'When reputation is the product, films and brand stories sharpen positioning, earn trust, and stay with people after the first watch.',
@@ -207,7 +210,7 @@ export function ServicesLandingPage() {
       title: 'Grow on social',
       category: 'Reach & consistency',
       href: '#service-social-video',
-      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
+      image: serviceImageGrowOnSocial,
       alt: 'Social-first video content',
       description:
         'When the feed is the battlefield, short-form and platform-native pieces win on hooks, retention, and a recognizable visual voice.',
@@ -217,7 +220,7 @@ export function ServicesLandingPage() {
       title: 'Elevate your music visually',
       category: 'Artist growth',
       href: '#service-music-video',
-      image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
+      image: serviceImageElevateMusicVisually,
       alt: 'Music video production',
       description:
         'When the track deserves a world, cinematic visuals match your sound, grow streams, and define how fans see you.',
@@ -227,7 +230,7 @@ export function ServicesLandingPage() {
       title: 'Preserve a milestone',
       category: 'Legacy & emotion',
       href: '#service-weddings-events',
-      image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80',
+      image: serviceImagePreserveMilestone,
       alt: 'Wedding and event films',
       description:
         'When the day only happens once, wedding and event films capture feeling, detail, and atmosphere you will want to relive.',
@@ -237,7 +240,7 @@ export function ServicesLandingPage() {
       title: 'The Platform (show & podcast)',
       category: 'Artist & founder media',
       href: '#the-platform',
-      image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+      image: serviceImageThePlatform,
       alt: 'The Platform music video show and podcast',
       description:
         'When discovery matters, our house series delivers music video performances and conversations, plus a podcast that puts business owners and artists in front of the right audience.',
@@ -407,24 +410,31 @@ export function ServicesLandingPage() {
               (610) 844-8696
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-3 px-8 py-4 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98"
+            <button
+              type="button"
+              className="inline-flex items-center gap-3 px-8 py-4 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98 cursor-pointer"
               style={{ 
                 fontFamily: 'Lemon Milk, sans-serif', 
                 fontSize: '0.875rem',
                 background: 'linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
                 border: '1px solid rgba(255,255,255,0.2)'
               }}
+              onClick={() =>
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
             >
               See how we can help
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-slide-up" style={{ animationDelay: '1.5s', animationFillMode: 'both' }}>
+        {/* Desktop scroll hint — mouse metaphor; hidden on phones */}
+        <div
+          className="hidden md:block absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-slide-up"
+          style={{ animationDelay: '1.5s', animationFillMode: 'both' }}
+          aria-hidden
+        >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2" style={{ animation: 'scrollBounce 2s infinite' }}>
             <div className="w-1.5 h-1.5 bg-[#BC271C] rounded-full" style={{ animation: 'scrollDot 2s infinite' }} />
           </div>
@@ -572,10 +582,27 @@ export function ServicesLandingPage() {
                 <Mail size={20} />
                 Email Us
               </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-3 px-10 py-5 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98"
+                style={{ 
+                  fontFamily: 'Lemon Milk, sans-serif', 
+                  fontSize: '1rem',
+                  background: 'linear-gradient(to right, rgba(188, 39, 28, 0.25), rgba(188, 39, 28, 0.1))',
+                  border: '1px solid rgba(188, 39, 28, 0.45)'
+                }}
+              >
+                <ArrowRight size={20} />
+                Project inquiry
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+      <div id="contact" className="scroll-mt-24">
+        <ContactPage />
+      </div>
 
       <style>{`
         @keyframes bgShift {

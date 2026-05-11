@@ -1,5 +1,6 @@
 import { Video, Camera, Award, TrendingUp, MapPin } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 export function ServicesMainLanding() {
   const services = [
@@ -84,7 +85,13 @@ export function ServicesMainLanding() {
   ];
 
   return (
-    <div className="bg-[#EEEEE8] min-h-screen">
+    <div className="bg-[#EEEEE8] min-h-screen pt-20">
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: 'By format' },
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative h-[70vh] bg-black flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />

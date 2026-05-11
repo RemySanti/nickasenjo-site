@@ -1,33 +1,25 @@
 import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { LocalServiceOfferingConfig } from '../../data/localServiceOfferingConfigs';
+import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 const AREA_LINKS = [
-  { label: 'Allentown', href: '#video-allentown' },
-  { label: 'Bethlehem', href: '#video-bethlehem' },
-  { label: 'Easton', href: '#video-easton' },
-  { label: 'Emmaus', href: '#video-emmaus' },
+  { label: 'Allentown', href: '#service-commercial-video-allentown' },
+  { label: 'Bethlehem', href: '#service-commercial-video-bethlehem' },
+  { label: 'Easton', href: '#service-commercial-video-easton' },
+  { label: 'Emmaus', href: '#service-commercial-video-emmaus' },
+  { label: 'Whitehall', href: '#service-commercial-video-whitehall' },
+  { label: 'NYC', href: '#service-commercial-video-nyc' },
 ];
 
 export function LocalServiceOfferingPage({ config }: { config: LocalServiceOfferingConfig }) {
   return (
     <div className="bg-[#EEEEE8] min-h-screen pt-20">
-      <nav className="border-b border-black/10 bg-white/80 backdrop-blur-sm" aria-label="Breadcrumb">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12 py-3 text-sm text-black/60">
-          <a href="#home" className="hover:text-[#BC271C] transition-colors">
-            Home
-          </a>
-          <span className="mx-2" aria-hidden>
-            /
-          </span>
-          <a href="#services" className="hover:text-[#BC271C] transition-colors">
-            Services
-          </a>
-          <span className="mx-2" aria-hidden>
-            /
-          </span>
-          <span className="text-black">{config.shortName}</span>
-        </div>
-      </nav>
+      <ServiceFlowBreadcrumb
+        items={[
+          { label: 'Services', href: '#services' },
+          { label: config.shortName },
+        ]}
+      />
 
       <header className="relative bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90 z-10" />
@@ -138,36 +130,10 @@ export function LocalServiceOfferingPage({ config }: { config: LocalServiceOffer
                 >
                   Service area
                 </h3>
-                <p className="text-black/70 text-sm leading-relaxed mb-6">
+                <p className="text-black/70 text-sm leading-relaxed">
                   Allentown · Bethlehem · Easton · Emmaus · Whitehall · Macungie · Greater Lehigh Valley · Eastern
                   Pennsylvania · nearby New Jersey markets
                 </p>
-                <h3
-                  className="mb-4 tracking-wider uppercase text-black"
-                  style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.9rem' }}
-                >
-                  Next steps
-                </h3>
-                <ul className="space-y-3">
-                  {config.relatedLinks.map((link) => {
-                    const external = /^https?:\/\//i.test(link.href);
-                    return (
-                      <li key={link.href + link.label}>
-                        <a
-                          href={link.href}
-                          className="inline-flex items-center gap-2 text-[#BC271C] hover:text-black text-sm font-medium transition-colors"
-                          {...(external
-                            ? { target: '_blank', rel: 'noopener noreferrer' }
-                            : {})}
-                        >
-                          <ArrowRight className="w-4 h-4 shrink-0" aria-hidden />
-                          {link.label}
-                          {external ? <span className="sr-only"> (opens in new tab)</span> : null}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
               </aside>
             </div>
           </div>

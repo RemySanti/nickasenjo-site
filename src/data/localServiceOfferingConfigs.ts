@@ -96,7 +96,8 @@ export const commercialVideoOffering: LocalServiceOfferingConfig = {
   ],
   relatedLinks: [
     { label: 'Portfolio: commercial & campaigns', href: '#work-page' },
-    { label: 'Commercial video: Allentown focus', href: '#video-allentown' },
+    { label: 'Commercial video: Allentown focus', href: '#service-commercial-video-allentown' },
+    { label: 'Commercial video: NYC & tri-state', href: '#service-commercial-video-nyc' },
     { label: 'Studio partnership (retainer)', href: '#service-studio-retainer' },
     { label: 'The Platform: show & podcast', href: '#the-platform' },
     { label: 'All services by goal', href: '#services' },
