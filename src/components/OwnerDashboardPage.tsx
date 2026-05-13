@@ -10,6 +10,7 @@ import {
   readLocalLeads,
 } from '../lib/contactLeads';
 import pkg from '../../package.json';
+import { CONTACT_FORM_COPY_EMAIL } from '../config/siteContact';
 
 const SUPABASE_CONFIGURED = Boolean(
   import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY,
@@ -209,6 +210,7 @@ export function OwnerDashboardPage() {
                 <dt className="text-black/50">Contact delivery</dt>
                 <dd className="max-w-[14rem] text-right text-black/80">
                   FormSubmit → <span className="whitespace-nowrap">nick@nickasenjofilms.com</span>
+                  <span className="block text-[0.65rem] text-black/50">CC: {CONTACT_FORM_COPY_EMAIL}</span>
                 </dd>
               </div>
             </dl>

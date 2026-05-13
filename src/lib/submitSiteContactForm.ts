@@ -1,4 +1,4 @@
-import { CONTACT_FORM_AJAX_URL } from '../config/siteContact';
+import { CONTACT_FORM_AJAX_URL, CONTACT_FORM_COPY_EMAIL } from '../config/siteContact';
 import { recordSuccessfulContactLead } from './contactLeads';
 
 const PROJECT_LABELS: Record<string, string> = {
@@ -67,6 +67,7 @@ export async function submitSiteContactForm(form: HTMLFormElement): Promise<void
   out.append('message', message);
   out.append('_subject', `Website inquiry — ${projectLabel}`);
   out.append('_template', 'table');
+  out.append('_cc', CONTACT_FORM_COPY_EMAIL);
 
   const res = await fetch(CONTACT_FORM_AJAX_URL, {
     method: 'POST',
