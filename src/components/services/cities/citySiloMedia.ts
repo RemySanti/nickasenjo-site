@@ -31,10 +31,10 @@ export const citySiloMedia = {
     asideAlt: 'Event and milestone video production',
   },
   whitehall: {
-    hero: imgPreserveMilestone,
-    aside: imgThePlatform,
-    heroAlt: 'Commercial video celebrating milestones and brand moments',
-    asideAlt: 'High-energy commercial and show-style production',
+    hero: imgThePlatform,
+    aside: imgDriveSales,
+    heroAlt: 'High-impact commercial and entertainment-style video production',
+    asideAlt: 'Campaign and launch commercial video production',
   },
   nyc: {
     hero: imgDriveSales,
