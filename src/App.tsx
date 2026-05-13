@@ -47,6 +47,7 @@ import { AllentownVideoPage } from './components/services/cities/AllentownVideoP
 import { BethlehemVideoPage } from './components/services/cities/BethlehemVideoPage';
 import { EastonVideoPage } from './components/services/cities/EastonVideoPage';
 import { EmmausVideoPage } from './components/services/cities/EmmausVideoPage';
+import { WhitehallVideoPage } from './components/services/cities/WhitehallVideoPage';
 import { NycVideoPage } from './components/services/cities/NycVideoPage';
 import {
   ServiceBrandStoryPage,
@@ -388,7 +389,6 @@ export default function App() {
       case 'easton-service':
       case 'city-easton':
       case 'city-emmaus':
-      case 'city-whitehall':
         // Fallback to home for disabled city pages
         return (
           <>
@@ -400,6 +400,8 @@ export default function App() {
             <LetsCollaborateSection />
           </>
         );
+      case 'city-whitehall':
+        return <WhitehallVideoPage />;
       case 'video-allentown':
         return <AllentownVideoPage />;
       case 'video-bethlehem':
@@ -409,7 +411,7 @@ export default function App() {
       case 'video-emmaus':
         return <EmmausVideoPage />;
       case 'video-whitehall':
-        return <AllentownVideoPage />; // Fallback
+        return <WhitehallVideoPage />;
       case 'video-nyc':
         return <NycVideoPage />;
       case 'photo-allentown':

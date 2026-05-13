@@ -5,7 +5,7 @@ import { ContactPage } from './ContactPage';
 
 import serviceImageDriveSalesAndLaunches from '../assets/finalchangesforwebsitebeforelaunch/Services - Drive Sales and Launches.jpg?url';
 import serviceImageBuildMemorableBrand from '../assets/finalchangesforwebsitebeforelaunch/Services - Build a Memorable Brand.jpg?url';
-import serviceImageGrowOnSocial from '../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.jpg?url';
+import serviceImageGrowOnSocial from '../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.png?url';
 import serviceImageElevateMusicVisually from '../assets/finalchangesforwebsitebeforelaunch/Services - Elevate Your Music Visually.jpg?url';
 import serviceImagePreserveMilestone from '../assets/finalchangesforwebsitebeforelaunch/Services - Preserve a Milestone.jpg?url';
 import serviceImageThePlatform from '../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';

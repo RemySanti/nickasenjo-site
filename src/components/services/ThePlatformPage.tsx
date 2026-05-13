@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 import { thePlatformShowOffering } from '../../data/localServiceOfferingConfigs';
-import platformEmblem from '../../assets/the-platform/the-platform-emblem.png?url';
 import platformWordmark from '../../assets/the-platform/the-platform-wordmark-white.png?url';
 import platformHeroStill from '../../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';
 
@@ -311,7 +310,6 @@ export function ThePlatformPage() {
       {/* Final CTA */}
       <section className="bg-black px-6 py-24 text-center lg:px-12" aria-label="Contact">
         <div className="container mx-auto max-w-2xl">
-          <img src={platformEmblem} alt="" className="mx-auto mb-8 h-20 w-20 opacity-95 md:h-24 md:w-24" aria-hidden />
           <img
             src={platformWordmark}
             alt=""

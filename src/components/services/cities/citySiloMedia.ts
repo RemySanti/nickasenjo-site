@@ -1,7 +1,7 @@
 /** On-brand stills for local commercial-video SEO pages (from site service art). */
 import imgDriveSales from '../../../assets/finalchangesforwebsitebeforelaunch/Services - Drive Sales and Launches.jpg?url';
 import imgBuildBrand from '../../../assets/finalchangesforwebsitebeforelaunch/Services - Build a Memorable Brand.jpg?url';
-import imgGrowSocial from '../../../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.jpg?url';
+import imgGrowSocial from '../../../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.png?url';
 import imgPreserveMilestone from '../../../assets/finalchangesforwebsitebeforelaunch/Services - Preserve a Milestone.jpg?url';
 import imgThePlatform from '../../../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';
 
@@ -29,6 +29,12 @@ export const citySiloMedia = {
     aside: imgPreserveMilestone,
     heroAlt: 'Social-first commercial video with cinematic craft',
     asideAlt: 'Event and milestone video production',
+  },
+  whitehall: {
+    hero: imgPreserveMilestone,
+    aside: imgThePlatform,
+    heroAlt: 'Commercial video celebrating milestones and brand moments',
+    asideAlt: 'High-energy commercial and show-style production',
   },
   nyc: {
     hero: imgDriveSales,

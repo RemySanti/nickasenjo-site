@@ -1,5 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import nickImage from '../imports/nick-behind-the-scenes.jpg';
+import nickImage from '../imports/nick-behind-the-scenes.png';
 import platformCarsImg from '../assets/Platform-cars.png';
 import { Header } from './Header';
 import { LogoCarouselSection } from './LogoCarouselSection';
