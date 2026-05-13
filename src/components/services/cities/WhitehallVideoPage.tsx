@@ -1,6 +1,7 @@
 import { Building2, Car, MapPin, Phone, Mail, Store, UtensilsCrossed, Warehouse } from 'lucide-react';
 import { ServiceFlowBreadcrumb } from '../ServiceFlowBreadcrumb';
 import { citySiloMedia } from './citySiloMedia';
+import { OWNER_EMAIL, mailtoOwner } from '../../../config/siteContact';
 
 export function WhitehallVideoPage() {
   return (
@@ -183,8 +184,8 @@ export function WhitehallVideoPage() {
             </div>
             <div className="flex items-center gap-2 text-black/70">
               <Mail className="w-5 h-5 text-[#BC271C]" />
-              <a href="mailto:nickasenjofilms@gmail.com" className="hover:text-[#BC271C] transition-colors">
-                nickasenjofilms@gmail.com
+              <a href={mailtoOwner()} className="hover:text-[#BC271C] transition-colors">
+                {OWNER_EMAIL}
               </a>
             </div>
           </div>

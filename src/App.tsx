@@ -26,7 +26,7 @@ import { BlogPost5 } from './components/BlogPost5';
 
 // Sitemap & Dashboard
 import { SiteMapPage } from './components/SiteMapPageNew';
-import { SiteMapPage as OwnerDashboard } from './components/SiteMapPageNew';
+import { OwnerDashboardPage } from './components/OwnerDashboardPage';
 
 // Portfolio
 import { LehighValleyHealthPage } from './components/portfolio/LehighValleyHealthPage';
@@ -344,7 +344,7 @@ export default function App() {
       
       // Owner Dashboard
       case 'owner-dashboard':
-        return <OwnerDashboard />;
+        return <OwnerDashboardPage />;
       
       // Portfolio
       case 'lehigh-valley-health':

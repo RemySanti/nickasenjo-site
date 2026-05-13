@@ -8,7 +8,7 @@ export function SiteMapPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="mb-8">
             <span className="text-black/60 tracking-[0.3em] uppercase text-sm">
-              Owner Dashboard
+              Site map
             </span>
           </div>
           <h1 

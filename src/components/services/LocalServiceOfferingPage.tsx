@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { LocalServiceOfferingConfig } from '../../data/localServiceOfferingConfigs';
+import { mailtoOwner } from '../../config/siteContact';
 import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 const AREA_LINKS = [
@@ -179,7 +180,7 @@ export function LocalServiceOfferingPage({ config }: { config: LocalServiceOffer
                 (610) 844-8696
               </a>
               <a
-                href="mailto:nickasenjofilms@gmail.com"
+                href={mailtoOwner()}
                 className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white tracking-wider uppercase text-sm hover:bg-white/10 transition-colors"
                 style={{ fontFamily: 'Lemon Milk, sans-serif' }}
               >

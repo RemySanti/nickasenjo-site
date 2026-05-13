@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { OWNER_EMAIL } from '../config/siteContact';
 import {
   getLocalServiceOfferingByPage,
   SEO_BY_SERVICE_PAGE,
@@ -93,6 +94,13 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
     keywords: 'video production blog, Allentown marketing video, Lehigh Valley film tips',
     ogTitle: 'Blog | Nick Asenjo Films',
     ogDescription: 'Insights for brands and creators investing in video.',
+  },
+  'owner-dashboard': {
+    title: 'Owner Dashboard | Nick Asenjo Films',
+    description: 'Internal build and lead tools for Nick Asenjo Films — not indexed for search.',
+    keywords: 'owner dashboard',
+    ogTitle: 'Owner Dashboard',
+    ogDescription: 'Internal tools for Nick Asenjo Films.',
   },
   'video-allentown': {
     title: 'Allentown Commercial Video Production | Nick Asenjo Films',
@@ -217,6 +225,18 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       meta.setAttribute('content', content);
     });
 
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (currentPage === 'owner-dashboard') {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement('meta');
+        robotsMeta.setAttribute('name', 'robots');
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute('content', 'noindex, nofollow');
+    } else if (robotsMeta) {
+      robotsMeta.remove();
+    }
+
     const existingScript = document.querySelector('script[data-seo-ld="business"]');
     if (existingScript) {
       existingScript.remove();
@@ -233,7 +253,7 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       '@id': 'https://nickasenjofilms.com',
       url: 'https://nickasenjofilms.com',
       telephone: '+1-610-844-8696',
-      email: 'nickasenjofilms@gmail.com',
+      email: OWNER_EMAIL,
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',

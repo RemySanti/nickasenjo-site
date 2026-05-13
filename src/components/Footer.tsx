@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Youtube, Twitter, MapPin } from 'lucide-react';
+import { OWNER_EMAIL, mailtoOwner } from '../config/siteContact';
 
 export function Footer() {
   const cities = [
@@ -99,11 +100,11 @@ export function Footer() {
               Contact
             </h3>
             <div className="space-y-2 text-white/60 text-sm mb-6">
-              <a 
-                href="mailto:nickasenjofilms@gmail.com"
+              <a
+                href={mailtoOwner()}
                 className="block hover:text-[#BC271C] transition-colors"
               >
-                nickasenjofilms@gmail.com
+                {OWNER_EMAIL}
               </a>
               <a 
                 href="tel:+16108448696"
