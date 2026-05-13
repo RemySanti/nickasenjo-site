@@ -8,37 +8,11 @@ import {
   type ContactLeadRecord,
   fetchRemoteLeads,
   readLocalLeads,
+  supabaseLeadsConfigured,
 } from '../lib/contactLeads';
 import pkg from '../../package.json';
-import { CONTACT_FORM_COPY_EMAIL } from '../config/siteContact';
-
-const SUPABASE_CONFIGURED = Boolean(
-  import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY,
-);
-
-const SQL_SNIPPET = `create table if not exists public.contact_leads (
-  id uuid primary key default gen_random_uuid(),
-  created_at timestamptz not null default now(),
-  name text not null,
-  email text not null,
-  phone text,
-  project_type text,
-  budget text,
-  timeline text,
-  message text not null
-);
-
-alter table public.contact_leads enable row level security;
-
-create policy "contact_leads_insert_anon"
-  on public.contact_leads for insert
-  to anon
-  with check (true);
-
-create policy "contact_leads_select_anon"
-  on public.contact_leads for select
-  to anon
-  using (true);`;
+import { CONTACT_FORM_COPY_EMAIL, OWNER_EMAIL } from '../config/siteContact';
+import contactLeadsMigrationSql from '../../supabase/migrations/20250513120000_contact_leads.sql?raw';
 
 function mergeLeads(local: ContactLeadRecord[], remote: ContactLeadRecord[]): ContactLeadRecord[] {
   const byKey = new Map<string, ContactLeadRecord>();
@@ -60,7 +34,7 @@ export function OwnerDashboardPage() {
   const refreshLeads = useCallback(async () => {
     setRemoteError('');
     const local = readLocalLeads();
-    if (!SUPABASE_CONFIGURED) {
+    if (!supabaseLeadsConfigured()) {
       setLeads(mergeLeads(local, []));
       return;
     }
@@ -209,7 +183,7 @@ export function OwnerDashboardPage() {
               <div className="flex justify-between gap-4 pb-2">
                 <dt className="text-black/50">Contact delivery</dt>
                 <dd className="max-w-[14rem] text-right text-black/80">
-                  FormSubmit → <span className="whitespace-nowrap">nick@nickasenjofilms.com</span>
+                  FormSubmit → <span className="whitespace-nowrap">{OWNER_EMAIL}</span>
                   <span className="block text-[0.65rem] text-black/50">CC: {CONTACT_FORM_COPY_EMAIL}</span>
                 </dd>
               </div>
@@ -234,8 +208,12 @@ export function OwnerDashboardPage() {
               in the Supabase SQL editor:
             </p>
             <pre className="max-h-48 overflow-auto rounded-sm border border-white/10 bg-white/5 p-4 text-[0.65rem] leading-relaxed text-white/80">
-              {SQL_SNIPPET}
+              {contactLeadsMigrationSql}
             </pre>
+            <p className="mt-3 text-xs text-white/50">
+              Same file lives at <code className="text-white/70">supabase/migrations/20250513120000_contact_leads.sql</code> — see{' '}
+              <code className="text-white/70">supabase/README.md</code> for full setup.
+            </p>
             <p className="mt-4 text-xs text-white/45">
               Public anon read/write is acceptable only for a dedicated project; rotate keys if exposed.
             </p>
@@ -261,7 +239,7 @@ export function OwnerDashboardPage() {
             </button>
           </div>
 
-          {!SUPABASE_CONFIGURED ? (
+          {!supabaseLeadsConfigured() ? (
             <div className="mb-6 flex gap-3 rounded-sm border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-950/90">
               <Shield className="h-5 w-5 flex-shrink-0 text-amber-700" aria-hidden />
               <p>

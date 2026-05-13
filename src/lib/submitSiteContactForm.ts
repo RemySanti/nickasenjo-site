@@ -1,4 +1,4 @@
-import { CONTACT_FORM_AJAX_URL, CONTACT_FORM_COPY_EMAIL } from '../config/siteContact';
+import { CONTACT_FORM_AJAX_URL, CONTACT_FORM_COPY_EMAIL, OWNER_EMAIL_DOMAIN } from '../config/siteContact';
 import { recordSuccessfulContactLead } from './contactLeads';
 
 const PROJECT_LABELS: Record<string, string> = {
@@ -48,7 +48,7 @@ export async function submitSiteContactForm(form: HTMLFormElement): Promise<void
   const timelineLabel = labelFor(timelineKey, TIMELINE_LABELS, timelineKey || '—');
 
   const message = [
-    'New inquiry from nickasenjofilms.com',
+    `New inquiry from ${OWNER_EMAIL_DOMAIN}`,
     '',
     `Name: ${name}`,
     `Email: ${email}`,
