@@ -14,12 +14,12 @@ type PageSeo = {
 };
 
 const HOME_SEO: PageSeo = {
-  title: 'Nick Asenjo Films | Premier Video Production Company in Allentown, PA',
+  title: 'The Premier Video Production Company | Nick Asenjo Films',
   description:
     "Nick Asenjo Films is Allentown's premier video production company. Specializing in commercial, narrative, and documentary filmmaking. Serving Lehigh Valley, PA. 5.0★ rated with 166+ reviews.",
   keywords:
     'video production Allentown, video production Lehigh Valley, commercial video Allentown PA, film production Pennsylvania, videographer Allentown, corporate video Lehigh Valley, Nick Asenjo Films',
-  ogTitle: 'Nick Asenjo Films | Video Production Allentown, PA',
+  ogTitle: 'The Premier Video Production Company',
   ogDescription:
     'Premier video production company in Allentown, PA. Creating cinematic stories for brands. Commercial, narrative, and documentary production.',
 };
