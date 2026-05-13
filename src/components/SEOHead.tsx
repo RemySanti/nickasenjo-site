@@ -152,6 +152,60 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
     ogTitle: 'NYC Commercial Video | Nick Asenjo Films',
     ogDescription: 'Commercial and campaign video for New York City brands — cinematic production from our PA studio.',
   },
+  'video-philadelphia': {
+    title: 'Philadelphia Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Philadelphia and Greater Philly — campaigns, launches, and brand films. Nick Asenjo Films is Lehigh Valley–based and travels for Philly shoots and multi-market deliverables.',
+    keywords:
+      'commercial video Philadelphia PA, Philadelphia video production company, Center City brand film, Nick Asenjo Films Philadelphia',
+    ogTitle: 'Philadelphia Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Philadelphia brands — travel-ready crew from Pennsylvania.',
+  },
+  'video-new-jersey': {
+    title: 'New Jersey Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video statewide in New Jersey — Newark, Jersey City, Hoboken, Shore, and Princeton corridor. Nick Asenjo Films travels from PA for NJ launches, franchises, and regional campaigns.',
+    keywords:
+      'commercial video New Jersey, NJ video production company, Jersey City commercial videographer, Newark brand film, Nick Asenjo Films New Jersey',
+    ogTitle: 'New Jersey Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video production for New Jersey markets — cinematic craft and organized logistics.',
+  },
+  'video-miami': {
+    title: 'Miami Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Miami-Dade — hospitality, real estate, lifestyle, and corporate campaigns. Nick Asenjo Films flies crews for Miami shoots with premium finishing from our PA studio.',
+    keywords:
+      'commercial video Miami FL, Miami video production company, South Florida brand film, Brickell corporate video, Nick Asenjo Films Miami',
+    ogTitle: 'Miami Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Miami brands — bilingual-friendly, location-aware production.',
+  },
+  'video-orlando': {
+    title: 'Orlando Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Greater Orlando — conventions, hospitality, sports-adjacent, and B2B campaigns. Nick Asenjo Films travels for Orlando productions with disciplined pre-production.',
+    keywords:
+      'commercial video Orlando FL, Orlando video production company, convention video Orlando, Nick Asenjo Films Orlando',
+    ogTitle: 'Orlando Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video for Orlando venues, events, and regional headquarters.',
+  },
+  'video-chicago': {
+    title: 'Chicago Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Chicago and Chicagoland — Loop, River North, innovation corridors, and suburbs. Nick Asenjo Films travels from Pennsylvania for Chicago shoots and agency collaborations.',
+    keywords:
+      'commercial video Chicago IL, Chicago video production company, Chicagoland brand film, Nick Asenjo Films Chicago',
+    ogTitle: 'Chicago Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Chicago brands — Midwest clarity, national polish.',
+  },
+  'video-los-angeles': {
+    title: 'Los Angeles Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Los Angeles County — campaign, brand, and launch films. Nick Asenjo Films is Pennsylvania-based and flies west for LA productions and multi-coast campaigns.',
+    keywords:
+      'commercial video Los Angeles, LA video production company, Los Angeles County brand film, Nick Asenjo Films Los Angeles',
+    ogTitle: 'Los Angeles Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video for Los Angeles — organized production and cinematic finishing.',
+  },
 };
 
 const DEFAULT_SERVICE_TYPES = [

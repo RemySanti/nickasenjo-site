@@ -10,6 +10,12 @@ const AREA_LINKS = [
   { label: 'Emmaus', href: '#service-commercial-video-emmaus' },
   { label: 'Whitehall', href: '#service-commercial-video-whitehall' },
   { label: 'NYC', href: '#service-commercial-video-nyc' },
+  { label: 'Philadelphia', href: '#service-commercial-video-philadelphia' },
+  { label: 'New Jersey', href: '#service-commercial-video-new-jersey' },
+  { label: 'Miami', href: '#service-commercial-video-miami' },
+  { label: 'Orlando', href: '#service-commercial-video-orlando' },
+  { label: 'Chicago', href: '#service-commercial-video-chicago' },
+  { label: 'Los Angeles', href: '#service-commercial-video-los-angeles' },
 ];
 
 export function LocalServiceOfferingPage({ config }: { config: LocalServiceOfferingConfig }) {

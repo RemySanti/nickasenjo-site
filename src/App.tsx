@@ -49,6 +49,8 @@ import { EastonVideoPage } from './components/services/cities/EastonVideoPage';
 import { EmmausVideoPage } from './components/services/cities/EmmausVideoPage';
 import { WhitehallVideoPage } from './components/services/cities/WhitehallVideoPage';
 import { NycVideoPage } from './components/services/cities/NycVideoPage';
+import { RegionalCommercialVideoPage } from './components/services/cities/RegionalCommercialVideoPage';
+import { REGIONAL_COMMERCIAL_VIDEO_SLUGS } from './data/regionalCommercialVideoMarkets';
 import {
   ServiceBrandStoryPage,
   ServiceCommercialVideoPage,
@@ -184,8 +186,17 @@ export default function App() {
         setCurrentPage('video-whitehall');
       } else if (route === 'video-nyc') {
         setCurrentPage('video-nyc');
-      } else if (route === 'service-commercial-photo-allentown') {
-        setCurrentPage('photo-allentown');
+      } else {
+        const regionalSlug = REGIONAL_COMMERCIAL_VIDEO_SLUGS.find(
+          (s) =>
+            route === `service-commercial-video-${s}` ||
+            route === `video-${s}` ||
+            route === `${s}-video-production`,
+        );
+        if (regionalSlug) {
+          setCurrentPage(`video-${regionalSlug}`);
+        } else if (route === 'service-commercial-photo-allentown') {
+          setCurrentPage('photo-allentown');
       } else if (route === 'service-commercial-photo-bethlehem') {
         setCurrentPage('photo-bethlehem');
       } else if (route === 'service-commercial-photo-easton') {
@@ -230,6 +241,7 @@ export default function App() {
         setCurrentPage('owner-dashboard');
       } else {
         setCurrentPage('home');
+      }
       }
     };
 
@@ -414,6 +426,18 @@ export default function App() {
         return <WhitehallVideoPage />;
       case 'video-nyc':
         return <NycVideoPage />;
+      case 'video-philadelphia':
+        return <RegionalCommercialVideoPage slug="philadelphia" />;
+      case 'video-new-jersey':
+        return <RegionalCommercialVideoPage slug="new-jersey" />;
+      case 'video-miami':
+        return <RegionalCommercialVideoPage slug="miami" />;
+      case 'video-orlando':
+        return <RegionalCommercialVideoPage slug="orlando" />;
+      case 'video-chicago':
+        return <RegionalCommercialVideoPage slug="chicago" />;
+      case 'video-los-angeles':
+        return <RegionalCommercialVideoPage slug="los-angeles" />;
       case 'photo-allentown':
       case 'photo-bethlehem':
       case 'photo-easton':

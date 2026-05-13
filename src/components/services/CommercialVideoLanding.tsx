@@ -46,6 +46,48 @@ export function CommercialVideoLanding() {
       population: '8.3M+',
       businesses: 'Finance, media, retail, hospitality, culture, startups',
     },
+    {
+      name: 'Philadelphia',
+      slug: 'philadelphia',
+      description: 'Center City, University City, Navy Yard, and Greater Philly campaigns',
+      population: '6M+ metro',
+      businesses: 'Healthcare, higher ed, finance, retail, professional services',
+    },
+    {
+      name: 'New Jersey',
+      slug: 'new-jersey',
+      description: 'Statewide — Newark, Jersey City, Hoboken, Shore, and Princeton corridor',
+      population: '9.3M+',
+      businesses: 'Logistics, finance, hospitality, pharma-adjacent, franchises',
+    },
+    {
+      name: 'Miami',
+      slug: 'miami',
+      description: 'Miami-Dade — Brickell, Wynwood, waterfront, and hospitality corridors',
+      population: '2.7M+ metro',
+      businesses: 'Hospitality, real estate, lifestyle, finance, consumer',
+    },
+    {
+      name: 'Orlando',
+      slug: 'orlando',
+      description: 'Conventions, resorts, I-4 corridor HQs, and Central Florida campaigns',
+      population: '2.7M+ metro',
+      businesses: 'Hospitality, healthcare, sports-adjacent, B2B',
+    },
+    {
+      name: 'Chicago',
+      slug: 'chicago',
+      description: 'Loop, River North, West Loop, and Chicagoland suburbs',
+      population: '9.5M+ metro',
+      businesses: 'Manufacturing, finance, food & CPG, professional services',
+    },
+    {
+      name: 'Los Angeles',
+      slug: 'los-angeles',
+      description: 'LA County — studios, on-location, and multi-coast campaign capture',
+      population: '10M+ county',
+      businesses: 'Entertainment-adjacent, consumer, tech, hospitality',
+    },
   ];
 
   return (
@@ -152,11 +194,11 @@ export function CommercialVideoLanding() {
                 fontSize: 'clamp(2rem, 4vw, 3rem)'
               }}
             >
-              Lehigh Valley Commercial Video Services
+              Commercial Video by Market
             </h2>
             <p className="text-white/70 max-w-3xl mx-auto" style={{ fontSize: '1.125rem' }}>
-              Professional video production tailored to each market — Lehigh Valley cities plus NYC for regional and
-              national campaigns.
+              Lehigh Valley hyper-local pages plus NYC and additional travel markets — same crew, location-aware context
+              for search and campaigns.
             </p>
           </div>
 
