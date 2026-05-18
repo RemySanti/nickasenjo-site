@@ -86,7 +86,7 @@ export function Footer() {
               </span>
             </h2>
             <p className="text-white/60 text-sm leading-relaxed">
-              A premiere video production company creating cinematic stories for brands that dare to stand out.
+              A premier video production company creating cinematic stories for brands that dare to stand out.
             </p>
             <p className="text-white/40 text-sm mt-6">
               © Nick Asenjo Films {new Date().getFullYear()}

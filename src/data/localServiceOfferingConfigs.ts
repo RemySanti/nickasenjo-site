@@ -125,7 +125,7 @@ export const brandStoryOffering: LocalServiceOfferingConfig = {
   introHeading: 'More than a pretty montage',
   introParagraphs: [
     'Brand films work when strategy meets cinema: a clear point of view, real people and real places, and visuals that match the caliber of your organization. From Allentown to Bethlehem and across the Valley, we help leadership teams articulate why they matter, not just what they sell.',
-    'We collaborate with founders, marketing directors, and communications leads to shape arcs that hold up on your homepage, at a SteelStacks premiere, or in a boardroom. That means interview direction, b-roll that actually supports the thesis, music and sound that carry emotion, and color that feels like your brand, not a template.',
+    'We collaborate with founders, marketing directors, and communications leads to shape arcs that hold up on your homepage, at a SteelStacks screening, or in a boardroom. That means interview direction, b-roll that actually supports the thesis, music and sound that carry emotion, and color that feels like your brand, not a template.',
     'If you are rebranding, opening a flagship facility, celebrating a milestone, or unifying employees after growth, a single flagship film or a small suite of chaptered stories can anchor every channel for years.',
   ],
   offerings: [
@@ -162,7 +162,7 @@ export const brandStoryOffering: LocalServiceOfferingConfig = {
         'Yes. We schedule concise prep, coach for natural delivery without sounding stiff, and design coverage so editors have flexibility in post.',
     },
     {
-      question: 'Where should we premiere a brand film internally?',
+      question: 'Where should we debut a brand film internally?',
       answer:
         'All-hands, leadership retreats, customer advisory boards, and intranets are common first screens, then public web and social. We can advise on rollout sequencing for Lehigh Valley and national audiences.',
     },
@@ -262,7 +262,7 @@ export const musicVideoOffering: LocalServiceOfferingConfig = {
   h1: 'Music video production in Allentown & the Lehigh Valley',
   heroKicker: 'Artist-forward, cinematic, release-ready',
   heroLead:
-    'Treat your single like a premiere. We design visuals that match your sonic identity, whether we are in a warehouse in Bethlehem, a field in the Valley, or a built set in-studio.',
+    'Treat your single like a release night. We design visuals that match your sonic identity, whether we are in a warehouse in Bethlehem, a field in the Valley, or a built set in-studio.',
   introHeading: 'From treatment to final color',
   introParagraphs: [
     'Music videos are where rhythm meets lens choice, wardrobe, location, and post. Our process starts with listening (tempo, lyrics, persona), then a treatment that is achievable on budget without diluting ambition.',
