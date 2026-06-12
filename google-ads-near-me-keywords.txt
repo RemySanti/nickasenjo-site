@@ -1,0 +1,544 @@
+================================================================================
+GOOGLE ADS — NEAR ME CAMPAIGN KEYWORDS
+Nick Asenjo Films | Cinematic Video Production
+================================================================================
+
+Business:     Nick Asenjo Films
+Location:     532 Hamilton Street, Downtown Allentown, PA
+Service area: Lehigh Valley (primary) + Philadelphia, NYC, regional/national
+Phone:        (610) 844-8696
+Email:        nickasenjofilms@gmail.com
+Website:      https://nickasenjofilms.com
+
+Brand theme:  Cinematic, full-service video production — commercial, brand films,
+              social content, music videos, weddings/events, corporate storytelling.
+              20+ years experience. 5.0 stars, 166+ Google reviews.
+
+Match type key:
+  "keyword"  = Phrase match (copy-paste ready below)
+  [keyword]  = Exact match (duplicate any line and swap quotes for brackets)
+  -keyword   = Negative broad match (Section 5)
+
+================================================================================
+CAMPAIGN SETUP (RECOMMENDED)
+================================================================================
+
+Campaign type:     Search
+Bidding:           Maximize conversions or Target CPA (after 15–30 conversions)
+Geo targeting:     Radius around Allentown + individual city targets (see below)
+                   Suggested radius: 25–40 miles from 532 Hamilton St, Allentown PA
+                   Or target: Allentown, Bethlehem, Easton, Emmaus, Whitehall,
+                   Macungie, Nazareth, Kutztown, Catasauqua, Quakertown
+Location options:  "Presence: People in or regularly in your targeted locations"
+Ad schedule:       Mon–Fri 8am–8pm (align with business hours; test weekends for weddings)
+Extensions:        Call, location, sitelinks, callouts, structured snippets
+
+Suggested ad groups (one theme per group):
+  1. Video production near me (broad local intent)
+  2. Commercial video near me
+  3. Wedding videographer near me
+  4. Corporate / brand video near me
+  5. Social media video near me
+  6. Music video near me
+  7. City-specific (Allentown, Bethlehem, Easton, etc.)
+
+================================================================================
+SECTION 1 — CORE "NEAR ME" KEYWORDS (HIGHEST PRIORITY)
+================================================================================
+
+All keywords below are Phrase match — ready to paste into Google Ads.
+
+--- General local intent ---
+"video production near me"
+"video production company near me"
+"videographer near me"
+"videography near me"
+"film production company near me"
+"film production near me"
+"video studio near me"
+"video crew near me"
+"local video production"
+"local videographer"
+"professional videographer near me"
+"cinematic videographer near me"
+"full service video production near me"
+
+--- Commercial / business near me ---
+"commercial video production near me"
+"commercial videographer near me"
+"business video production near me"
+"corporate video production near me"
+"corporate videographer near me"
+"advertising video production near me"
+"brand video production near me"
+"marketing video production near me"
+"promotional video production near me"
+"product video production near me"
+"company video production near me"
+"explainer video production near me"
+"video production for business near me"
+"local commercial video production"
+
+--- Wedding & events near me ---
+"wedding videographer near me"
+"wedding videography near me"
+"wedding video production near me"
+"wedding film maker near me"
+"cinematic wedding videographer near me"
+"event videographer near me"
+"event video production near me"
+"wedding video company near me"
+"local wedding videographer"
+
+--- Social & content near me ---
+"social media video production near me"
+"reels videographer near me"
+"tiktok video production near me"
+"instagram video production near me"
+"short form video production near me"
+"content creator videographer near me"
+"social media videographer near me"
+
+--- Music video near me ---
+"music video production near me"
+"music video director near me"
+"music videographer near me"
+"hip hop music video production near me"
+"local music video production"
+
+--- Photography crossover (if running photo ads) ---
+"commercial photographer near me"
+"corporate photographer near me"
+"brand photographer near me"
+"headshot photographer near me"
+
+================================================================================
+SECTION 2 — LEHIGH VALLEY + CITY KEYWORDS (LOCAL SEO ALIGNMENT)
+================================================================================
+
+These pair your services with the cities on your site. Phrase match — copy-paste ready.
+
+--- Allentown (HQ) ---
+"video production allentown pa"
+"videographer allentown"
+"commercial video production allentown"
+"corporate video allentown pa"
+"wedding videographer allentown"
+"wedding videographer allentown pa"
+"film production allentown"
+"video production company allentown"
+"brand video allentown"
+"social media video allentown"
+"music video production allentown"
+"event videographer allentown"
+
+--- Bethlehem ---
+"video production bethlehem pa"
+"videographer bethlehem"
+"commercial video bethlehem pa"
+"corporate video bethlehem"
+"wedding videographer bethlehem pa"
+"film production bethlehem"
+"brand video bethlehem pa"
+
+--- Easton ---
+"video production easton pa"
+"videographer easton"
+"commercial video easton pa"
+"wedding videographer easton pa"
+"corporate video easton"
+
+--- Emmaus ---
+"video production emmaus pa"
+"videographer emmaus"
+"wedding videographer emmaus pa"
+"commercial video emmaus"
+
+--- Whitehall ---
+"video production whitehall pa"
+"videographer whitehall"
+"commercial video whitehall pa"
+"wedding videographer whitehall"
+
+--- Lehigh Valley (regional) ---
+"video production lehigh valley"
+"videographer lehigh valley"
+"commercial video production lehigh valley"
+"corporate video lehigh valley pa"
+"wedding videographer lehigh valley"
+"wedding video lehigh valley pa"
+"film production lehigh valley"
+"brand film lehigh valley"
+"social media video lehigh valley"
+"music video production lehigh valley pa"
+"event videography lehigh valley"
+"video production company lehigh valley pa"
+"cinematic video production lehigh valley"
+
+--- Secondary Valley towns (from site) ---
+"video production macungie pa"
+"videographer nazareth pa"
+"video production kutztown pa"
+"videographer catasauqua pa"
+"video production quakertown pa"
+
+================================================================================
+SECTION 3 — SERVICE-SPECIFIC KEYWORDS (THEMED TO WEBSITE)
+================================================================================
+
+--- Commercial & campaigns ---
+"commercial video production pa"
+"advertising video production pennsylvania"
+"brand commercial video"
+"campaign video production"
+"product launch video production"
+"franchise video production"
+"dealer video production"
+"recruitment video production"
+"broadcast commercial production"
+"tv commercial production pa"
+"digital ad video production"
+
+--- Brand films & storytelling ---
+"brand film production"
+"brand story video"
+"corporate storytelling video"
+"about us video production"
+"company culture video"
+"executive video production"
+"mission video production"
+"brand documentary video"
+"corporate brand film"
+
+--- Social & short-form ---
+"social media video production pa"
+"reels production company"
+"tiktok video production pa"
+"instagram reels production"
+"short form video production"
+"vertical video production"
+"paid social video production"
+"content batch video production"
+
+--- Music videos ---
+"music video production pa"
+"music video director pennsylvania"
+"artist music video production"
+"performance video production"
+"hip hop video production pa"
+"independent music video production"
+
+--- Weddings & events ---
+"cinematic wedding film"
+"wedding highlight video"
+"wedding feature film"
+"gala videography"
+"nonprofit event video"
+"university event videography"
+"corporate event videography"
+"ceremony video recording"
+
+--- Studio retainer / ongoing ---
+"video production retainer"
+"ongoing video production partner"
+"monthly video production"
+"corporate video retainer"
+"brand content subscription"
+"always on video production"
+
+--- Corporate & documentary (site pages) ---
+"corporate video production pa"
+"documentary video production"
+"narrative video production"
+"healthcare video production"
+"manufacturing video production"
+"industrial video production"
+"higher education video production"
+"hospitality video production"
+
+================================================================================
+SECTION 4 — LONG-TAIL / HIGH-INTENT KEYWORDS
+================================================================================
+
+"hire videographer lehigh valley"
+"hire video production company allentown"
+"best videographer allentown pa"
+"best wedding videographer lehigh valley"
+"professional video production for small business"
+"cinematic commercial video production"
+"local video production for marketing"
+"video production for healthcare allentown"
+"video production for real estate lehigh valley"
+"video production for restaurants bethlehem"
+"video production studio allentown pa"
+"downtown allentown videographer"
+"hamilton street video production"
+"steelstacks video production"
+"video production route 22 corridor"
+"video production i-78 corridor"
+
+================================================================================
+SECTION 5 — NEGATIVE KEYWORDS (ADD EARLY)
+================================================================================
+
+Prevents wasted spend on wrong intent. Negatives use minus prefix (broad match).
+For phrase negatives, wrap in quotes: -"how to"
+
+--- DIY / free / cheap seekers ---
+-free
+-cheap
+-cheapest
+-diy
+-how to
+-tutorial
+-course
+-class
+-school
+-learn
+-jobs
+-job
+-hiring
+-career
+-salary
+-intern
+-internship
+-volunteer
+
+--- Wrong service type ---
+-stock footage
+-stock video
+-video editor only
+-video editing only
+-freelance editor
+-animation only
+-2d animation
+-3d animation
+-whiteboard video
+-cartoon animation
+-drone only
+-photography only          (unless running photo campaigns)
+-passport photo
+-real estate agent         (unless you want RE agents as B2B clients)
+-security camera
+-cctv
+-surveillance
+
+--- Consumer / unrelated ---
+-youtube downloader
+-tiktok downloader
+-video converter
+-video compressor
+-meme
+-funny videos
+-gaming
+-gameplay
+-twitch
+-streamer setup
+-webcam
+-zoom background
+
+--- Geographic exclusions (if not serving) ---
+-los angeles
+-hollywood
+-atlanta
+-miami
+-chicago
+-dallas
+-houston
+-international
+
+--- Wedding negatives (if focusing on commercial only) ---
+-wedding photographer        (optional — only if you don't want photo crossover traffic)
+-elopement photographer
+
+Adjust negatives per ad group. Wedding ad group should NOT block "wedding" terms.
+
+================================================================================
+SECTION 6 — SAMPLE AD COPY (RESPONSIVE SEARCH ADS)
+================================================================================
+
+Voice: Nolan. Structure before spectacle. Time perception consequence.
+No symbols in headlines. Mix and match freely.
+
+Headlines (max 30 characters each):
+  Nick Asenjo Films
+  Time Is The Architecture
+  What The Audience Believes
+  Structure Before Spectacle
+  The Frame Is The Argument
+  Built Layer Upon Layer
+  Perception Takes Precision
+  Memory Requires Evidence
+  Momentum Is Not Accident
+  Allentown Production Base
+  Twenty Years Of Construct
+  The Story Must Hold Weight
+  Reality On A Grand Scale
+  Every Cut Has Consequence
+  You Think You Know The Shot
+  Lehigh Valley Film Studio
+  Cause And Effect On Screen
+  The Idea Comes First
+  Gravity In Every Frame
+  Begin At The Foundation
+
+Descriptions (max 90 characters each):
+  The audience remembers what feels inevitable. We build that from Allentown.
+  Twenty years refining structure. Commercial brand and wedding work across the Valley.
+  You do not need more footage. You need a clearer architecture. We provide both.
+  What they see is the surface. What they believe is the edit. Call our Allentown team.
+  Every project starts with a question. What must the audience understand at the end.
+  Light location sound pacing. Each element locked in place before we shoot a frame.
+
+Callout extensions:
+  Structured Storytelling
+  Twenty Year Craft
+  Five Star Rated Studio
+  Allentown Based
+  Precision Over Noise
+  Layered Production
+  Commercial and Wedding
+  The Frame Decides All
+
+Sitelink extensions (link text max 25 chars, each description max 35 chars):
+
+  Commercial Video
+    Description 1: Architecture built for action
+    Description 2: The message must land clean
+    URL: https://nickasenjofilms.com/#service-commercial-video
+
+  Wedding Videography
+    Description 1: The day moves in one direction
+    Description 2: We preserve what was real
+    URL: https://nickasenjofilms.com/#service-weddings-events
+
+  Brand Films
+    Description 1: Trust is not assembled quickly
+    Description 2: Depth before the first cut
+    URL: https://nickasenjofilms.com/#service-brand-story
+
+  Social Media Video
+    Description 1: Seconds demand exact structure
+    Description 2: Built for how minds scroll
+    URL: https://nickasenjofilms.com/#service-social-video
+
+  Music Videos
+    Description 1: Sound dictates the visual logic
+    Description 2: Treat the release as premiere
+    URL: https://nickasenjofilms.com/#service-music-video
+
+  View Our Work
+    Description 1: Evidence of the construction
+    Description 2: Twenty years of final cuts
+    URL: https://nickasenjofilms.com/#work-page
+
+  Contact Us
+    Description 1: Every film begins with a question
+    Description 2: Speak to us in Allentown
+    URL: https://nickasenjofilms.com/#contact
+
+  Allentown Commercial
+    Description 1: Hamilton Street is our base
+    Description 2: Scale for Valley headquarters
+    URL: https://nickasenjofilms.com/#service-commercial-video-allentown
+
+Structured snippets:
+  Services: Commercial Video, Brand Films, Weddings, Social Content, Music Videos
+  Locations: Allentown, Bethlehem, Easton, Emmaus, Whitehall, Lehigh Valley
+
+================================================================================
+SECTION 7 — LANDING PAGE MAP
+================================================================================
+
+Send clicks to the most relevant page — improves Quality Score and conversions.
+
+Keyword theme                    → Landing page
+--------------------------------   ------------------------------------------
+"near me" / general video          → Homepage or Services hub (#services)
+commercial video near me           → Commercial video (#service-commercial-video)
+allentown commercial video         → Allentown city page (#service-commercial-video-allentown)
+bethlehem / easton / emmaus        → Matching city silo page
+wedding videographer near me       → Weddings & events (#service-weddings-events)
+brand film / corporate story       → Brand story (#service-brand-story)
+social media / reels / tiktok      → Social video (#service-social-video)
+music video near me                → Music video (#service-music-video)
+retainer / ongoing production      → Studio partnership (#service-studio-retainer)
+
+Always include:
+  - Phone click-to-call: (610) 844-8696
+  - Contact form above the fold on mobile
+  - Google reviews / 5.0 rating social proof
+  - Local mention: "Based in downtown Allentown"
+
+================================================================================
+SECTION 8 — BUDGET & KPI NOTES
+================================================================================
+
+Suggested starting daily budget:  $25–$75/day (test phase)
+Priority ad groups:               Commercial near me, Lehigh Valley city terms, Wedding near me
+Expected CPC range (local video): $3–$12 (varies by competition and match type)
+Track conversions:                Phone calls, form submits, "Book a call" clicks
+Conversion tracking:              Google Ads call extension + website form + GTM
+Remarketing:                      Consider Display/YouTube remarketing to site visitors
+
+Review search terms weekly for the first 30 days. Add negatives aggressively.
+
+================================================================================
+QUICK COPY-PASTE — TOP 50 "NEAR ME" KEYWORDS (PHRASE MATCH)
+================================================================================
+
+"video production near me"
+"videographer near me"
+"commercial video production near me"
+"corporate video production near me"
+"wedding videographer near me"
+"film production company near me"
+"business video production near me"
+"social media video production near me"
+"event videographer near me"
+"music video production near me"
+"video production company near me"
+"local videographer"
+"professional videographer near me"
+"cinematic videographer near me"
+"brand video production near me"
+"marketing video production near me"
+"promotional video production near me"
+"wedding videography near me"
+"corporate videographer near me"
+"commercial videographer near me"
+"video studio near me"
+"local video production"
+"video production lehigh valley"
+"videographer lehigh valley"
+"commercial video production lehigh valley"
+"wedding videographer lehigh valley"
+"video production allentown pa"
+"videographer allentown"
+"commercial video production allentown"
+"wedding videographer allentown pa"
+"video production bethlehem pa"
+"videographer bethlehem"
+"wedding videographer bethlehem pa"
+"video production easton pa"
+"wedding videographer easton pa"
+"video production emmaus pa"
+"video production whitehall pa"
+"film production lehigh valley"
+"brand video production near me"
+"company video production near me"
+"cinematic wedding videographer near me"
+"reels videographer near me"
+"tiktok video production near me"
+"music video director near me"
+"event video production near me"
+"corporate video lehigh valley pa"
+"video production company allentown"
+"hire videographer lehigh valley"
+"best videographer allentown pa"
+"video production for business near me"
+
+================================================================================
+END OF DOCUMENT
+Generated for Nick Asenjo Films — aligned with site services & Lehigh Valley SEO
+================================================================================
