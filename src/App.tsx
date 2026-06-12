@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './styles/globals.css';
-import { LoadingScreen } from './components/LoadingScreen';
+import { SplashLogoTransition } from './components/SplashLogoTransition';
 import { SEOHead } from './components/SEOHead';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -66,37 +66,16 @@ function normalizeRouteSegment(value: string) {
 }
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentLoaded, setContentLoaded] = useState(false);
-  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+  const desktopLogoAnchorRef = useRef<HTMLDivElement>(null);
+  const mobileLogoAnchorRef = useRef<HTMLDivElement>(null);
+  const [splashComplete, setSplashComplete] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
   const [currentPage, setCurrentPage] = useState('home');
   const [eventSlug, setEventSlug] = useState<string>('');
   const [citySlug, setCitySlug] = useState<string>('');
-  useEffect(() => {
-    // Minimum time reduced to 0.5 seconds for faster load
-    const timer = setTimeout(() => {
-      setMinTimeElapsed(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    // Skip preload and just set content loaded after a short delay
-    // This prevents conflicts with multiple videos loading
-    const timer = setTimeout(() => {
-      setContentLoaded(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    // Only complete loading when both conditions are met
-    if (minTimeElapsed && contentLoaded) {
-      setIsLoading(false);
-    }
-  }, [minTimeElapsed, contentLoaded]);
 
   useEffect(() => {
     const resolveRoute = (routeSegment: string) => {
@@ -462,20 +441,21 @@ export default function App() {
   return (
     <>
       <SEOHead currentPage={currentPage} />
-      {isLoading && (
-        <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
+      {!splashComplete && (
+        <SplashLogoTransition
+          desktopAnchorRef={desktopLogoAnchorRef}
+          mobileAnchorRef={mobileLogoAnchorRef}
+          onComplete={() => setSplashComplete(true)}
+        />
       )}
 
-      <div
-        style={{ 
-          opacity: isLoading ? 0 : 1,
-          transition: 'opacity 1s ease-in-out',
-          backgroundColor: '#EEEEE8',
-          transitionProperty: 'opacity, background-color',
-          transitionDuration: '1s, 0.5s'
-        }}
-      >
-        <Header currentPage={currentPage} />
+      <div style={{ backgroundColor: '#EEEEE8' }}>
+        <Header
+          currentPage={currentPage}
+          desktopLogoAnchorRef={desktopLogoAnchorRef}
+          mobileLogoAnchorRef={mobileLogoAnchorRef}
+          showLogo={splashComplete}
+        />
         {renderPage()}
         <Footer />
       </div>

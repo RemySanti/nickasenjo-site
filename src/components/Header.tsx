@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
-import { Menu, Phone, X } from 'lucide-react';
+import { useState, useEffect, type RefObject } from 'react';
+import { Phone, X } from 'lucide-react';
 import logo from 'figma:asset/638b1040e0fb8997b710e8b3c9a8e3f38ee499b5.png';
 
 interface HeaderProps {
   currentPage?: string;
+  desktopLogoAnchorRef?: RefObject<HTMLDivElement | null>;
+  mobileLogoAnchorRef?: RefObject<HTMLDivElement | null>;
+  showLogo?: boolean;
 }
 
-export function Header({ currentPage = 'home' }: HeaderProps) {
+export function Header({
+  currentPage = 'home',
+  desktopLogoAnchorRef,
+  mobileLogoAnchorRef,
+  showLogo = true,
+}: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +24,9 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    const logoTimer = setTimeout(() => {
-      setShowLogo(true);
-    }, 2800);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(logoTimer);
     };
   }, []);
 
@@ -60,13 +62,16 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
               <a href="#the-platform" className="hover:opacity-70 transition-opacity tracking-widest uppercase" style={gradientStyle}>The Platform</a>
             </div>
 
-            <div className="flex-shrink-0">
+            <div ref={desktopLogoAnchorRef} className="flex-shrink-0 h-[57.6px] flex items-center">
               <a href="#home" onClick={() => window.location.hash = ''}>
                 <img
                   src={logo}
                   alt="Nick Asenjo Films"
-                  className="h-[57.6px] w-auto transition-opacity duration-300"
-                  style={{ opacity: showLogo ? 1 : 0 }}
+                  className="h-[57.6px] w-auto"
+                  style={{
+                    opacity: showLogo ? 1 : 0,
+                    visibility: showLogo ? 'visible' : 'hidden',
+                  }}
                 />
               </a>
             </div>
@@ -78,7 +83,7 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
           </div>
 
           {/* Mobile Header */}
-          <div className="lg:hidden flex items-center justify-between h-16">
+          <div className="lg:hidden relative flex items-center justify-between h-16">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="flex items-center justify-center rounded-full hover:bg-black/5 transition-colors px-4 py-2"
@@ -91,13 +96,19 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
               )}
             </button>
 
-            <div className="absolute left-1/2 transform -translate-x-1/2">
+            <div
+              ref={mobileLogoAnchorRef}
+              className="absolute left-1/2 -translate-x-1/2 h-12 flex items-center"
+            >
               <a href="#home" onClick={() => window.location.hash = ''}>
                 <img
                   src={logo}
                   alt="Nick Asenjo Films"
-                  className="h-12 w-auto transition-opacity duration-300"
-                  style={{ opacity: showLogo ? 1 : 0 }}
+                  className="h-12 w-auto"
+                  style={{
+                    opacity: showLogo ? 1 : 0,
+                    visibility: showLogo ? 'visible' : 'hidden',
+                  }}
                 />
               </a>
             </div>
