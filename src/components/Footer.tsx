@@ -1,14 +1,25 @@
-import { Facebook, Instagram, Linkedin, Youtube, Twitter, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { OWNER_EMAIL, mailtoOwner } from '../config/siteContact';
+
+const areasLehighAndNyc = [
+  { name: 'Allentown', href: '#service-commercial-video-allentown' },
+  { name: 'Bethlehem', href: '#service-commercial-video-bethlehem' },
+  { name: 'Easton', href: '#service-commercial-video-easton' },
+  { name: 'Emmaus', href: '#service-commercial-video-emmaus' },
+  { name: 'Whitehall', href: '#service-commercial-video-whitehall' },
+  { name: 'New York City', href: '#service-commercial-video-nyc' },
+];
+
+const areasRegional = [
+  { name: 'Philadelphia', href: '#service-commercial-video-philadelphia' },
+  { name: 'New Jersey', href: '#service-commercial-video-new-jersey' },
+  { name: 'Miami', href: '#service-commercial-video-miami' },
+  { name: 'Orlando', href: '#service-commercial-video-orlando' },
+  { name: 'Chicago', href: '#service-commercial-video-chicago' },
+  { name: 'Los Angeles', href: '#service-commercial-video-los-angeles' },
+];
 
 export function Footer() {
-  const cities = [
-    { name: 'Allentown', slug: 'allentown' },
-    { name: 'Bethlehem', slug: 'bethlehem' },
-    { name: 'Easton', slug: 'easton' },
-    { name: 'Emmaus', slug: 'emmaus' },
-    { name: 'Whitehall', slug: 'whitehall' }
-  ];
-
   return (
     <footer 
       className="text-white py-16 px-6 lg:px-12 relative overflow-hidden"
@@ -52,7 +63,7 @@ export function Footer() {
       />
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Company Description */}
           <div className="lg:col-span-1">
             <h2 
@@ -75,7 +86,7 @@ export function Footer() {
               </span>
             </h2>
             <p className="text-white/60 text-sm leading-relaxed">
-              A premiere video production company creating cinematic stories for brands that dare to stand out.
+              A premier video production company creating cinematic stories for brands that dare to stand out.
             </p>
             <p className="text-white/40 text-sm mt-6">
               © Nick Asenjo Films {new Date().getFullYear()}
@@ -99,11 +110,11 @@ export function Footer() {
               Contact
             </h3>
             <div className="space-y-2 text-white/60 text-sm mb-6">
-              <a 
-                href="mailto:nickasenjofilms@gmail.com"
+              <a
+                href={mailtoOwner()}
                 className="block hover:text-[#BC271C] transition-colors"
               >
-                nickasenjofilms@gmail.com
+                {OWNER_EMAIL}
               </a>
               <a 
                 href="tel:+16108448696"
@@ -138,8 +149,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Areas We Serve */}
-          <div>
+          {/* Areas We Serve — two columns on large screens */}
+          <div className="lg:col-span-2">
             <h3 
               className="mb-4 tracking-wider uppercase"
               style={{ 
@@ -154,43 +165,21 @@ export function Footer() {
             >
               Areas We Serve
             </h3>
-            <div className="space-y-2 text-white/60 text-sm">
-              <a 
-                href="#service-commercial-video-allentown"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                Allentown
-              </a>
-              <a 
-                href="#service-commercial-video-bethlehem"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                Bethlehem
-              </a>
-              <a 
-                href="#service-commercial-video-easton"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                Easton
-              </a>
-              <a 
-                href="#service-commercial-video-emmaus"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                Emmaus
-              </a>
-              <a 
-                href="#service-commercial-video-whitehall"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                Whitehall
-              </a>
-              <a 
-                href="#service-commercial-video-nyc"
-                className="block hover:text-[#BC271C] transition-colors"
-              >
-                New York City
-              </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-2 text-white/60 text-sm">
+              <div className="space-y-2">
+                {areasLehighAndNyc.map((a) => (
+                  <a key={a.href} href={a.href} className="block hover:text-[#BC271C] transition-colors">
+                    {a.name}
+                  </a>
+                ))}
+              </div>
+              <div className="space-y-2 lg:border-l lg:border-white/10 lg:pl-8">
+                {areasRegional.map((a) => (
+                  <a key={a.href} href={a.href} className="block hover:text-[#BC271C] transition-colors">
+                    {a.name}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

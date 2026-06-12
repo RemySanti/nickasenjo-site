@@ -1,4 +1,5 @@
 import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { OWNER_EMAIL, mailtoOwner } from '../config/siteContact';
 
 export function LetsCollaborateSection() {
   return (
@@ -91,12 +92,12 @@ export function LetsCollaborateSection() {
 
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
-              <a 
-                href="mailto:nickasenjofilms@gmail.com"
+              <a
+                href={mailtoOwner()}
                 className="flex items-center gap-2 text-black/70 hover:text-black transition-colors"
               >
                 <Mail size={18} />
-                <span className="text-sm">nickasenjofilms@gmail.com</span>
+                <span className="text-sm">{OWNER_EMAIL}</span>
               </a>
               
               <a 

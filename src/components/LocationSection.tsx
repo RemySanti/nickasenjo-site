@@ -1,4 +1,5 @@
 import { Phone, Mail, Clock } from 'lucide-react';
+import { OWNER_EMAIL, mailtoOwner } from '../config/siteContact';
 
 export function LocationSection() {
   return (
@@ -46,11 +47,11 @@ export function LocationSection() {
                   >
                     Email
                   </h3>
-                  <a 
-                    href="mailto:nickasenjofilms@gmail.com"
+                  <a
+                    href={mailtoOwner()}
                     className="text-white/70 hover:text-[#BC271C] transition-colors"
                   >
-                    nickasenjofilms@gmail.com
+                    {OWNER_EMAIL}
                   </a>
                 </div>
               </div>

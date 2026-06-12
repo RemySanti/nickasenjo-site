@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { OWNER_EMAIL } from '../config/siteContact';
 import {
   getLocalServiceOfferingByPage,
   SEO_BY_SERVICE_PAGE,
@@ -13,12 +14,12 @@ type PageSeo = {
 };
 
 const HOME_SEO: PageSeo = {
-  title: 'Nick Asenjo Films | Premier Video Production Company in Allentown, PA',
+  title: 'The Premier Video Production Company | Nick Asenjo Films',
   description:
     "Nick Asenjo Films is Allentown's premier video production company. Specializing in commercial, narrative, and documentary filmmaking. Serving Lehigh Valley, PA. 5.0★ rated with 166+ reviews.",
   keywords:
     'video production Allentown, video production Lehigh Valley, commercial video Allentown PA, film production Pennsylvania, videographer Allentown, corporate video Lehigh Valley, Nick Asenjo Films',
-  ogTitle: 'Nick Asenjo Films | Video Production Allentown, PA',
+  ogTitle: 'The Premier Video Production Company',
   ogDescription:
     'Premier video production company in Allentown, PA. Creating cinematic stories for brands. Commercial, narrative, and documentary production.',
 };
@@ -94,6 +95,13 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
     ogTitle: 'Blog | Nick Asenjo Films',
     ogDescription: 'Insights for brands and creators investing in video.',
   },
+  'owner-dashboard': {
+    title: 'Owner Dashboard | Nick Asenjo Films',
+    description: 'Internal build and lead tools for Nick Asenjo Films — not indexed for search.',
+    keywords: 'owner dashboard',
+    ogTitle: 'Owner Dashboard',
+    ogDescription: 'Internal tools for Nick Asenjo Films.',
+  },
   'video-allentown': {
     title: 'Allentown Commercial Video Production | Nick Asenjo Films',
     description:
@@ -143,6 +151,60 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
       'commercial video production NYC, New York City commercial videographer, Manhattan brand film, Brooklyn video production company, tri-state commercial video, Nick Asenjo Films NYC',
     ogTitle: 'NYC Commercial Video | Nick Asenjo Films',
     ogDescription: 'Commercial and campaign video for New York City brands — cinematic production from our PA studio.',
+  },
+  'video-philadelphia': {
+    title: 'Philadelphia Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Philadelphia and Greater Philly — campaigns, launches, and brand films. Nick Asenjo Films is Lehigh Valley–based and travels for Philly shoots and multi-market deliverables.',
+    keywords:
+      'commercial video Philadelphia PA, Philadelphia video production company, Center City brand film, Nick Asenjo Films Philadelphia',
+    ogTitle: 'Philadelphia Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Philadelphia brands — travel-ready crew from Pennsylvania.',
+  },
+  'video-new-jersey': {
+    title: 'New Jersey Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video statewide in New Jersey — Newark, Jersey City, Hoboken, Shore, and Princeton corridor. Nick Asenjo Films travels from PA for NJ launches, franchises, and regional campaigns.',
+    keywords:
+      'commercial video New Jersey, NJ video production company, Jersey City commercial videographer, Newark brand film, Nick Asenjo Films New Jersey',
+    ogTitle: 'New Jersey Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video production for New Jersey markets — cinematic craft and organized logistics.',
+  },
+  'video-miami': {
+    title: 'Miami Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Miami-Dade — hospitality, real estate, lifestyle, and corporate campaigns. Nick Asenjo Films flies crews for Miami shoots with premium finishing from our PA studio.',
+    keywords:
+      'commercial video Miami FL, Miami video production company, South Florida brand film, Brickell corporate video, Nick Asenjo Films Miami',
+    ogTitle: 'Miami Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Miami brands — bilingual-friendly, location-aware production.',
+  },
+  'video-orlando': {
+    title: 'Orlando Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Greater Orlando — conventions, hospitality, sports-adjacent, and B2B campaigns. Nick Asenjo Films travels for Orlando productions with disciplined pre-production.',
+    keywords:
+      'commercial video Orlando FL, Orlando video production company, convention video Orlando, Nick Asenjo Films Orlando',
+    ogTitle: 'Orlando Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video for Orlando venues, events, and regional headquarters.',
+  },
+  'video-chicago': {
+    title: 'Chicago Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Chicago and Chicagoland — Loop, River North, innovation corridors, and suburbs. Nick Asenjo Films travels from Pennsylvania for Chicago shoots and agency collaborations.',
+    keywords:
+      'commercial video Chicago IL, Chicago video production company, Chicagoland brand film, Nick Asenjo Films Chicago',
+    ogTitle: 'Chicago Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial and campaign video for Chicago brands — Midwest clarity, national polish.',
+  },
+  'video-los-angeles': {
+    title: 'Los Angeles Commercial Video Production | Nick Asenjo Films',
+    description:
+      'Commercial video in Los Angeles County — campaign, brand, and launch films. Nick Asenjo Films is Pennsylvania-based and flies west for LA productions and multi-coast campaigns.',
+    keywords:
+      'commercial video Los Angeles, LA video production company, Los Angeles County brand film, Nick Asenjo Films Los Angeles',
+    ogTitle: 'Los Angeles Commercial Video | Nick Asenjo Films',
+    ogDescription: 'Commercial video for Los Angeles — organized production and cinematic finishing.',
   },
 };
 
@@ -217,6 +279,18 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       meta.setAttribute('content', content);
     });
 
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (currentPage === 'owner-dashboard') {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement('meta');
+        robotsMeta.setAttribute('name', 'robots');
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute('content', 'noindex, nofollow');
+    } else if (robotsMeta) {
+      robotsMeta.remove();
+    }
+
     const existingScript = document.querySelector('script[data-seo-ld="business"]');
     if (existingScript) {
       existingScript.remove();
@@ -233,7 +307,7 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       '@id': 'https://nickasenjofilms.com',
       url: 'https://nickasenjofilms.com',
       telephone: '+1-610-844-8696',
-      email: 'nickasenjofilms@gmail.com',
+      email: OWNER_EMAIL,
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',

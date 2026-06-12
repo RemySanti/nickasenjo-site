@@ -14,6 +14,7 @@ import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 import { thePlatformShowOffering } from '../../data/localServiceOfferingConfigs';
 import platformWordmark from '../../assets/the-platform/the-platform-wordmark-white.png?url';
 import platformHeroStill from '../../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';
+import { OWNER_EMAIL, mailtoOwner } from '../../config/siteContact';
 
 const lemon = { fontFamily: 'Lemon Milk, sans-serif' } as const;
 
@@ -94,7 +95,7 @@ export function ThePlatformPage() {
               Watch on YouTube
             </a>
             <a
-              href="mailto:nickasenjofilms@gmail.com?subject=The%20Platform%20—%20guest%20or%20performance%20pitch"
+              href={mailtoOwner('The Platform — guest or performance pitch')}
               className="inline-flex w-full min-w-[220px] items-center justify-center gap-2 border border-white/25 bg-white/[0.04] px-10 py-4 text-sm tracking-wider text-white uppercase backdrop-blur-sm transition-all hover:border-[#BC271C]/60 hover:bg-white/[0.08] sm:w-auto"
               style={lemon}
             >
@@ -327,7 +328,7 @@ export function ThePlatformPage() {
               (610) 844-8696
             </a>
             <a
-              href="mailto:nickasenjofilms@gmail.com"
+              href={mailtoOwner()}
               className="inline-flex items-center gap-2 border border-white/30 px-8 py-4 text-sm tracking-wider text-white uppercase transition-colors hover:bg-white/10"
               style={lemon}
             >

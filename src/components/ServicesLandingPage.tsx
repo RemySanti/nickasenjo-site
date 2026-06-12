@@ -6,6 +6,7 @@ import { ContactPage } from './ContactPage';
 import serviceImageDriveSalesAndLaunches from '../assets/finalchangesforwebsitebeforelaunch/Services - Drive Sales and Launches.jpg?url';
 import serviceImageBuildMemorableBrand from '../assets/finalchangesforwebsitebeforelaunch/Services - Build a Memorable Brand.jpg?url';
 import serviceImageGrowOnSocial from '../assets/finalchangesforwebsitebeforelaunch/Services - Grow on Social.png?url';
+import { mailtoOwner } from '../config/siteContact';
 import serviceImageElevateMusicVisually from '../assets/finalchangesforwebsitebeforelaunch/Services - Elevate Your Music Visually.jpg?url';
 import serviceImagePreserveMilestone from '../assets/finalchangesforwebsitebeforelaunch/Services - Preserve a Milestone.jpg?url';
 import serviceImageThePlatform from '../assets/finalchangesforwebsitebeforelaunch/Services - The Platform.jpg?url';
@@ -570,7 +571,7 @@ export function ServicesLandingPage() {
                 Call Now
               </a>
               <a
-                href="mailto:nickasenjofilms@gmail.com"
+                href={mailtoOwner()}
                 className="inline-flex items-center gap-3 px-10 py-5 text-white transition-all tracking-wider uppercase hover:scale-105 active:scale-98"
                 style={{ 
                   fontFamily: 'Lemon Milk, sans-serif', 

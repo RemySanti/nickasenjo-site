@@ -42,4 +42,40 @@ export const citySiloMedia = {
     heroAlt: 'Commercial and campaign video production',
     asideAlt: 'High-impact commercial and show-style production',
   },
+  philadelphia: {
+    hero: imgBuildBrand,
+    aside: imgDriveSales,
+    heroAlt: 'Philadelphia commercial and brand video production',
+    asideAlt: 'Campaign and launch commercial video',
+  },
+  'new-jersey': {
+    hero: imgThePlatform,
+    aside: imgBuildBrand,
+    heroAlt: 'New Jersey statewide commercial video production',
+    asideAlt: 'Brand-forward commercial video for dense metro markets',
+  },
+  miami: {
+    hero: imgGrowSocial,
+    aside: imgPreserveMilestone,
+    heroAlt: 'Miami commercial video — hospitality and lifestyle',
+    asideAlt: 'High-energy commercial and social-first video',
+  },
+  orlando: {
+    hero: imgPreserveMilestone,
+    aside: imgThePlatform,
+    heroAlt: 'Orlando commercial video for hospitality and conventions',
+    asideAlt: 'Large-format commercial and venue storytelling',
+  },
+  chicago: {
+    hero: imgDriveSales,
+    aside: imgGrowSocial,
+    heroAlt: 'Chicago commercial video production',
+    asideAlt: 'Digital and broadcast-ready commercial campaigns',
+  },
+  'los-angeles': {
+    hero: imgThePlatform,
+    aside: imgPreserveMilestone,
+    heroAlt: 'Los Angeles commercial video production',
+    asideAlt: 'Cinematic commercial and campaign production',
+  },
 } as const;

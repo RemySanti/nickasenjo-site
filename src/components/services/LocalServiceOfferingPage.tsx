@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { LocalServiceOfferingConfig } from '../../data/localServiceOfferingConfigs';
+import { mailtoOwner } from '../../config/siteContact';
 import { ServiceFlowBreadcrumb } from './ServiceFlowBreadcrumb';
 
 const AREA_LINKS = [
@@ -9,6 +10,12 @@ const AREA_LINKS = [
   { label: 'Emmaus', href: '#service-commercial-video-emmaus' },
   { label: 'Whitehall', href: '#service-commercial-video-whitehall' },
   { label: 'NYC', href: '#service-commercial-video-nyc' },
+  { label: 'Philadelphia', href: '#service-commercial-video-philadelphia' },
+  { label: 'New Jersey', href: '#service-commercial-video-new-jersey' },
+  { label: 'Miami', href: '#service-commercial-video-miami' },
+  { label: 'Orlando', href: '#service-commercial-video-orlando' },
+  { label: 'Chicago', href: '#service-commercial-video-chicago' },
+  { label: 'Los Angeles', href: '#service-commercial-video-los-angeles' },
 ];
 
 export function LocalServiceOfferingPage({ config }: { config: LocalServiceOfferingConfig }) {
@@ -179,7 +186,7 @@ export function LocalServiceOfferingPage({ config }: { config: LocalServiceOffer
                 (610) 844-8696
               </a>
               <a
-                href="mailto:nickasenjofilms@gmail.com"
+                href={mailtoOwner()}
                 className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white tracking-wider uppercase text-sm hover:bg-white/10 transition-colors"
                 style={{ fontFamily: 'Lemon Milk, sans-serif' }}
               >
