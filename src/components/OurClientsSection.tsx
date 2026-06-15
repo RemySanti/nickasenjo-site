@@ -304,122 +304,119 @@ export function OurClientsSection() {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 px-6 lg:px-12 transition-colors duration-200 relative"
+      className="relative py-20 px-6 transition-colors duration-200 lg:px-0"
       style={{ backgroundColor }}
     >
-      <div className="container mx-auto max-w-7xl">
-        {/* Header - Porsche Style */}
-        <div className="text-center mb-16">
-          <h2 
-            className="mb-8 tracking-tight transition-colors duration-200"
-            style={{ 
-              fontFamily: 'Lemon Milk, sans-serif',
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: '700',
-              letterSpacing: '-0.02em',
-              color: textColor
-            }}
-          >
-            Your video journey starts now.
-          </h2>
-        </div>
+      <div className="container mx-auto mb-16 max-w-7xl text-center lg:px-12">
+        <h2 
+          className="mb-8 tracking-tight transition-colors duration-200"
+          style={{ 
+            fontFamily: 'Lemon Milk, sans-serif',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            fontWeight: '700',
+            letterSpacing: '-0.02em',
+            color: textColor
+          }}
+        >
+          Your video journey starts now.
+        </h2>
+      </div>
 
-        {/* Mobile layouts — chosen in Owner dashboard */}
-        <div className="lg:hidden">
-          <OurClientsMobileSection
-            layoutId={mobileLayoutId}
-            projects={projects}
-            youtubeTitles={youtubeTitles}
-            scrollProgress={scrollProgress}
-            textColor={textColor}
-            getThumbnail={getProjectThumbnail}
-            getDescription={getMatchedDescription}
-            onOpenVideo={openVideoViewer}
+      {/* Mobile layouts — chosen in Owner dashboard */}
+      <div className="container mx-auto max-w-7xl lg:hidden">
+        <OurClientsMobileSection
+          layoutId={mobileLayoutId}
+          projects={projects}
+          youtubeTitles={youtubeTitles}
+          scrollProgress={scrollProgress}
+          textColor={textColor}
+          getThumbnail={getProjectThumbnail}
+          getDescription={getMatchedDescription}
+          onOpenVideo={openVideoViewer}
+        />
+      </div>
+
+      {/* Desktop: full-width dynamic frame grid */}
+      <div className="hidden lg:block">
+        <div className="h-[min(78vh,760px)] min-h-[520px] w-full">
+          <DynamicFrameLayout
+            frames={clientFrames}
+            className="h-full w-full"
+            gridRows={2}
+            gridCols={3}
+            hoverSize={6}
+            gapSize={8}
+            onHoverChange={(frame) => setHoveredFrameId(frame?.id ?? null)}
+            onFrameClick={(frame) => {
+              const index = frame.id - 1;
+              const project = projects[index];
+              if (project && project.video && !project.comingSoon) {
+                openVideoViewer(project, index);
+              }
+            }}
           />
         </div>
 
-        {/* Desktop: dynamic frame grid */}
-        <div className="hidden lg:block">
-          <div className="h-[min(78vh,760px)] min-h-[520px] w-full">
-            <DynamicFrameLayout
-              frames={clientFrames}
-              className="h-full w-full"
-              gridRows={2}
-              gridCols={3}
-              hoverSize={6}
-              gapSize={8}
-              onHoverChange={(frame) => setHoveredFrameId(frame?.id ?? null)}
-              onFrameClick={(frame) => {
-                const index = frame.id - 1;
-                const project = projects[index];
-                if (project && project.video && !project.comingSoon) {
-                  openVideoViewer(project, index);
-                }
-              }}
-            />
-          </div>
+        <div
+          className="container mx-auto mt-8 flex min-h-[5.5rem] max-w-7xl flex-col items-center justify-center gap-3 px-12 text-center transition-colors duration-200"
+          style={{ color: textColor }}
+        >
+          {(() => {
+            const index = hoveredFrameId != null ? hoveredFrameId - 1 : 0;
+            const project = projects[index];
+            if (!project) return null;
+            const featuredTitle = youtubeTitles[index] || project.title;
+            const matchedDescription = getMatchedDescription(project, index);
 
-          <div
-            className="mt-8 flex min-h-[5.5rem] flex-col items-center justify-center gap-3 text-center transition-colors duration-200"
-            style={{ color: textColor }}
-          >
-            {(() => {
-              const index = hoveredFrameId != null ? hoveredFrameId - 1 : 0;
-              const project = projects[index];
-              if (!project) return null;
-              const featuredTitle = youtubeTitles[index] || project.title;
-              const matchedDescription = getMatchedDescription(project, index);
-
-              return (
-                <>
-                  <h3
-                    className="tracking-tight"
+            return (
+              <>
+                <h3
+                  className="tracking-tight"
+                  style={{
+                    fontFamily: 'serif',
+                    fontStyle: 'italic',
+                    fontWeight: 300,
+                    fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
+                    lineHeight: 1.15,
+                  }}
+                >
+                  {featuredTitle}
+                </h3>
+                <p
+                  className="max-w-2xl text-sm opacity-80 lg:text-base"
+                  style={getResponsiveDescriptionStyle()}
+                >
+                  {matchedDescription}
+                </p>
+                <div className="flex gap-3 pt-1">
+                  <button
+                    type="button"
+                    className="rounded-md bg-[#BC271C] px-6 py-2.5 text-white transition-colors hover:bg-[#a02218]"
+                    style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem', letterSpacing: '0.08em' }}
+                    onClick={() => openVideoViewer(project, index)}
+                  >
+                    WATCH
+                  </button>
+                  <a
+                    href="#contact"
+                    className="rounded-md border px-6 py-2.5 transition-colors hover:bg-black/5"
                     style={{
-                      fontFamily: 'serif',
-                      fontStyle: 'italic',
-                      fontWeight: 300,
-                      fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
-                      lineHeight: 1.15,
+                      fontFamily: 'Lemon Milk, sans-serif',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.08em',
+                      borderColor: scrollProgress > 0.5 ? 'rgba(255,255,255,0.35)' : 'rgba(0,0,0,0.2)',
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.hash = 'contact';
                     }}
                   >
-                    {featuredTitle}
-                  </h3>
-                  <p
-                    className="max-w-2xl text-sm opacity-80 lg:text-base"
-                    style={getResponsiveDescriptionStyle()}
-                  >
-                    {matchedDescription}
-                  </p>
-                  <div className="flex gap-3 pt-1">
-                    <button
-                      type="button"
-                      className="rounded-md bg-[#BC271C] px-6 py-2.5 text-white transition-colors hover:bg-[#a02218]"
-                      style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem', letterSpacing: '0.08em' }}
-                      onClick={() => openVideoViewer(project, index)}
-                    >
-                      WATCH
-                    </button>
-                    <a
-                      href="#contact"
-                      className="rounded-md border px-6 py-2.5 transition-colors hover:bg-black/5"
-                      style={{
-                        fontFamily: 'Lemon Milk, sans-serif',
-                        fontSize: '0.75rem',
-                        letterSpacing: '0.08em',
-                        borderColor: scrollProgress > 0.5 ? 'rgba(255,255,255,0.35)' : 'rgba(0,0,0,0.2)',
-                      }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.hash = 'contact';
-                      }}
-                    >
-                      INQUIRE
-                    </a>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
+                    INQUIRE
+                  </a>
+                </div>
+              </>
+            );
+          })()}
         </div>
       </div>
       <VideoViewerModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
