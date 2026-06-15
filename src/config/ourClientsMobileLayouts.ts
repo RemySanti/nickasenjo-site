@@ -23,14 +23,18 @@ export type OurClientsMobileLayoutOption = {
 };
 
 export const OUR_CLIENTS_MOBILE_LAYOUT_KEY = 'naf_our_clients_mobile_layout';
+/** Bump when the site-wide default layout changes to ignore stale browser overrides. */
+export const OUR_CLIENTS_MOBILE_LAYOUT_PREF_VERSION = '2';
+const OUR_CLIENTS_MOBILE_LAYOUT_VERSION_KEY = 'naf_our_clients_mobile_layout_version';
 
-export const DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT: OurClientsMobileLayoutId = 'peek-carousel';
+/** Layout shown on mobile for all visitors unless overridden in Owner dashboard (this browser only). */
+export const DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT: OurClientsMobileLayoutId = 'bento-grid';
 
 export const OUR_CLIENTS_MOBILE_LAYOUTS: OurClientsMobileLayoutOption[] = [
   {
     id: 'peek-carousel',
     name: 'Peek Carousel',
-    tagline: 'Current mobile pattern — partial next card visible',
+    tagline: 'Partial next card visible — classic carousel',
     inspiration: 'shadcn/ui Carousel + Embla',
     inspirationUrl: 'https://ui.shadcn.com/docs/components/carousel',
     vibe: 'Polished product marketing. Familiar swipe, premium card chrome.',
@@ -63,7 +67,7 @@ export const OUR_CLIENTS_MOBILE_LAYOUTS: OurClientsMobileLayoutOption[] = [
   {
     id: 'bento-grid',
     name: 'Bento Grid',
-    tagline: 'Compact 2-column mosaic + “Create your own” CTA tile',
+    tagline: 'Site default — 2-column mosaic + “Create your own” CTA tile',
     inspiration: '21st.dev bento blocks + v0 marketing grids',
     inspirationUrl: 'https://21st.dev',
     vibe: 'Dense, modern SaaS landing — see more at once.',

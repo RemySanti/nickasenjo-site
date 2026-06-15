@@ -249,10 +249,10 @@ export function OwnerDashboardPage() {
                 </h2>
               </div>
               <p className="max-w-3xl text-sm text-black/60">
-                Desktop stays on the dynamic frame grid. Pick a mobile pattern for{' '}
-                <strong className="text-black/80">Your video journey starts now.</strong> Inspired by
-                shadcn, 21st.dev, Aceternity, Magic UI, Relume, and v0-style component libraries.
-                Selection saves in this browser and applies on the homepage immediately.
+                Desktop stays on the dynamic frame grid. Site default on mobile is{' '}
+                <strong className="text-black/80">Bento Grid</strong> for all visitors. Pick another pattern below to
+                preview in <em>this browser only</em> — it does not change what other phones see until you update the
+                default in code or redeploy.
               </p>
             </div>
             <a
