@@ -1,6 +1,6 @@
 /** SHA-256 (hex) of the owner dashboard password — plaintext is not stored in source. */
 export const OWNER_DASHBOARD_PASSWORD_SHA256_HEX =
-  '65f5c912b9e4f3004bb267c0238eb29c00962aafa8b70e4edecd0f32b043ecc7';
+  '0f0def2b469b45038a4a5b8ce4de42af9d1743a637e28d1460cbfd53a0082d55';
 
 export const OWNER_DASH_SESSION_KEY = 'naf_owner_dash_ok';
 

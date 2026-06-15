@@ -1,5 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { VideoViewerModal, type VideoViewerData } from './VideoViewerModal';
+import { DynamicFrameLayout, type Frame } from '@/components/ui/dynamic-frame-layout';
+import { OurClientsMobileSection } from '@/components/our-clients/OurClientsMobileSection';
+import { useOurClientsMobileLayout } from '@/hooks/useOurClientsMobileLayout';
 
 import videosThumbSaquon from '../assets/Videos-Section/1 - Saquon Video.png?url';
 import videosThumbMercedes from '../assets/Videos-Section/2 - Mercedez Video.png?url';
@@ -157,40 +160,32 @@ function getTitleLineClampStyle(lines: number): React.CSSProperties {
   };
 }
 
+function buildClientFrames(projectList: Project[]): Frame[] {
+  return projectList.map((project, index) => {
+    const col = index % 3;
+    const row = Math.floor(index / 3);
+
+    return {
+      id: index + 1,
+      video: project.video,
+      poster: getProjectThumbnail(project),
+      startSeconds: project.thumbnailStartSeconds,
+      defaultPos: { x: col * 4, y: row * 4, w: 4, h: 4 },
+      mediaSize: 1.05,
+      borderThickness: 0,
+      borderSize: 100,
+    };
+  });
+}
+
 export function OurClientsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  const [hoveredFrameId, setHoveredFrameId] = useState<number | null>(null);
+  const mobileLayoutId = useOurClientsMobileLayout();
   const [scrollProgress, setScrollProgress] = useState(0);
   const [youtubeTitles, setYoutubeTitles] = useState<Record<number, string>>({});
   const [selectedVideo, setSelectedVideo] = useState<VideoViewerData | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(0);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe && activeIndex < projects.length - 1) {
-      setActiveIndex(activeIndex + 1);
-    }
-    if (isRightSwipe && activeIndex > 0) {
-      setActiveIndex(activeIndex - 1);
-    }
-  };
+  const clientFrames = useMemo(() => buildClientFrames(projects), []);
 
   const openVideoViewer = (project: Project, index: number) => {
     const featuredTitle = youtubeTitles[index] || project.title;
@@ -329,455 +324,102 @@ export function OurClientsSection() {
           </h2>
         </div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile layouts — chosen in Owner dashboard */}
         <div className="lg:hidden">
-          <div className="relative overflow-hidden">
-            {/* Carousel Container */}
-            <div 
-              className="overflow-visible px-6"
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
-            >
-              <div 
-                className="flex transition-transform duration-500 ease-out"
-                style={{ 
-                  transform: `translateX(calc(-${activeIndex * 100}%))`
-                }}
-              >
-                {projects.map((project, index) => {
-                  const isActive = index === activeIndex;
-                  const hasPlayableVideo = Boolean(project.video && !project.comingSoon);
-                  const thumbnail = getProjectThumbnail(project);
-                  const featuredTitle = youtubeTitles[index] || project.title;
-                  const matchedDescription = getMatchedDescription(project, index);
-
-                  return (
-                    <div 
-                      key={index}
-                      className={`flex-shrink-0 transition-all duration-500 ${
-                        isActive ? 'opacity-100' : 'opacity-50'
-                      }`}
-                      style={{ 
-                        width: '85%',
-                        marginLeft: index === 0 ? '7.5%' : '0',
-                        marginRight: '15%'
-                      }}
-                    >
-                      <div className="bg-black rounded-2xl overflow-hidden shadow-2xl">
-                        {/* Video/Image Container with Overlay Content */}
-                        <div className="relative aspect-[3/4]">
-                          <img
-                            src={thumbnail}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              if (project.thumbnailStillUrl) return;
-                              const videoId = getYouTubeId(project.video);
-                              if (!videoId) return;
-                              const img = e.currentTarget;
-                              if (img.src.includes('maxresdefault.jpg')) {
-                                img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
-                              } else if (img.src.includes('sddefault.jpg')) {
-                                img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                              }
-                            }}
-                          />
-                          {project.comingSoon && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-                              <span
-                                className="text-white tracking-wider text-2xl"
-                                style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                              >
-                                COMING SOON
-                              </span>
-                            </div>
-                          )}
-                          
-                          {/* Gradient Overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80" />
-                          
-                          {/* Play/Pause Overlay - Only show when not playing */}
-                          {hasPlayableVideo && (
-                            <button
-                              type="button"
-                              className="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer group"
-                              onClick={() => openVideoViewer(project, index)}
-                              aria-label={`Play featured video: ${youtubeTitles[index] || project.title}`}
-                            >
-                              {/* Outer Pulsing Ring */}
-                              <div 
-                                className="absolute w-24 h-24 rounded-full animate-pulse"
-                                style={{
-                                  background: 'radial-gradient(circle, rgba(188, 39, 28, 0.3) 0%, rgba(188, 39, 28, 0) 70%)',
-                                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                                }}
-                              />
-                              
-                              {/* Main Play Button Container */}
-                              <div className="relative w-20 h-20 flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-all duration-300">
-                                {/* Gradient Border Ring */}
-                                <div 
-                                  className="absolute inset-0 rounded-full"
-                                  style={{
-                                    background: 'linear-gradient(135deg, #BC271C 0%, #FF4436 50%, #BC271C 100%)',
-                                    padding: '2px'
-                                  }}
-                                >
-                                  <div 
-                                    className="w-full h-full rounded-full"
-                                    style={{
-                                      background: 'rgba(0, 0, 0, 0.4)',
-                                      backdropFilter: 'blur(10px)'
-                                    }}
-                                  />
-                                </div>
-                                
-                                {/* Inner Glass Circle */}
-                                <div 
-                                  className="relative w-16 h-16 rounded-full flex items-center justify-center"
-                                  style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                                    backdropFilter: 'blur(20px)',
-                                    boxShadow: '0 8px 32px rgba(188, 39, 28, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
-                                  }}
-                                >
-                                  {/* Play Icon with Gradient */}
-                                  <svg 
-                                    className="w-7 h-7 ml-1 relative z-10" 
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
-                                    }}
-                                  >
-                                    <defs>
-                                      <linearGradient id={`playGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style={{ stopColor: '#FFFFFF', stopOpacity: 1 }} />
-                                        <stop offset="100%" style={{ stopColor: '#EEEEEE', stopOpacity: 0.9 }} />
-                                      </linearGradient>
-                                    </defs>
-                                    <path 
-                                      d="M8 5v14l11-7z" 
-                                      fill={`url(#playGradient-${index})`}
-                                    />
-                                  </svg>
-                                  
-                                  {/* Shine Effect */}
-                                  <div 
-                                    className="absolute inset-0 rounded-full opacity-40"
-                                    style={{
-                                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%)'
-                                    }}
-                                  />
-                                </div>
-                              </div>
-                              
-                              {/* Hover Glow Effect */}
-                              <div 
-                                className="absolute w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                style={{
-                                  background: 'radial-gradient(circle, rgba(188, 39, 28, 0.4) 0%, transparent 70%)',
-                                  filter: 'blur(20px)'
-                                }}
-                              />
-                            </button>
-                          )}
-
-                          {/* Mobile Featured Title */}
-                          <div className="absolute top-4 left-4 right-4">
-                            <div className="rounded-xl border border-white/20 bg-black/35 backdrop-blur-md px-3 py-2">
-                              <p
-                                className="text-white tracking-tight"
-                                style={{
-                                  fontFamily: 'serif',
-                                  fontStyle: 'italic',
-                                  fontWeight: '400',
-                                  fontSize: 'clamp(1.05rem, 4.2vw, 1.35rem)',
-                                  lineHeight: 1.2,
-                                  textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
-                                  ...getTitleLineClampStyle(3)
-                                }}
-                              >
-                                {featuredTitle}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* Content Overlay at Bottom */}
-                          <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
-                            <p className="text-white/90 leading-relaxed text-sm">
-                              {matchedDescription}
-                            </p>
-                            
-                            {/* Buttons on Card */}
-                            <div className="flex gap-2 pt-1">
-                              {/* Primary Button - View Project */}
-                              <a
-                                href="#"
-                                className={`flex-1 bg-white text-black py-2.5 px-4 rounded-md hover:bg-white/95 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center ${!hasPlayableVideo ? 'pointer-events-none opacity-60' : ''}`}
-                                aria-label={`Watch featured video for ${project.title}`}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  if (hasPlayableVideo) {
-                                    openVideoViewer(project, index);
-                                  }
-                                }}
-                              >
-                                <span 
-                                  className="tracking-wider text-xs"
-                                  style={{ 
-                                    fontFamily: 'Lemon Milk, sans-serif'
-                                  }}
-                                >
-                                  WATCH
-                                </span>
-                              </a>
-
-                              {/* Secondary Button - Inquire */}
-                              <a 
-                                href="#contact"
-                                className="flex-1 py-2.5 px-4 rounded-md border border-white/40 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm flex items-center justify-center"
-                                style={{
-                                  background: 'rgba(255, 255, 255, 0.05)'
-                                }}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  window.location.hash = 'contact';
-                                }}
-                              >
-                                <span 
-                                  className="tracking-wider text-xs"
-                                  style={{ 
-                                    fontFamily: 'Lemon Milk, sans-serif',
-                                    background: 'linear-gradient(135deg, #BC271C 0%, #BC271C 70%, #ffffff 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                  }}
-                                >
-                                  INQUIRE
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Pagination Dots */}
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setActiveIndex(index);
-                }}
-                className={`transition-all duration-300 rounded-full`}
-                style={{
-                  width: index === activeIndex ? '32px' : '8px',
-                  height: '8px',
-                  backgroundColor: index === activeIndex 
-                    ? '#BC271C' 
-                    : scrollProgress > 0.5 
-                      ? 'rgba(255, 255, 255, 0.3)' 
-                      : 'rgba(0, 0, 0, 0.3)'
-                }}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
+          <OurClientsMobileSection
+            layoutId={mobileLayoutId}
+            projects={projects}
+            youtubeTitles={youtubeTitles}
+            scrollProgress={scrollProgress}
+            textColor={textColor}
+            getThumbnail={getProjectThumbnail}
+            getDescription={getMatchedDescription}
+            onOpenVideo={openVideoViewer}
+          />
         </div>
 
-        {/* Desktop grid: min-h-0 prevents aspect-ratio + min-height from blowing past column width (overlap bug) */}
-        <div className="isolate hidden lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-12 items-stretch">
-          {projects.map((project, index) => {
-            const hasPlayableVideo = Boolean(project.video && !project.comingSoon);
-            const featuredTitle = youtubeTitles[index] || project.title;
-            const matchedDescription = getMatchedDescription(project, index);
-            const youtubeEmbedId =
-              project.isYouTube && project.video ? getYouTubeId(project.video) : null;
-            return (
-            <div
-              key={index}
-              className={`relative min-h-0 min-w-0 w-full max-w-full overflow-hidden cursor-pointer transition-[opacity,box-shadow,ring-color] duration-300 ease-out rounded-lg aspect-[4/3] lg:min-h-[22rem] xl:min-h-[24rem] ${
-                activeIndex === index
-                  ? 'z-10 opacity-100 shadow-xl ring-1 ring-white/30'
-                  : 'opacity-80 hover:opacity-100'
-              }`}
-              onMouseEnter={() => setActiveIndex(index)}
-              onMouseLeave={() => setActiveIndex(0)}
-              onClick={() => {
-                if (hasPlayableVideo) {
+        {/* Desktop: dynamic frame grid */}
+        <div className="hidden lg:block">
+          <div className="h-[min(78vh,760px)] min-h-[520px] w-full">
+            <DynamicFrameLayout
+              frames={clientFrames}
+              className="h-full w-full"
+              gridRows={2}
+              gridCols={3}
+              hoverSize={6}
+              gapSize={8}
+              onHoverChange={(frame) => setHoveredFrameId(frame?.id ?? null)}
+              onFrameClick={(frame) => {
+                const index = frame.id - 1;
+                const project = projects[index];
+                if (project && project.video && !project.comingSoon) {
                   openVideoViewer(project, index);
                 }
               }}
-              onKeyDown={(e) => {
-                if (!hasPlayableVideo) return;
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  openVideoViewer(project, index);
-                }
-              }}
-              tabIndex={hasPlayableVideo ? 0 : -1}
-              role={hasPlayableVideo ? 'button' : undefined}
-              aria-label={hasPlayableVideo ? `Open video viewer for ${featuredTitle}` : undefined}
-            >
-              {/* Poster Image */}
-              <img
-                src={getProjectThumbnail(project)}
-                alt={project.title}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-                  activeIndex === index ? 'opacity-0' : 'opacity-100'
-                }`}
-                onError={(e) => {
-                  if (project.thumbnailStillUrl) return;
-                  const videoId = getYouTubeId(project.video);
-                  if (!videoId) return;
-                  const img = e.currentTarget;
-                  if (img.src.includes('maxresdefault.jpg')) {
-                    img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
-                  } else if (img.src.includes('sddefault.jpg')) {
-                    img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                  }
-                }}
-              />
+            />
+          </div>
 
-              {/* Video - YouTube iframe or regular video */}
-              {activeIndex === index &&
-              project.isYouTube &&
-              hasPlayableVideo &&
-              project.video &&
-              youtubeEmbedId ? (
-                <iframe
-                  src={buildYouTubeEmbedSrc(
-                    project.video,
-                    youtubeEmbedId,
-                    project.thumbnailStartSeconds
-                  )}
-                  className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ border: 'none' }}
-                />
-              ) : activeIndex === index && hasPlayableVideo && project.video ? (
-                <video
-                  ref={(el) => {
-                    if (el) {
-                      if (activeIndex === index) {
-                        el.play().catch(() => {
-                          // Handle autoplay restrictions
-                        });
-                      } else {
-                        el.pause();
-                        el.currentTime = 0;
-                      }
-                    }
-                  }}
-                  src={project.video}
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300"
-                />
-              ) : null}
+          <div
+            className="mt-8 flex min-h-[5.5rem] flex-col items-center justify-center gap-3 text-center transition-colors duration-200"
+            style={{ color: textColor }}
+          >
+            {(() => {
+              const index = hoveredFrameId != null ? hoveredFrameId - 1 : 0;
+              const project = projects[index];
+              if (!project) return null;
+              const featuredTitle = youtubeTitles[index] || project.title;
+              const matchedDescription = getMatchedDescription(project, index);
 
-              {/* Coming Soon Overlay */}
-              {project.comingSoon && activeIndex === index && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-20">
-                  <span 
-                    className="text-white tracking-wider text-3xl"
-                    style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                  >
-                    COMING SOON
-                  </span>
-                </div>
-              )}
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-between p-4 lg:p-6 z-10">
-                {/* Title at top */}
-                <div className="pr-2">
-                  <h3 
-                    className="text-white tracking-wide"
-                    style={getResponsiveTitleStyle(featuredTitle)}
+              return (
+                <>
+                  <h3
+                    className="tracking-tight"
+                    style={{
+                      fontFamily: 'serif',
+                      fontStyle: 'italic',
+                      fontWeight: 300,
+                      fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
+                      lineHeight: 1.15,
+                    }}
                   >
                     {featuredTitle}
                   </h3>
-                </div>
-
-                {/* Bottom content */}
-                <div className="space-y-2 lg:space-y-3">
-                  <div className="text-white space-y-2">
-                    <p className="text-xs lg:text-sm opacity-90" style={getResponsiveDescriptionStyle()}>
-                      {matchedDescription}
-                    </p>
-                  </div>
-                  
-                  {/* Desktop Buttons - Always visible */}
-                  <div className="flex gap-2 opacity-100">
-                    <a 
-                      href="#"
-                      className={`flex-1 min-w-0 bg-white text-black py-2 px-3 lg:px-4 rounded-md hover:bg-white/95 transition-colors duration-300 flex items-center justify-center ${!hasPlayableVideo ? 'pointer-events-none opacity-60' : ''}`}
-                      aria-label={`Watch featured video for ${project.title}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (hasPlayableVideo) {
-                          openVideoViewer(project, index);
-                        }
-                      }}
+                  <p
+                    className="max-w-2xl text-sm opacity-80 lg:text-base"
+                    style={getResponsiveDescriptionStyle()}
+                  >
+                    {matchedDescription}
+                  </p>
+                  <div className="flex gap-3 pt-1">
+                    <button
+                      type="button"
+                      className="rounded-md bg-[#BC271C] px-6 py-2.5 text-white transition-colors hover:bg-[#a02218]"
+                      style={{ fontFamily: 'Lemon Milk, sans-serif', fontSize: '0.75rem', letterSpacing: '0.08em' }}
+                      onClick={() => openVideoViewer(project, index)}
                     >
-                      <span 
-                        className="tracking-wider text-[10px] lg:text-xs whitespace-nowrap"
-                        style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-                      >
-                        WATCH
-                      </span>
-                    </a>
-                    
-                    <a 
+                      WATCH
+                    </button>
+                    <a
                       href="#contact"
-                      className="min-w-[82px] lg:min-w-[96px] py-2 px-3 lg:px-4 rounded-md border border-white/40 hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm flex items-center justify-center"
+                      className="rounded-md border px-6 py-2.5 transition-colors hover:bg-black/5"
                       style={{
-                        background: 'rgba(255, 255, 255, 0.05)'
+                        fontFamily: 'Lemon Milk, sans-serif',
+                        fontSize: '0.75rem',
+                        letterSpacing: '0.08em',
+                        borderColor: scrollProgress > 0.5 ? 'rgba(255,255,255,0.35)' : 'rgba(0,0,0,0.2)',
                       }}
                       onClick={(e) => {
                         e.preventDefault();
-                        e.stopPropagation();
                         window.location.hash = 'contact';
                       }}
-                      aria-label={`Inquire about ${project.title}`}
                     >
-                      <span 
-                        className="tracking-wider text-[10px] lg:text-xs whitespace-nowrap"
-                        style={{ 
-                          fontFamily: 'Lemon Milk, sans-serif',
-                          background: 'linear-gradient(135deg, #BC271C 0%, #BC271C 70%, #ffffff 100%)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text'
-                        }}
-                      >
-                        INQUIRE
-                      </span>
+                      INQUIRE
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-          );
-          })}
+                </>
+              );
+            })()}
+          </div>
         </div>
       </div>
       <VideoViewerModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />

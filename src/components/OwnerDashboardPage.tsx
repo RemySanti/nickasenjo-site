@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
-import { Lock, LogOut, RefreshCw, Shield, Database, Hammer, Inbox, ExternalLink } from 'lucide-react';
+import { Lock, LogOut, RefreshCw, Shield, Database, Hammer, Inbox, ExternalLink, LayoutGrid, Check } from 'lucide-react';
 import {
   OWNER_DASH_SESSION_KEY,
   verifyOwnerDashboardPassword,
@@ -13,6 +13,14 @@ import {
 import pkg from '../../package.json';
 import { CONTACT_FORM_COPY_EMAIL, OWNER_EMAIL } from '../config/siteContact';
 import contactLeadsMigrationSql from '../../supabase/migrations/20250513120000_contact_leads.sql?raw';
+import {
+  OUR_CLIENTS_MOBILE_LAYOUTS,
+  type OurClientsMobileLayoutId,
+} from '../config/ourClientsMobileLayouts';
+import {
+  readOurClientsMobileLayout,
+  writeOurClientsMobileLayout,
+} from '../lib/ourClientsMobileLayoutPref';
 
 function mergeLeads(local: ContactLeadRecord[], remote: ContactLeadRecord[]): ContactLeadRecord[] {
   const byKey = new Map<string, ContactLeadRecord>();
@@ -30,6 +38,7 @@ export function OwnerDashboardPage() {
   const [busy, setBusy] = useState(false);
   const [leads, setLeads] = useState<ContactLeadRecord[]>([]);
   const [remoteError, setRemoteError] = useState('');
+  const [mobileLayoutId, setMobileLayoutId] = useState<OurClientsMobileLayoutId>(readOurClientsMobileLayout);
 
   const refreshLeads = useCallback(async () => {
     setRemoteError('');
@@ -51,6 +60,16 @@ export function OwnerDashboardPage() {
     if (!authed) return;
     void refreshLeads();
   }, [authed, refreshLeads]);
+
+  useEffect(() => {
+    const syncLayout = () => setMobileLayoutId(readOurClientsMobileLayout());
+    window.addEventListener('naf:our-clients-mobile-layout', syncLayout);
+    window.addEventListener('storage', syncLayout);
+    return () => {
+      window.removeEventListener('naf:our-clients-mobile-layout', syncLayout);
+      window.removeEventListener('storage', syncLayout);
+    };
+  }, []);
 
   async function handleLogin(e: FormEvent) {
     e.preventDefault();
@@ -217,6 +236,100 @@ export function OwnerDashboardPage() {
             <p className="mt-4 text-xs text-white/45">
               Public anon read/write is acceptable only for a dedicated project; rotate keys if exposed.
             </p>
+          </div>
+        </section>
+
+        <section className="mb-10 border border-black/10 bg-white p-8 shadow-sm">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-[#BC271C]">
+                <LayoutGrid className="h-5 w-5" aria-hidden />
+                <h2 className="tracking-wider uppercase text-sm" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
+                  Our Clients — mobile layouts
+                </h2>
+              </div>
+              <p className="max-w-3xl text-sm text-black/60">
+                Desktop stays on the dynamic frame grid. Pick a mobile pattern for{' '}
+                <strong className="text-black/80">Your video journey starts now.</strong> Inspired by
+                shadcn, 21st.dev, Aceternity, Magic UI, Relume, and v0-style component libraries.
+                Selection saves in this browser and applies on the homepage immediately.
+              </p>
+            </div>
+            <a
+              href="/#home"
+              className="inline-flex shrink-0 items-center gap-1 text-xs text-[#BC271C] underline-offset-2 hover:underline"
+            >
+              Preview on homepage <ExternalLink className="h-3 w-3" aria-hidden />
+            </a>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {OUR_CLIENTS_MOBILE_LAYOUTS.map((option, index) => {
+              const selected = mobileLayoutId === option.id;
+              return (
+                <article
+                  key={option.id}
+                  className={`relative flex flex-col rounded-sm border p-5 transition-colors ${
+                    selected ? 'border-[#BC271C] bg-[#BC271C]/[0.04]' : 'border-black/10 bg-[#EEEEE8]/50 hover:border-black/20'
+                  }`}
+                >
+                  <div className="mb-3 flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-[0.65rem] tracking-[0.2em] text-black/40 uppercase">
+                        Option {index + 1}
+                      </p>
+                      <h3 className="mt-1 text-base font-medium text-black">{option.name}</h3>
+                    </div>
+                    {selected ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#BC271C]/10 px-2 py-1 text-[0.65rem] tracking-wider text-[#BC271C] uppercase">
+                        <Check className="h-3 w-3" aria-hidden />
+                        Active
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mb-3 text-sm text-black/75">{option.tagline}</p>
+                  <dl className="mb-4 space-y-2 text-xs text-black/60">
+                    <div>
+                      <dt className="inline font-medium text-black/45">Inspired by: </dt>
+                      <dd className="inline">
+                        <a
+                          href={option.inspirationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#BC271C] hover:underline"
+                        >
+                          {option.inspiration}
+                        </a>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-medium text-black/45">Vibe</dt>
+                      <dd className="mt-0.5 leading-relaxed">{option.vibe}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-medium text-black/45">Best for</dt>
+                      <dd className="mt-0.5 leading-relaxed">{option.bestFor}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-medium text-black/45">Motion</dt>
+                      <dd className="mt-0.5 leading-relaxed">{option.motion}</dd>
+                    </div>
+                  </dl>
+                  <button
+                    type="button"
+                    disabled={selected}
+                    onClick={() => {
+                      writeOurClientsMobileLayout(option.id);
+                      setMobileLayoutId(option.id);
+                    }}
+                    className="mt-auto w-full border px-4 py-2.5 text-xs tracking-wider uppercase transition-colors disabled:cursor-default disabled:border-[#BC271C]/30 disabled:bg-[#BC271C]/10 disabled:text-[#BC271C]"
+                    style={{ fontFamily: 'Lemon Milk, sans-serif' }}
+                  >
+                    {selected ? 'Selected' : 'Use on mobile'}
+                  </button>
+                </article>
+              );
+            })}
           </div>
         </section>
 
