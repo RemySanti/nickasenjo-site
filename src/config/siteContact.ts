@@ -1,4 +1,4 @@
-/** Primary business email — shown sitewide and used for contact form delivery (FormSubmit primary recipient). */
+/** Primary business email - shown sitewide and used for contact form delivery (FormSubmit primary recipient). */
 export const OWNER_EMAIL = 'nick@nickasenjo.com';
 
 /** Domain part of OWNER_EMAIL (used in form email body text). */

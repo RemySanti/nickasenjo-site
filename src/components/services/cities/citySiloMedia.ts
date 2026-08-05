@@ -9,7 +9,7 @@ export const citySiloMedia = {
   allentown: {
     hero: imgDriveSales,
     aside: imgBuildBrand,
-    heroAlt: 'Commercial video production — campaign and launch imagery',
+    heroAlt: 'Commercial video production - campaign and launch imagery',
     asideAlt: 'Brand-forward cinematic video production',
   },
   bethlehem: {
@@ -57,7 +57,7 @@ export const citySiloMedia = {
   miami: {
     hero: imgGrowSocial,
     aside: imgPreserveMilestone,
-    heroAlt: 'Miami commercial video — hospitality and lifestyle',
+    heroAlt: 'Miami commercial video - hospitality and lifestyle',
     asideAlt: 'High-energy commercial and social-first video',
   },
   orlando: {

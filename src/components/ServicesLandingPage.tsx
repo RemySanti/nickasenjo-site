@@ -430,7 +430,7 @@ export function ServicesLandingPage() {
           </div>
         </div>
 
-        {/* Desktop scroll hint — mouse metaphor; hidden on phones */}
+        {/* Desktop scroll hint - mouse metaphor; hidden on phones */}
         <div
           className="hidden md:block absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-slide-up"
           style={{ animationDelay: '1.5s', animationFillMode: 'both' }}

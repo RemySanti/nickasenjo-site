@@ -34,7 +34,7 @@ export function NycVideoPage() {
             NYC Commercial Video Production
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto mb-4" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-            Cinematic commercial, campaign, and brand films for Manhattan, Brooklyn, Queens, and the greater metro — produced
+            Cinematic commercial, campaign, and brand films for Manhattan, Brooklyn, Queens, and the greater metro - produced
             with the same senior crew and finishing standards as our Lehigh Valley headquarters.
           </p>
           <p className="text-white/60 max-w-2xl mx-auto">
@@ -153,7 +153,7 @@ export function NycVideoPage() {
             Book NYC commercial production
           </h2>
           <p className="text-black/70 mb-8" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-            Tell us your market, timeline, and deliverables — we will align crew, travel, and finishing so your NYC
+            Tell us your market, timeline, and deliverables - we will align crew, travel, and finishing so your NYC
             campaign ships on schedule.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">

@@ -32,14 +32,14 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     breadcrumbName: 'Philadelphia',
     h1: 'Philadelphia Commercial Video Production',
     heroLead:
-      'Campaign, launch, and brand films for Center City, University City, the Navy Yard, and Greater Philadelphia — produced with senior crew discipline and finishing standards from our Pennsylvania studio.',
+      'Campaign, launch, and brand films for Center City, University City, the Navy Yard, and Greater Philadelphia - produced with senior crew discipline and finishing standards from our Pennsylvania studio.',
     heroSub:
       'Nick Asenjo Films is headquartered in Allentown and routinely travels for Philly shoots, agency collaborations, and multi-market deliverables.',
     whyTitle: 'Why Philadelphia teams hire us',
     whyP1:
       'Philadelphia markets move fast: healthcare systems, financial services, higher education, and consumer brands all need content that reads premium on the web and holds up in the boardroom.',
     whyP2:
-      'We plan for permits, parking, and location logistics across the metro while keeping creative clarity — so your production day stays efficient and your story stays cinematic.',
+      'We plan for permits, parking, and location logistics across the metro while keeping creative clarity - so your production day stays efficient and your story stays cinematic.',
     asideCaption: 'Metro Philadelphia messaging for search, paid media, and pitch decks',
     industriesTitle: 'Industries & use cases in Philadelphia',
     industries: [
@@ -79,19 +79,19 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book Philadelphia commercial production',
     ctaLead:
-      'Share your market, timeline, and deliverables — we align crew, travel, and finishing so your Philadelphia campaign ships on schedule.',
+      'Share your market, timeline, and deliverables - we align crew, travel, and finishing so your Philadelphia campaign ships on schedule.',
   },
   'new-jersey': {
     slug: 'new-jersey',
     breadcrumbName: 'New Jersey',
     h1: 'New Jersey Commercial Video Production',
     heroLead:
-      'Commercial and brand video for Newark, Jersey City, Hoboken, the Shore, Princeton corridor, and statewide campaigns — cinematic craft with logistics built for dense markets and multi-location shoots.',
+      'Commercial and brand video for Newark, Jersey City, Hoboken, the Shore, Princeton corridor, and statewide campaigns - cinematic craft with logistics built for dense markets and multi-location shoots.',
     heroSub:
       'Based in the Lehigh Valley, we travel across New Jersey for launches, franchise groups, and regional brand work.',
     whyTitle: 'Why New Jersey brands choose our crew',
     whyP1:
-      'New Jersey sits between major metros: fast access to NYC and Philadelphia with its own distinct industries — logistics, pharma-adjacent services, finance, and shore hospitality.',
+      'New Jersey sits between major metros: fast access to NYC and Philadelphia with its own distinct industries - logistics, pharma-adjacent services, finance, and shore hospitality.',
     whyP2:
       'We build shoot schedules that respect toll corridors, parking realities, and tight load-in windows so your team spends less time troubleshooting and more time capturing great footage.',
     asideCaption: 'Statewide NJ SEO pages and campaign-ready deliverables',
@@ -133,19 +133,19 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book New Jersey commercial production',
     ctaLead:
-      'Tell us your counties, locations, and deliverables — we map travel, crew scale, and finishing for NJ-wide campaigns.',
+      'Tell us your counties, locations, and deliverables - we map travel, crew scale, and finishing for NJ-wide campaigns.',
   },
   miami: {
     slug: 'miami',
     breadcrumbName: 'Miami',
     h1: 'Miami Commercial Video Production',
     heroLead:
-      'High-energy commercial, hospitality, and real-estate content for Miami-Dade — bilingual-friendly storytelling, sun-drenched location craft, and deliverables built for social and premium web.',
+      'High-energy commercial, hospitality, and real-estate content for Miami-Dade - bilingual-friendly storytelling, sun-drenched location craft, and deliverables built for social and premium web.',
     heroSub:
       'We fly crews from Pennsylvania for Miami shoots, launches, and partner productions with the same finishing pipeline as our home market.',
     whyTitle: 'Why Miami is a different production rhythm',
     whyP1:
-      'Miami rewards bold visuals, fast cuts, and brand confidence — from Brickell finance to Wynwood culture to hospitality on the beach.',
+      'Miami rewards bold visuals, fast cuts, and brand confidence - from Brickell finance to Wynwood culture to hospitality on the beach.',
     whyP2:
       'We plan for heat, humidity, and golden-hour windows while keeping audio, lensing, and color consistent with luxury and lifestyle expectations.',
     asideCaption: 'South Florida commercial video tuned for discovery and conversion',
@@ -187,14 +187,14 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book Miami commercial production',
     ctaLead:
-      'Share your concept, locations, and languages — we align crew size, travel, and finishing for South Florida launches.',
+      'Share your concept, locations, and languages - we align crew size, travel, and finishing for South Florida launches.',
   },
   orlando: {
     slug: 'orlando',
     breadcrumbName: 'Orlando',
     h1: 'Orlando Commercial Video Production',
     heroLead:
-      'Convention, hospitality, sports-adjacent, and attraction-adjacent commercial video for Greater Orlando — polished campaigns for brands that compete in a global tourism economy.',
+      'Convention, hospitality, sports-adjacent, and attraction-adjacent commercial video for Greater Orlando - polished campaigns for brands that compete in a global tourism economy.',
     heroSub:
       'We travel to Orlando for conferences, resort properties, and regional headquarters work with disciplined pre-production and fast turnaround options.',
     whyTitle: 'Why Orlando needs flexible commercial crews',
@@ -241,21 +241,21 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book Orlando commercial production',
     ctaLead:
-      'Tell us your venues, dates, and deliverables — we align crew scale and travel for Central Florida productions.',
+      'Tell us your venues, dates, and deliverables - we align crew scale and travel for Central Florida productions.',
   },
   chicago: {
     slug: 'chicago',
     breadcrumbName: 'Chicago',
     h1: 'Chicago Commercial Video Production',
     heroLead:
-      'Commercial video for the Loop, River North, West Loop innovation corridors, and Chicagoland suburbs — disciplined production for brands that expect Midwest clarity and national polish.',
+      'Commercial video for the Loop, River North, West Loop innovation corridors, and Chicagoland suburbs - disciplined production for brands that expect Midwest clarity and national polish.',
     heroSub:
       'Nick Asenjo Films travels from Pennsylvania for Chicago shoots, agency collaborations, and multi-market campaign capture.',
     whyTitle: 'Why Chicago teams book travel crews intentionally',
     whyP1:
       'Chicago combines Fortune-level expectations with practical logistics: winters, permits, and downtown load-ins all reward crews that plan like producers, not tourists.',
     whyP2:
-      'We deliver campaign architecture up front — shot lists, deliverable matrices, and finishing timelines — so marketing teams can ship with confidence.',
+      'We deliver campaign architecture up front - shot lists, deliverable matrices, and finishing timelines - so marketing teams can ship with confidence.',
     asideCaption: 'Chicagoland commercial video for SEO, ABM, and paid media',
     industriesTitle: 'Industries & use cases in Chicago',
     industries: [
@@ -295,19 +295,19 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book Chicago commercial production',
     ctaLead:
-      'Share your locations, union considerations if any, and deliverables — we align crew, travel, and finishing for Midwest launches.',
+      'Share your locations, union considerations if any, and deliverables - we align crew, travel, and finishing for Midwest launches.',
   },
   'los-angeles': {
     slug: 'los-angeles',
     breadcrumbName: 'Los Angeles',
     h1: 'Los Angeles Commercial Video Production',
     heroLead:
-      'Commercial, brand, and campaign video for Los Angeles County — travel-ready crews for LA shoots with finishing pipelines built for premium web, theatrical-style polish, and paid social scale.',
+      'Commercial, brand, and campaign video for Los Angeles County - travel-ready crews for LA shoots with finishing pipelines built for premium web, theatrical-style polish, and paid social scale.',
     heroSub:
       'We are Pennsylvania-based and fly west for LA productions, agency collaborations, and multi-coast campaign capture.',
     whyTitle: 'Why LA work still benefits from an out-of-market producer mindset',
     whyP1:
-      'Los Angeles is crowded with creators — brands win when production is organized, insured, and creatively led, not just “someone with a camera.”',
+      'Los Angeles is crowded with creators - brands win when production is organized, insured, and creatively led, not just “someone with a camera.”',
     whyP2:
       'We bring East Coast scheduling discipline and cinematic craft to LA locations, talent days, and post timelines that cannot slip.',
     asideCaption: 'LA metro commercial video for search, pitch decks, and campaign launches',
@@ -349,7 +349,7 @@ export const REGIONAL_COMMERCIAL_VIDEO_MARKETS: Record<RegionalCommercialVideoSl
     ],
     ctaTitle: 'Book Los Angeles commercial production',
     ctaLead:
-      'Tell us your LA neighborhoods, talent needs, and deliverables — we align travel, crew scale, and finishing for West Coast launches.',
+      'Tell us your LA neighborhoods, talent needs, and deliverables - we align travel, crew scale, and finishing for West Coast launches.',
   },
 };
 

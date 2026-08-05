@@ -56,14 +56,14 @@ export function CommercialVideoLanding() {
     {
       name: 'New Jersey',
       slug: 'new-jersey',
-      description: 'Statewide — Newark, Jersey City, Hoboken, Shore, and Princeton corridor',
+      description: 'Statewide - Newark, Jersey City, Hoboken, Shore, and Princeton corridor',
       population: '9.3M+',
       businesses: 'Logistics, finance, hospitality, pharma-adjacent, franchises',
     },
     {
       name: 'Miami',
       slug: 'miami',
-      description: 'Miami-Dade — Brickell, Wynwood, waterfront, and hospitality corridors',
+      description: 'Miami-Dade - Brickell, Wynwood, waterfront, and hospitality corridors',
       population: '2.7M+ metro',
       businesses: 'Hospitality, real estate, lifestyle, finance, consumer',
     },
@@ -84,7 +84,7 @@ export function CommercialVideoLanding() {
     {
       name: 'Los Angeles',
       slug: 'los-angeles',
-      description: 'LA County — studios, on-location, and multi-coast campaign capture',
+      description: 'LA County - studios, on-location, and multi-coast campaign capture',
       population: '10M+ county',
       businesses: 'Entertainment-adjacent, consumer, tech, hospitality',
     },
@@ -197,7 +197,7 @@ export function CommercialVideoLanding() {
               Commercial Video by Market
             </h2>
             <p className="text-white/70 max-w-3xl mx-auto" style={{ fontSize: '1.125rem' }}>
-              Lehigh Valley hyper-local pages plus NYC and additional travel markets — same crew, location-aware context
+              Lehigh Valley hyper-local pages plus NYC and additional travel markets - same crew, location-aware context
               for search and campaigns.
             </p>
           </div>

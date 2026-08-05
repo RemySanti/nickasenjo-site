@@ -64,7 +64,7 @@ export function ThePlatformPage() {
 
           <img
             src={platformWordmark}
-            alt="The Platform — It's different on this side."
+            alt="The Platform - It's different on this side."
             className="mx-auto mb-10 h-auto w-full max-w-lg drop-shadow-2xl md:max-w-2xl"
           />
 
@@ -95,7 +95,7 @@ export function ThePlatformPage() {
               Watch on YouTube
             </a>
             <a
-              href={mailtoOwner('The Platform — guest or performance pitch')}
+              href={mailtoOwner('The Platform - guest or performance pitch')}
               className="inline-flex w-full min-w-[220px] items-center justify-center gap-2 border border-white/25 bg-white/[0.04] px-10 py-4 text-sm tracking-wider text-white uppercase backdrop-blur-sm transition-all hover:border-[#BC271C]/60 hover:bg-white/[0.08] sm:w-auto"
               style={lemon}
             >
@@ -118,8 +118,8 @@ export function ThePlatformPage() {
       <section className="border-b border-black/10 bg-black px-6 py-14 lg:px-12">
         <div className="container mx-auto grid max-w-6xl grid-cols-1 gap-12 text-center md:grid-cols-3 md:gap-10">
           {[
-            { title: 'Performance-first', body: 'Music drops built like music videos — lighting, lensing, and energy that read on a phone or a TV.' },
-            { title: 'Conversation that earns attention', body: 'Founder-led podcast episodes with depth, not talking points — edited for clarity and replay.' },
+            { title: 'Performance-first', body: 'Music drops built like music videos - lighting, lensing, and energy that read on a phone or a TV.' },
+            { title: 'Conversation that earns attention', body: 'Founder-led podcast episodes with depth, not talking points - edited for clarity and replay.' },
             { title: 'Same crew as client work', body: 'Produced in the Lehigh Valley with the same cinematic standards as commercial and brand films.' },
           ].map((item) => (
             <div key={item.title}>
@@ -143,7 +143,7 @@ export function ThePlatformPage() {
             Two formats. One standard.
           </h2>
           <p className="mx-auto mb-16 max-w-2xl text-center text-black/60">
-            Between short-form noise and traditional TV, The Platform is built for how people actually watch — long enough
+            Between short-form noise and traditional TV, The Platform is built for how people actually watch - long enough
             to matter, tight enough to finish.
           </p>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -207,7 +207,7 @@ export function ThePlatformPage() {
         </div>
       </section>
 
-      {/* Watch strip — cinematic CTA to YouTube */}
+      {/* Watch strip - cinematic CTA to YouTube */}
       <section className="relative overflow-hidden px-0 py-0" aria-label="Watch The Platform on YouTube">
         <div className="relative aspect-[21/9] min-h-[280px] w-full md:aspect-[24/9] md:min-h-[320px]">
           <img src={platformHeroStill} alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden />
@@ -218,7 +218,7 @@ export function ThePlatformPage() {
               Watch on YouTube
             </h2>
             <p className="mb-8 max-w-md text-sm leading-relaxed text-white/65">
-              New performances, episodes, and podcast cuts publish on the official channel — subscribe so you do not miss a
+              New performances, episodes, and podcast cuts publish on the official channel - subscribe so you do not miss a
               drop.
             </p>
             <a

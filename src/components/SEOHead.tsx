@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 import { OWNER_EMAIL } from '../config/siteContact';
 import {
+  absoluteUrl,
+  DEFAULT_OG_IMAGE,
+  pathForPage,
+  SITE_URL,
+} from '../config/siteUrl';
+import {
   getLocalServiceOfferingByPage,
   SEO_BY_SERVICE_PAGE,
 } from '../data/localServiceOfferingConfigs';
@@ -26,6 +32,16 @@ const HOME_SEO: PageSeo = {
 
 /** Core site pages that benefit from unique titles (not outcome service landings) */
 const STATIC_PAGE_SEO: Record<string, PageSeo> = {
+  'ads-lp': {
+    title: 'Cinematic Video Production | Videographer Near Me | Allentown & Lehigh Valley',
+    description:
+      'Your story deserves cinema, not content. Nick Asenjo Films - twenty years behind the lens. Downtown Allentown studio serving the Lehigh Valley. Book a discovery call.',
+    keywords:
+      'videographer near me Allentown, cinematic video production Lehigh Valley, commercial videographer Allentown PA, brand film Allentown, Nick Asenjo Films',
+    ogTitle: 'Cinematic Video Production | Nick Asenjo Films',
+    ogDescription:
+      'Your story deserves cinema, not content. We build films people feel. Downtown Allentown studio serving the Lehigh Valley.',
+  },
   services: {
     title: 'Video Services by Goal | Nick Asenjo Films | Allentown & Lehigh Valley',
     description:
@@ -97,7 +113,7 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   },
   'owner-dashboard': {
     title: 'Owner Dashboard | Nick Asenjo Films',
-    description: 'Internal build and lead tools for Nick Asenjo Films — not indexed for search.',
+    description: 'Internal build and lead tools for Nick Asenjo Films - not indexed for search.',
     keywords: 'owner dashboard',
     ogTitle: 'Owner Dashboard',
     ogDescription: 'Internal tools for Nick Asenjo Films.',
@@ -114,7 +130,7 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   'video-bethlehem': {
     title: 'Bethlehem Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Bethlehem, PA — SteelStacks, campuses, hospitality, and industrial brands with cinematic craft.',
+      'Commercial video in Bethlehem, PA - SteelStacks, campuses, hospitality, and industrial brands with cinematic craft.',
     keywords: 'commercial video Bethlehem PA, Bethlehem video production, Lehigh Valley commercial',
     ogTitle: 'Bethlehem Commercial Video | Nick Asenjo Films',
     ogDescription: 'Commercial video production tailored to Bethlehem businesses and venues.',
@@ -122,7 +138,7 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   'video-easton': {
     title: 'Easton Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Easton, PA — waterfront, Lafayette College, Centre Square, and Delaware River corridor storytelling.',
+      'Commercial video in Easton, PA - waterfront, Lafayette College, Centre Square, and Delaware River corridor storytelling.',
     keywords: 'commercial video Easton PA, Easton PA videographer, Lehigh Valley commercial',
     ogTitle: 'Easton Commercial Video | Nick Asenjo Films',
     ogDescription: 'Easton-focused commercial video production and campaigns.',
@@ -130,7 +146,7 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   'video-emmaus': {
     title: 'Emmaus Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Emmaus, PA — Main Street retail, restaurants, and professional services with a local-first approach.',
+      'Commercial video in Emmaus, PA - Main Street retail, restaurants, and professional services with a local-first approach.',
     keywords: 'commercial video Emmaus PA, Emmaus video production, Lehigh Valley',
     ogTitle: 'Emmaus Commercial Video | Nick Asenjo Films',
     ogDescription: 'Commercial video for Emmaus and the Lehigh Valley.',
@@ -138,7 +154,7 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   'video-whitehall': {
     title: 'Whitehall Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Whitehall and the Lehigh Valley Mall corridor — retail, automotive, and commercial real estate content.',
+      'Commercial video in Whitehall and the Lehigh Valley Mall corridor - retail, automotive, and commercial real estate content.',
     keywords: 'commercial video Whitehall PA, Whitehall Township video production',
     ogTitle: 'Whitehall Commercial Video | Nick Asenjo Films',
     ogDescription: 'Commercial video production for Whitehall Township and nearby markets.',
@@ -150,39 +166,39 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
     keywords:
       'commercial video production NYC, New York City commercial videographer, Manhattan brand film, Brooklyn video production company, tri-state commercial video, Nick Asenjo Films NYC',
     ogTitle: 'NYC Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial and campaign video for New York City brands — cinematic production from our PA studio.',
+    ogDescription: 'Commercial and campaign video for New York City brands - cinematic production from our PA studio.',
   },
   'video-philadelphia': {
     title: 'Philadelphia Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Philadelphia and Greater Philly — campaigns, launches, and brand films. Nick Asenjo Films is Lehigh Valley–based and travels for Philly shoots and multi-market deliverables.',
+      'Commercial video in Philadelphia and Greater Philly - campaigns, launches, and brand films. Nick Asenjo Films is Lehigh Valley-based and travels for Philly shoots and multi-market deliverables.',
     keywords:
       'commercial video Philadelphia PA, Philadelphia video production company, Center City brand film, Nick Asenjo Films Philadelphia',
     ogTitle: 'Philadelphia Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial and campaign video for Philadelphia brands — travel-ready crew from Pennsylvania.',
+    ogDescription: 'Commercial and campaign video for Philadelphia brands - travel-ready crew from Pennsylvania.',
   },
   'video-new-jersey': {
     title: 'New Jersey Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video statewide in New Jersey — Newark, Jersey City, Hoboken, Shore, and Princeton corridor. Nick Asenjo Films travels from PA for NJ launches, franchises, and regional campaigns.',
+      'Commercial video statewide in New Jersey - Newark, Jersey City, Hoboken, Shore, and Princeton corridor. Nick Asenjo Films travels from PA for NJ launches, franchises, and regional campaigns.',
     keywords:
       'commercial video New Jersey, NJ video production company, Jersey City commercial videographer, Newark brand film, Nick Asenjo Films New Jersey',
     ogTitle: 'New Jersey Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial video production for New Jersey markets — cinematic craft and organized logistics.',
+    ogDescription: 'Commercial video production for New Jersey markets - cinematic craft and organized logistics.',
   },
   'video-miami': {
     title: 'Miami Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Miami-Dade — hospitality, real estate, lifestyle, and corporate campaigns. Nick Asenjo Films flies crews for Miami shoots with premium finishing from our PA studio.',
+      'Commercial video in Miami-Dade - hospitality, real estate, lifestyle, and corporate campaigns. Nick Asenjo Films flies crews for Miami shoots with premium finishing from our PA studio.',
     keywords:
       'commercial video Miami FL, Miami video production company, South Florida brand film, Brickell corporate video, Nick Asenjo Films Miami',
     ogTitle: 'Miami Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial and campaign video for Miami brands — bilingual-friendly, location-aware production.',
+    ogDescription: 'Commercial and campaign video for Miami brands - bilingual-friendly, location-aware production.',
   },
   'video-orlando': {
     title: 'Orlando Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Greater Orlando — conventions, hospitality, sports-adjacent, and B2B campaigns. Nick Asenjo Films travels for Orlando productions with disciplined pre-production.',
+      'Commercial video in Greater Orlando - conventions, hospitality, sports-adjacent, and B2B campaigns. Nick Asenjo Films travels for Orlando productions with disciplined pre-production.',
     keywords:
       'commercial video Orlando FL, Orlando video production company, convention video Orlando, Nick Asenjo Films Orlando',
     ogTitle: 'Orlando Commercial Video | Nick Asenjo Films',
@@ -191,20 +207,20 @@ const STATIC_PAGE_SEO: Record<string, PageSeo> = {
   'video-chicago': {
     title: 'Chicago Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Chicago and Chicagoland — Loop, River North, innovation corridors, and suburbs. Nick Asenjo Films travels from Pennsylvania for Chicago shoots and agency collaborations.',
+      'Commercial video in Chicago and Chicagoland - Loop, River North, innovation corridors, and suburbs. Nick Asenjo Films travels from Pennsylvania for Chicago shoots and agency collaborations.',
     keywords:
       'commercial video Chicago IL, Chicago video production company, Chicagoland brand film, Nick Asenjo Films Chicago',
     ogTitle: 'Chicago Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial and campaign video for Chicago brands — Midwest clarity, national polish.',
+    ogDescription: 'Commercial and campaign video for Chicago brands - Midwest clarity, national polish.',
   },
   'video-los-angeles': {
     title: 'Los Angeles Commercial Video Production | Nick Asenjo Films',
     description:
-      'Commercial video in Los Angeles County — campaign, brand, and launch films. Nick Asenjo Films is Pennsylvania-based and flies west for LA productions and multi-coast campaigns.',
+      'Commercial video in Los Angeles County - campaign, brand, and launch films. Nick Asenjo Films is Pennsylvania-based and flies west for LA productions and multi-coast campaigns.',
     keywords:
       'commercial video Los Angeles, LA video production company, Los Angeles County brand film, Nick Asenjo Films Los Angeles',
     ogTitle: 'Los Angeles Commercial Video | Nick Asenjo Films',
-    ogDescription: 'Commercial video for Los Angeles — organized production and cinematic finishing.',
+    ogDescription: 'Commercial video for Los Angeles - organized production and cinematic finishing.',
   },
 };
 
@@ -242,6 +258,26 @@ function resolveServiceTypes(currentPage: string): string[] {
   return DEFAULT_SERVICE_TYPES;
 }
 
+function upsertMeta(attribute: 'name' | 'property', key: string, content: string) {
+  let meta = document.querySelector(`meta[${attribute}="${key}"]`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute('content', content);
+}
+
+function upsertLink(rel: string, href: string) {
+  let link = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = rel;
+    document.head.appendChild(link);
+  }
+  link.href = href;
+}
+
 type SEOHeadProps = {
   currentPage: string;
 };
@@ -249,35 +285,30 @@ type SEOHeadProps = {
 export function SEOHead({ currentPage }: SEOHeadProps) {
   useEffect(() => {
     const seo = resolveSeo(currentPage);
+    const pagePath = pathForPage(currentPage);
+    const canonical = absoluteUrl(pagePath);
 
     document.title = seo.title;
 
-    const metaTags: { name?: string; property?: string; content: string }[] = [
-      { name: 'description', content: seo.description },
-      { name: 'keywords', content: seo.keywords },
-      { property: 'og:title', content: seo.ogTitle },
-      { property: 'og:description', content: seo.ogDescription },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:locale', content: 'en_US' },
-      { name: 'geo.region', content: 'US-PA' },
-      { name: 'geo.placename', content: 'Allentown' },
-      { name: 'geo.position', content: '40.6084;-75.4902' },
-      { name: 'ICBM', content: '40.6084, -75.4902' },
-    ];
+    upsertMeta('name', 'description', seo.description);
+    upsertMeta('name', 'keywords', seo.keywords);
+    upsertMeta('property', 'og:title', seo.ogTitle);
+    upsertMeta('property', 'og:description', seo.ogDescription);
+    upsertMeta('property', 'og:type', 'website');
+    upsertMeta('property', 'og:url', canonical);
+    upsertMeta('property', 'og:image', DEFAULT_OG_IMAGE);
+    upsertMeta('property', 'og:locale', 'en_US');
+    upsertMeta('property', 'og:site_name', 'Nick Asenjo Films');
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:title', seo.ogTitle);
+    upsertMeta('name', 'twitter:description', seo.ogDescription);
+    upsertMeta('name', 'twitter:image', DEFAULT_OG_IMAGE);
+    upsertMeta('name', 'geo.region', 'US-PA');
+    upsertMeta('name', 'geo.placename', 'Allentown');
+    upsertMeta('name', 'geo.position', '40.6084;-75.4902');
+    upsertMeta('name', 'ICBM', '40.6084, -75.4902');
 
-    metaTags.forEach(({ name, property, content }) => {
-      const attribute = name ? 'name' : 'property';
-      const value = name || property;
-      if (!value) return;
-
-      let meta = document.querySelector(`meta[${attribute}="${value}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attribute, value);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    });
+    upsertLink('canonical', canonical);
 
     let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
     if (currentPage === 'owner-dashboard') {
@@ -291,10 +322,48 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       robotsMeta.remove();
     }
 
-    const existingScript = document.querySelector('script[data-seo-ld="business"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
+    document.querySelector('script[data-seo-ld="business"]')?.remove();
+    document.querySelector('script[data-seo-ld="local"]')?.remove();
+
+    const localBusiness = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Nick Asenjo Films',
+      image: DEFAULT_OG_IMAGE,
+      '@id': `${SITE_URL}/#localbusiness`,
+      url: SITE_URL,
+      telephone: '+1-610-844-8696',
+      email: OWNER_EMAIL,
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '532 Hamilton St Suite 7',
+        addressLocality: 'Allentown',
+        addressRegion: 'PA',
+        postalCode: '18101',
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 40.6084,
+        longitude: -75.4902,
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Allentown' },
+        { '@type': 'City', name: 'Bethlehem' },
+        { '@type': 'City', name: 'Easton' },
+        { '@type': 'City', name: 'Emmaus' },
+        { '@type': 'City', name: 'Whitehall' },
+        { '@type': 'AdministrativeArea', name: 'Lehigh Valley' },
+        { '@type': 'State', name: 'Pennsylvania' },
+      ],
+    };
+
+    const localScript = document.createElement('script');
+    localScript.type = 'application/ld+json';
+    localScript.setAttribute('data-seo-ld', 'local');
+    localScript.text = JSON.stringify(localBusiness);
+    document.head.appendChild(localScript);
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -303,9 +372,9 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
       name: 'Nick Asenjo Films',
-      image: 'https://nickasenjofilms.com/logo.png',
-      '@id': 'https://nickasenjofilms.com',
-      url: 'https://nickasenjofilms.com',
+      image: DEFAULT_OG_IMAGE,
+      '@id': SITE_URL,
+      url: SITE_URL,
       telephone: '+1-610-844-8696',
       email: OWNER_EMAIL,
       priceRange: '$$',
@@ -376,6 +445,7 @@ export function SEOHead({ currentPage }: SEOHeadProps) {
 
     return () => {
       document.querySelector('script[data-seo-ld="business"]')?.remove();
+      document.querySelector('script[data-seo-ld="local"]')?.remove();
       document.querySelector('script[data-seo-ld="faq"]')?.remove();
     };
   }, [currentPage]);

@@ -14,6 +14,7 @@ import pkg from '../../package.json';
 import { CONTACT_FORM_COPY_EMAIL, OWNER_EMAIL } from '../config/siteContact';
 import contactLeadsMigrationSql from '../../supabase/migrations/20250513120000_contact_leads.sql?raw';
 import {
+  DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT,
   OUR_CLIENTS_MOBILE_LAYOUTS,
   type OurClientsMobileLayoutId,
 } from '../config/ourClientsMobileLayouts';
@@ -32,13 +33,20 @@ function mergeLeads(local: ContactLeadRecord[], remote: ContactLeadRecord[]): Co
 }
 
 export function OwnerDashboardPage() {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem(OWNER_DASH_SESSION_KEY) === '1');
+  const [authed, setAuthed] = useState(false);
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [busy, setBusy] = useState(false);
   const [leads, setLeads] = useState<ContactLeadRecord[]>([]);
   const [remoteError, setRemoteError] = useState('');
-  const [mobileLayoutId, setMobileLayoutId] = useState<OurClientsMobileLayoutId>(readOurClientsMobileLayout);
+  const [mobileLayoutId, setMobileLayoutId] = useState<OurClientsMobileLayoutId>(
+    DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT,
+  );
+
+  useEffect(() => {
+    setAuthed(sessionStorage.getItem(OWNER_DASH_SESSION_KEY) === '1');
+    setMobileLayoutId(readOurClientsMobileLayout());
+  }, []);
 
   const refreshLeads = useCallback(async () => {
     setRemoteError('');
@@ -230,7 +238,7 @@ export function OwnerDashboardPage() {
               {contactLeadsMigrationSql}
             </pre>
             <p className="mt-3 text-xs text-white/50">
-              Same file lives at <code className="text-white/70">supabase/migrations/20250513120000_contact_leads.sql</code> — see{' '}
+              Same file lives at <code className="text-white/70">supabase/migrations/20250513120000_contact_leads.sql</code> - see{' '}
               <code className="text-white/70">supabase/README.md</code> for full setup.
             </p>
             <p className="mt-4 text-xs text-white/45">
@@ -245,13 +253,13 @@ export function OwnerDashboardPage() {
               <div className="mb-2 flex items-center gap-2 text-[#BC271C]">
                 <LayoutGrid className="h-5 w-5" aria-hidden />
                 <h2 className="tracking-wider uppercase text-sm" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
-                  Our Clients — mobile layouts
+                  Our Clients - mobile layouts
                 </h2>
               </div>
               <p className="max-w-3xl text-sm text-black/60">
                 Desktop stays on the dynamic frame grid. Site default on mobile is{' '}
                 <strong className="text-black/80">Bento Grid</strong> for all visitors. Pick another pattern below to
-                preview in <em>this browser only</em> — it does not change what other phones see until you update the
+                preview in <em>this browser only</em> - it does not change what other phones see until you update the
                 default in code or redeploy.
               </p>
             </div>
@@ -399,13 +407,13 @@ export function OwnerDashboardPage() {
                           <summary className="select-none">Details</summary>
                           <div className="mt-2 max-w-md space-y-1 rounded-sm border border-black/10 bg-[#EEEEE8] p-3 text-black/80">
                             <p>
-                              <span className="text-black/45">Phone:</span> {row.phone || '—'}
+                              <span className="text-black/45">Phone:</span> {row.phone || ' - '}
                             </p>
                             <p>
-                              <span className="text-black/45">Budget:</span> {row.budget || '—'}
+                              <span className="text-black/45">Budget:</span> {row.budget || ' - '}
                             </p>
                             <p>
-                              <span className="text-black/45">Timeline:</span> {row.timeline || '—'}
+                              <span className="text-black/45">Timeline:</span> {row.timeline || ' - '}
                             </p>
                             <p className="pt-2 text-black/70 whitespace-pre-wrap">{row.message}</p>
                           </div>

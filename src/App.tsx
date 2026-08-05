@@ -4,7 +4,6 @@ import { SplashLogoTransition } from './components/SplashLogoTransition';
 import { SEOHead } from './components/SEOHead';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
-import { WorkShowcase } from './components/WorkShowcase';
 import { WorkGallery } from './components/WorkGallery';
 import { AboutSection } from './components/AboutSection';
 import { AboutTextSection } from './components/AboutTextSection';
@@ -50,7 +49,6 @@ import { EmmausVideoPage } from './components/services/cities/EmmausVideoPage';
 import { WhitehallVideoPage } from './components/services/cities/WhitehallVideoPage';
 import { NycVideoPage } from './components/services/cities/NycVideoPage';
 import { RegionalCommercialVideoPage } from './components/services/cities/RegionalCommercialVideoPage';
-import { REGIONAL_COMMERCIAL_VIDEO_SLUGS } from './data/regionalCommercialVideoMarkets';
 import {
   ServiceBrandStoryPage,
   ServiceCommercialVideoPage,
@@ -60,174 +58,54 @@ import {
   ServiceThePlatformShowPage,
   ServiceWeddingsEventsPage,
 } from './components/services/ServiceOutcomePages';
+import { AdsLandingPage } from './components/AdsLandingPage';
+import {
+  normalizeRouteSegment,
+  readInitialRoute,
+  resolveRoute,
+  shouldSkipIntroSplash,
+} from './lib/resolveRoute';
 
-function normalizeRouteSegment(value: string) {
-  return value.replace(/^\/+|\/+$/g, '');
-}
+const LP_SECTION_IDS = new Set([
+  'view-our-work',
+  'commercial-video',
+  'brand-films',
+  'social-media-video',
+  'music-videos',
+  'contact',
+]);
 
 export default function App() {
   const desktopLogoAnchorRef = useRef<HTMLDivElement>(null);
   const mobileLogoAnchorRef = useRef<HTMLDivElement>(null);
-  const [splashComplete, setSplashComplete] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
-  const [currentPage, setCurrentPage] = useState('home');
-  const [eventSlug, setEventSlug] = useState<string>('');
-  const [citySlug, setCitySlug] = useState<string>('');
+  const [splashComplete, setSplashComplete] = useState(shouldSkipIntroSplash);
+  const [currentPage, setCurrentPage] = useState(() => readInitialRoute().currentPage);
+  const [eventSlug, setEventSlug] = useState(() => readInitialRoute().eventSlug);
+  const [citySlug, setCitySlug] = useState(() => readInitialRoute().citySlug);
 
   useEffect(() => {
-    const resolveRoute = (routeSegment: string) => {
-      const route = normalizeRouteSegment(routeSegment);
-
-      // Check for event-city combinations first (e.g., event-weddings-allentown)
-      if (route.startsWith('event-') && route.split('-').length >= 3) {
-        const parts = route.split('-');
-        const eventPart = parts.slice(1, parts.length - 1).join('-');
-        const cityPart = parts[parts.length - 1];
-        setEventSlug(eventPart);
-        setCitySlug(cityPart);
-        setCurrentPage('event-service');
-      } else if (route.startsWith('city-') && route.endsWith('-events')) {
-        const cityPart = route.replace('city-', '').replace('-events', '');
-        setCitySlug(cityPart);
-        setCurrentPage('city-events');
-      } else if (route.startsWith('event-')) {
-        const eventPart = route.replace('event-', '');
-        setEventSlug(eventPart);
-        setCurrentPage('event-type');
-      } else if (route === 'work-page') {
-        setCurrentPage('work');
-      } else if (route === 'services') {
-        setCurrentPage('services');
-      } else if (route === 'service-commercial' || route === 'services-commercial') {
-        setCurrentPage('commercial');
-      } else if (route === 'service-narrative') {
-        setCurrentPage('narrative');
-      } else if (route === 'service-documentary') {
-        setCurrentPage('documentary');
-      } else if (route === 'service-music-video') {
-        setCurrentPage('music-video-detail');
-      } else if (route === 'service-corporate') {
-        setCurrentPage('corporate-detail');
-      } else if (route === 'contact') {
-        setCurrentPage('contact');
-      } else if (route === 'services-main') {
-        setCurrentPage('services-main');
-      } else if (route === 'service-commercial-video') {
-        setCurrentPage('commercial-video-detail');
-      } else if (route === 'service-brand-story') {
-        setCurrentPage('brand-story-service');
-      } else if (route === 'service-social-video') {
-        setCurrentPage('social-video-service');
-      } else if (route === 'service-weddings-events') {
-        setCurrentPage('weddings-events-service');
-      } else if (route === 'service-production-partner') {
-        setCurrentPage('studio-retainer-service');
-      } else if (route === 'service-studio-retainer') {
-        setCurrentPage('studio-retainer-service');
-      } else if (route === 'the-platform') {
-        setCurrentPage('the-platform');
-      } else if (route === 'service-commercial-photo') {
-        setCurrentPage('commercial-photo-landing');
-      } else if (route === 'city-allentown') {
-        setCurrentPage('city-allentown');
-      } else if (route === 'city-bethlehem') {
-        setCurrentPage('city-bethlehem');
-      } else if (route === 'city-easton') {
-        setCurrentPage('city-easton');
-      } else if (route === 'city-emmaus') {
-        setCurrentPage('city-emmaus');
-      } else if (route === 'city-whitehall') {
-        setCurrentPage('city-whitehall');
-      } else if (route === 'service-commercial-video-allentown') {
-        setCurrentPage('video-allentown');
-      } else if (route === 'service-commercial-video-bethlehem') {
-        setCurrentPage('video-bethlehem');
-      } else if (route === 'service-commercial-video-easton') {
-        setCurrentPage('video-easton');
-      } else if (route === 'service-commercial-video-emmaus') {
-        setCurrentPage('video-emmaus');
-      } else if (route === 'service-commercial-video-whitehall') {
-        setCurrentPage('video-whitehall');
-      } else if (route === 'service-commercial-video-nyc') {
-        setCurrentPage('video-nyc');
-      } else if (route === 'video-allentown') {
-        setCurrentPage('video-allentown');
-      } else if (route === 'video-bethlehem') {
-        setCurrentPage('video-bethlehem');
-      } else if (route === 'video-easton') {
-        setCurrentPage('video-easton');
-      } else if (route === 'video-emmaus') {
-        setCurrentPage('video-emmaus');
-      } else if (route === 'video-whitehall') {
-        setCurrentPage('video-whitehall');
-      } else if (route === 'video-nyc') {
-        setCurrentPage('video-nyc');
-      } else {
-        const regionalSlug = REGIONAL_COMMERCIAL_VIDEO_SLUGS.find(
-          (s) =>
-            route === `service-commercial-video-${s}` ||
-            route === `video-${s}` ||
-            route === `${s}-video-production`,
-        );
-        if (regionalSlug) {
-          setCurrentPage(`video-${regionalSlug}`);
-        } else if (route === 'service-commercial-photo-allentown') {
-          setCurrentPage('photo-allentown');
-      } else if (route === 'service-commercial-photo-bethlehem') {
-        setCurrentPage('photo-bethlehem');
-      } else if (route === 'service-commercial-photo-easton') {
-        setCurrentPage('photo-easton');
-      } else if (route === 'service-commercial-photo-emmaus') {
-        setCurrentPage('photo-emmaus');
-      } else if (route === 'service-commercial-photo-whitehall') {
-        setCurrentPage('photo-whitehall');
-      } else if (route === 'events') {
-        setCurrentPage('events');
-      } else if (route === 'blog') {
-        setCurrentPage('blog');
-      } else if (route === 'blog-video-production-lehigh-valley-2025') {
-        setCurrentPage('blog-post-1');
-      } else if (route === 'blog-corporate-vs-cinematic') {
-        setCurrentPage('blog-post-2');
-      } else if (route === 'blog-prepare-video-shoot-allentown') {
-        setCurrentPage('blog-post-3');
-      } else if (route === 'blog-video-marketing-roi-pennsylvania') {
-        setCurrentPage('blog-post-4');
-      } else if (route === 'blog-behind-scenes-production-company') {
-        setCurrentPage('blog-post-5');
-      } else if (route === 'about') {
-        setCurrentPage('about');
-      } else if (route === 'sitemap') {
-        setCurrentPage('sitemap');
-      } else if (route === 'allentown-video-production') {
-        setCurrentPage('video-allentown');
-      } else if (route === 'bethlehem-video-production') {
-        setCurrentPage('video-bethlehem');
-      } else if (route === 'easton-video-production') {
-        setCurrentPage('video-easton');
-      } else if (route === 'emmaus-video-production') {
-        setCurrentPage('video-emmaus');
-      } else if (route === 'whitehall-video-production') {
-        setCurrentPage('video-whitehall');
-      } else if (route === 'nyc-video-production' || route === 'new-york-city-video-production') {
-        setCurrentPage('video-nyc');
-      } else if (route === 'lehigh-valley-health') {
-        setCurrentPage('lehigh-valley-health');
-      } else if (route === 'owner-dashboard') {
-        setCurrentPage('owner-dashboard');
-      } else {
-        setCurrentPage('home');
-      }
-      }
+    const applyResolved = (routeSegment: string) => {
+      const resolved = resolveRoute(routeSegment);
+      setEventSlug(resolved.eventSlug);
+      setCitySlug(resolved.citySlug);
+      setCurrentPage(resolved.currentPage);
     };
 
     const handleNavigation = () => {
       const pathnameSegment = normalizeRouteSegment(window.location.pathname);
       const hashSegment = normalizeRouteSegment(window.location.hash.substring(1));
-      resolveRoute(pathnameSegment || hashSegment);
+      // Prefer path for /lp so sitelink hashes stay on-page anchors.
+      if (pathnameSegment === 'lp' || pathnameSegment === 'ads' || pathnameSegment === 'videographer-near-me') {
+        applyResolved(pathnameSegment);
+        const hash = normalizeRouteSegment(window.location.hash.substring(1));
+        if (hash && LP_SECTION_IDS.has(hash)) {
+          window.requestAnimationFrame(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+        return;
+      }
+      applyResolved(pathnameSegment || hashSegment);
     };
 
     const handleDocumentClick = (e: MouseEvent) => {
@@ -239,13 +117,24 @@ export default function App() {
       const routeSegment = normalizeRouteSegment(rawHash.replace(/^#/, ''));
       const pathOnly = normalizeRouteSegment(window.location.pathname.replace(/^\/+|\/+$/g, ''));
 
+      // Ads LP: keep visitors on-page; hash links only scroll to section anchors.
+      if (
+        (pathOnly === 'lp' || pathOnly === 'ads' || pathOnly === 'videographer-near-me') &&
+        LP_SECTION_IDS.has(routeSegment)
+      ) {
+        e.preventDefault();
+        window.history.pushState({}, '', `/${pathOnly}#${routeSegment}`);
+        document.getElementById(routeSegment)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
       // Services landing embeds contact; keep URL on /services and scroll instead of swapping to /contact.
       if (routeSegment === 'contact' && pathOnly === 'services') {
         e.preventDefault();
         if (window.location.pathname !== '/services' || window.location.hash !== '#contact') {
           window.history.pushState({}, '', '/services#contact');
         }
-        resolveRoute('services');
+        applyResolved('services');
         window.requestAnimationFrame(() => {
           document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
@@ -257,7 +146,7 @@ export default function App() {
       if (window.location.pathname !== nextPath) {
         window.history.pushState({}, '', nextPath);
       }
-      resolveRoute(routeSegment);
+      applyResolved(routeSegment);
     };
 
     handleNavigation();
@@ -274,6 +163,17 @@ export default function App() {
 
   // Scroll to top whenever currentPage changes (except services + #contact, handled in navigation)
   useEffect(() => {
+    if (currentPage === 'ads-lp') {
+      const hash = window.location.hash.replace(/^#/, '');
+      if (hash && LP_SECTION_IDS.has(hash)) {
+        window.requestAnimationFrame(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        });
+        return;
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
     const onServicesContact =
       currentPage === 'services' && window.location.hash.replace(/^#/, '') === 'contact';
     if (onServicesContact) {
@@ -284,6 +184,19 @@ export default function App() {
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [currentPage]);
+
+  // Silence unused event/city slug until events UI is re-enabled
+  void eventSlug;
+  void citySlug;
+
+  if (currentPage === 'ads-lp') {
+    return (
+      <>
+        <SEOHead currentPage={currentPage} />
+        <AdsLandingPage />
+      </>
+    );
+  }
 
   const renderPage = () => {
     switch (currentPage) {

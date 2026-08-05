@@ -322,7 +322,7 @@ export function OurClientsSection() {
         </h2>
       </div>
 
-      {/* Mobile layouts — chosen in Owner dashboard */}
+      {/* Mobile layouts - chosen in Owner dashboard */}
       <div className="container mx-auto max-w-7xl lg:hidden">
         <OurClientsMobileSection
           layoutId={mobileLayoutId}
