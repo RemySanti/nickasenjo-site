@@ -283,7 +283,7 @@ export function AdsLandingPage() {
       </div>
 
       {/* 1. Hero - one composition */}
-      <section ref={heroRef} className="lp-grain relative flex min-h-[100svh] flex-col overflow-hidden">
+      <section ref={heroRef} className="relative flex min-h-[100svh] flex-col overflow-hidden">
         <motion.div
           className="absolute inset-0"
           style={reduce ? undefined : { scale: posterScale, opacity: posterOpacity }}
@@ -300,7 +300,7 @@ export function AdsLandingPage() {
           {heroReady && (
             <iframe
               title="Nick Asenjo Films commercial reel"
-              className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 opacity-70"
+              className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
               src={heroEmbed}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               loading="lazy"
@@ -308,8 +308,8 @@ export function AdsLandingPage() {
             />
           )}
         </motion.div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,8,7,0.35)_45%,rgba(8,8,7,0.92)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080807] via-[#080807]/50 to-transparent" />
+        {/* Light bottom fade only so headline stays readable over the reel */}
+        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#080807] via-[#080807]/55 to-transparent" />
 
         <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-28 pt-16 md:px-10 md:pb-20 lg:px-16">
           <div className="mx-auto w-full max-w-6xl">

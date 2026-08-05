@@ -1,5 +1,5 @@
 /** Canonical production origin used for OG, Twitter, and JSON-LD. */
-export const SITE_URL = 'https://nickasenjofilms.com';
+export const SITE_URL = 'https://nickasenjo.com';
 
 /** Strong still from the homepage reel (YouTube hero). */
 export const DEFAULT_OG_IMAGE = 'https://img.youtube.com/vi/YUjmJMtXu3k/maxresdefault.jpg';
