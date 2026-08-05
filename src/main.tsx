@@ -7,9 +7,12 @@ if (!rootEl) {
   throw new Error('Root element #root not found');
 }
 
-/**
- * Browser-snapshot prerender captures DOM after effects (images, observers, etc.),
- * so hydrateRoot would mismatch. createRoot remounts cleanly; crawlers and no-JS
- * users still receive the full HTML body from the prerendered files.
- */
+document.documentElement.classList.add('has-js');
+
+// Drop crawler-only shell before React mounts so it cannot flash.
+if (rootEl.getAttribute('data-prerender-shell') === 'true') {
+  rootEl.innerHTML = '';
+  rootEl.removeAttribute('data-prerender-shell');
+}
+
 createRoot(rootEl).render(<App />);

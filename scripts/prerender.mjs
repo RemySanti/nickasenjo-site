@@ -195,6 +195,17 @@ function applyHead(html, route, page) {
     );
   }
 
+  // Match page background so hiding the crawler shell does not flash the wrong color.
+  const bg = route === '/lp' ? '#080807' : '#EEEEE8';
+  if (/<body[^>]*>/i.test(out)) {
+    out = out.replace(/<body([^>]*)>/i, (_, attrs) => {
+      if (/style=/i.test(attrs)) {
+        return `<body${attrs.replace(/style=(["'])[^"']*\1/i, `style="background:${bg}"`)}>`;
+      }
+      return `<body${attrs} style="background:${bg}">`;
+    });
+  }
+
   return out;
 }
 
