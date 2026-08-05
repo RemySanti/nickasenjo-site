@@ -200,9 +200,19 @@ export function AdsLandingPage() {
       setFormStatus('success');
       form.reset();
       if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', { send_to: 'AW-738577819', event_callback: () => undefined });
+        window.gtag('event', 'generate_lead', {
+          event_category: 'ads_lp',
+          event_label: 'discovery_form',
+          form_source: 'ads-lp',
+        });
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-738577819',
+          event_callback: () => undefined,
+        });
       }
-      window.dispatchEvent(new CustomEvent('naf:lp-discovery-submit'));
+      window.dispatchEvent(
+        new CustomEvent('naf:lp-discovery-submit', { detail: { formSource: 'ads-lp' } }),
+      );
     } catch (err) {
       setFormStatus('error');
       setFormError(err instanceof Error ? err.message : 'Something went wrong. Please call us.');
@@ -805,6 +815,7 @@ export function AdsLandingPage() {
                 </div>
                 <input type="hidden" name="budget" value="10k-25k" />
                 <input type="hidden" name="timeline" value="flexible" />
+                <input type="hidden" name="form-source" value="ads-lp" />
 
                 {formStatus === 'error' && (
                   <p className="text-sm text-red-400" role="alert">
