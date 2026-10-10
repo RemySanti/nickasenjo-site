@@ -13,18 +13,18 @@ const PROJECT_LABELS: Record<string, string> = {
 };
 
 const BUDGET_LABELS: Record<string, string> = {
-  '5k-10k': '$5,000 – $10,000',
-  '10k-25k': '$10,000 – $25,000',
-  '25k-50k': '$25,000 – $50,000',
+  '5k-10k': '$5,000 - $10,000',
+  '10k-25k': '$10,000 - $25,000',
+  '25k-50k': '$25,000 - $50,000',
   '50k+': '$50,000+',
   'not-sure': 'Not sure yet',
 };
 
 const TIMELINE_LABELS: Record<string, string> = {
-  asap: 'ASAP (1–2 weeks)',
+  asap: 'ASAP (1-2 weeks)',
   '1-month': 'Within 1 month',
-  '2-3-months': '2–3 months',
-  '3-6-months': '3–6 months',
+  '2-3-months': '2-3 months',
+  '3-6-months': '3-6 months',
   flexible: 'Flexible',
 };
 
@@ -42,32 +42,41 @@ export async function submitSiteContactForm(form: HTMLFormElement): Promise<void
   const budgetKey = String(fd.get('budget') ?? '').trim();
   const timelineKey = String(fd.get('timeline') ?? '').trim();
   const story = String(fd.get('message') ?? '').trim();
+  const formSource = String(fd.get('form-source') ?? '').trim();
+  const fromAdsLp = formSource === 'ads-lp';
 
-  const projectLabel = labelFor(projectKey, PROJECT_LABELS, projectKey || '—');
-  const budgetLabel = labelFor(budgetKey, BUDGET_LABELS, budgetKey || '—');
-  const timelineLabel = labelFor(timelineKey, TIMELINE_LABELS, timelineKey || '—');
+  const projectLabel = labelFor(projectKey, PROJECT_LABELS, projectKey || ' - ');
+  const budgetLabel = labelFor(budgetKey, BUDGET_LABELS, budgetKey || ' - ');
+  const timelineLabel = labelFor(timelineKey, TIMELINE_LABELS, timelineKey || ' - ');
+
+  const sourceLabel = fromAdsLp ? 'Google Ads LP (/lp)' : 'Main website';
+  const subjectPrefix = fromAdsLp ? 'Ads LP inquiry' : 'Website inquiry';
 
   const message = [
     `New inquiry from ${OWNER_EMAIL_DOMAIN}`,
+    `Source: ${sourceLabel}`,
     '',
     `Name: ${name}`,
     `Email: ${email}`,
-    `Phone: ${phone || '—'}`,
+    `Phone: ${phone || ' - '}`,
     `Project type: ${projectLabel}`,
     `Budget: ${budgetLabel}`,
     `Timeline: ${timelineLabel}`,
     '',
     'Project details:',
-    story || '—',
+    story || ' - ',
   ].join('\n');
 
   const out = new FormData();
   out.append('name', name);
   out.append('email', email);
   out.append('message', message);
-  out.append('_subject', `Website inquiry — ${projectLabel}`);
+  out.append('_subject', `${subjectPrefix} - ${projectLabel}`);
   out.append('_template', 'table');
   out.append('_cc', CONTACT_FORM_COPY_EMAIL);
+  if (fromAdsLp) {
+    out.append('form_source', 'ads-lp');
+  }
 
   const res = await fetch(CONTACT_FORM_AJAX_URL, {
     method: 'POST',
@@ -90,6 +99,6 @@ export async function submitSiteContactForm(form: HTMLFormElement): Promise<void
     projectType: projectLabel,
     budget: budgetLabel,
     timeline: timelineLabel,
-    message: story,
+    message: fromAdsLp ? `[Ads LP] ${story}` : story,
   });
 }

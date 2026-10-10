@@ -146,7 +146,7 @@ const workItems: WorkItem[] = [
   },
   {
     id: 10,
-    title: 'Lashaholics Co – "The Heist"',
+    title: 'Lashaholics Co - "The Heist"',
     subtitle: 'Beauty Brand Experience, Lash Industry & Cinematic Content',
     category: 'Social Media',
     thumbnail: 'https://img.youtube.com/vi/c6dBUF_ZSFs/maxresdefault.jpg',

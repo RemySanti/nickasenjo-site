@@ -6,9 +6,9 @@ import { Play, X } from 'lucide-react';
  * 
  * VIDEO SPECIFICATIONS NEEDED:
  * - Dimensions: 1920 × 1080 (landscape) or 2560 × 1440 for extra clarity
- * - Length: 6–12 seconds ideal
+ * - Length: 6-12 seconds ideal
  * - Format: MP4 (H.264 or H.265)
- * - File Size: Under 12–15 MB for fast load times
+ * - File Size: Under 12-15 MB for fast load times
  * 
  * Replace the placeholder video URL below with your actual video file
  */

@@ -10,6 +10,9 @@ const OUR_CLIENTS_MOBILE_LAYOUT_VERSION_KEY = 'naf_our_clients_mobile_layout_ver
 
 const VALID_IDS = new Set(OUR_CLIENTS_MOBILE_LAYOUTS.map((o) => o.id));
 
+export type { OurClientsMobileLayoutId } from '../config/ourClientsMobileLayouts';
+export { DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT } from '../config/ourClientsMobileLayouts';
+
 export function readOurClientsMobileLayout(): OurClientsMobileLayoutId {
   if (typeof window === 'undefined') return DEFAULT_OUR_CLIENTS_MOBILE_LAYOUT;
   const version = localStorage.getItem(OUR_CLIENTS_MOBILE_LAYOUT_VERSION_KEY);

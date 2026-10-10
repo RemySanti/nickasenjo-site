@@ -149,7 +149,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Areas We Serve — two columns on large screens */}
+          {/* Areas We Serve - two columns on large screens */}
           <div className="lg:col-span-2">
             <h3 
               className="mb-4 tracking-wider uppercase"

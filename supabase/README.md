@@ -34,9 +34,9 @@ On Vercel (or similar), add the same variables in the hosting dashboard and rede
 ## 4. Verify
 
 1. Submit the contact form on the site once (FormSubmit must return success).
-2. In Supabase: **Table Editor** → `contact_leads` — you should see a row.
+2. In Supabase: **Table Editor** → `contact_leads` - you should see a row.
 3. Open `#owner-dashboard` (unlock with the owner password) → **Refresh** on lead submissions.
 
 ## Security note
 
-The **anon** key is exposed in the frontend bundle. Anyone with the key can **read** and **insert** rows on this table. Use a **dedicated** Supabase project for leads only, rotate the anon key if it leaks, and treat this as operational convenience—not highly sensitive data storage.
+The **anon** key is exposed in the frontend bundle. Anyone with the key can **read** and **insert** rows on this table. Use a **dedicated** Supabase project for leads only, rotate the anon key if it leaks, and treat this as operational convenience, not highly sensitive data storage.

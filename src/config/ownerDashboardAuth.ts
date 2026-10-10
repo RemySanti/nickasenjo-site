@@ -1,4 +1,4 @@
-/** SHA-256 (hex) of the owner dashboard password — plaintext is not stored in source. */
+/** SHA-256 (hex) of the owner dashboard password - plaintext is not stored in source. */
 export const OWNER_DASHBOARD_PASSWORD_SHA256_HEX =
   '0f0def2b469b45038a4a5b8ce4de42af9d1743a637e28d1460cbfd53a0082d55';
 

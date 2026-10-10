@@ -129,6 +129,7 @@ export function SplashLogoTransition({
 
   return (
     <div
+      data-splash-overlay
       className="fixed inset-0 z-[100]"
       style={{
         backgroundColor: '#EEEEE8',

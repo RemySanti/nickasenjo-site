@@ -172,7 +172,7 @@ export function WhitehallVideoPage() {
             Ready for Whitehall-focused production?
           </h2>
           <p className="text-black/70 mb-8" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>
-            Tell us about your storefront, property, or campaign — we will match format, crew, and turnaround to the brief.
+            Tell us about your storefront, property, or campaign - we will match format, crew, and turnaround to the brief.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
