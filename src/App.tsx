@@ -27,6 +27,7 @@ import { BlogPost5 } from './components/BlogPost5';
 // Sitemap & Dashboard
 import { SiteMapPage } from './components/SiteMapPageNew';
 import { OwnerDashboardPage } from './components/OwnerDashboardPage';
+import { OwnerThePlatformPage } from './components/OwnerThePlatformPage';
 
 // Portfolio
 import { LehighValleyHealthPage } from './components/portfolio/LehighValleyHealthPage';
@@ -218,6 +219,8 @@ export default function App() {
         setCurrentPage('lehigh-valley-health');
       } else if (route === 'owner-dashboard') {
         setCurrentPage('owner-dashboard');
+      } else if (route === 'owner/theplatform' || route === 'owner-theplatform') {
+        setCurrentPage('owner-theplatform');
       } else {
         setCurrentPage('home');
       }
@@ -336,6 +339,8 @@ export default function App() {
       // Owner Dashboard
       case 'owner-dashboard':
         return <OwnerDashboardPage />;
+      case 'owner-theplatform':
+        return <OwnerThePlatformPage />;
       
       // Portfolio
       case 'lehigh-valley-health':

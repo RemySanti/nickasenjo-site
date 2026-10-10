@@ -160,18 +160,31 @@ export function OwnerDashboardPage() {
               <a href="/sitemap" className="text-[#BC271C] underline underline-offset-2">
                 /sitemap
               </a>
+              . Platform business &amp; build plan:{' '}
+              <a href="/owner/theplatform" className="text-[#BC271C] underline underline-offset-2">
+                /owner/theplatform
+              </a>
               .
             </p>
           </div>
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="inline-flex items-center justify-center gap-2 self-start border border-black/15 bg-white px-4 py-2.5 text-xs tracking-wider uppercase transition-colors hover:border-[#BC271C]"
-            style={{ fontFamily: 'Lemon Milk, sans-serif' }}
-          >
-            <LogOut className="h-4 w-4" aria-hidden />
-            Sign out
-          </button>
+          <div className="flex flex-wrap gap-2 self-start">
+            <a
+              href="/owner/theplatform"
+              className="inline-flex items-center justify-center gap-2 border border-[#BC271C]/40 bg-[#BC271C]/[0.06] px-4 py-2.5 text-xs tracking-wider text-[#BC271C] uppercase transition-colors hover:bg-[#BC271C]/10"
+              style={{ fontFamily: 'Lemon Milk, sans-serif' }}
+            >
+              Platform build plan
+            </a>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="inline-flex items-center justify-center gap-2 border border-black/15 bg-white px-4 py-2.5 text-xs tracking-wider uppercase transition-colors hover:border-[#BC271C]"
+              style={{ fontFamily: 'Lemon Milk, sans-serif' }}
+            >
+              <LogOut className="h-4 w-4" aria-hidden />
+              Sign out
+            </button>
+          </div>
         </div>
 
         <section className="mb-10 grid gap-6 lg:grid-cols-2">
